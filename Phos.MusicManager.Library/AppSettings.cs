@@ -4,4 +4,6 @@
 public class AppSettings
 {
     public string CurrentGame { get; set; } = Constants.P4G_PC_64;
+
+    public bool DebugEnabled { get; set; }
 }
