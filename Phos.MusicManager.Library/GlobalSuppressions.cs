@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header", Justification = ".")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1614:Element parameter documentation should have text", Justification = ".")]
