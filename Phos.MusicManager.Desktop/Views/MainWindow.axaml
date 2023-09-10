@@ -7,14 +7,12 @@
         x:Class="Phos.MusicManager.Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Phos.MusicManager.Desktop">
+        Title="Phos Music Manager">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
+        <!--<vm:MainWindowViewModel/>-->
     </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <ContentControl Content="{Binding RootViewModel}"/>
 </Window>
