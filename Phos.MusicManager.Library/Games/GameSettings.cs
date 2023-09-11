@@ -1,11 +1,16 @@
 ﻿namespace Phos.MusicManager.Library.Games;
 
-#pragma warning disable SA1600 // Elements should be documented
-public class GameSettings
+using CommunityToolkit.Mvvm.ComponentModel;
+
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class GameSettings : ObservableObject
 {
-    public string Theme { get; set; } = "Dark";
+    [ObservableProperty]
+    private string theme = "Dark";
 
-    public string? InstallPath { get; set; }
+    [ObservableProperty]
+    private string? installPath;
 
-    public string? OutputDir { get; set; }
+    [ObservableProperty]
+    private string? outputDir;
 }
