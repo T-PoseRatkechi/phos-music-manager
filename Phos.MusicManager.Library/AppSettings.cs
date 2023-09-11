@@ -1,9 +1,13 @@
 ﻿namespace Phos.MusicManager.Library;
 
-#pragma warning disable SA1600 // Elements should be documented
-public class AppSettings
-{
-    public string CurrentGame { get; set; } = Constants.P4G_PC_64;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-    public bool DebugEnabled { get; set; }
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class AppSettings : ObservableObject
+{
+    [ObservableProperty]
+    private string currentGame = Constants.P4G_PC_64;
+
+    [ObservableProperty]
+    private bool debugEnabled;
 }
