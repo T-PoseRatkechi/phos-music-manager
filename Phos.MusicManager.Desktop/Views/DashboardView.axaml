@@ -1,8 +1,51 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Phos.MusicManager.Desktop.Views.DashboardView">
-	<TextBlock Text="{Binding CurrentGame}"/>
+<UserControl
+    x:Class="Phos.MusicManager.Desktop.Views.DashboardView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ui:SymbolIconSource x:Key="HomeIcon" Symbol="Home" />
+        <ui:SymbolIconSource x:Key="MusicIcon" Symbol="Audio" />
+        <ui:SymbolIconSource x:Key="LogsIcon" Symbol="Clipboard" />
+        <ui:SymbolIconSource x:Key="SettingsIcon" Symbol="Settings" />
+        <ui:SymbolIconSource x:Key="GamesIcon" Symbol="Games" />
+        <ui:SymbolIconSource x:Key="AboutIcon" Symbol="Help" />
+    </UserControl.Resources>
+    <Grid>
+        <ui:NavigationView
+            Content="{Binding Navigation.Current}"
+            FooterMenuItemsSource="{Binding FooterMenuItems}"
+            IsSettingsVisible="False"
+            MenuItemsSource="{Binding GameMenuItems}"
+            PaneTitle="Phos Music Manager"
+            SelectedItem="{Binding Navigation.Current}">
+            <ui:NavigationView.MenuItemTemplate>
+                <DataTemplate>
+                    <ui:NavigationViewItem Content="{Binding Name}" />
+                </DataTemplate>
+            </ui:NavigationView.MenuItemTemplate>
+            <ui:NavigationView.Styles>
+                <Style Selector="ui|NavigationViewItem[Content=Music]">
+                    <Setter Property="IconSource" Value="{StaticResource MusicIcon}" />
+                </Style>
+                <Style Selector="ui|NavigationViewItem[Content=Logs]">
+                    <Setter Property="IconSource" Value="{StaticResource LogsIcon}" />
+                </Style>
+                <Style Selector="ui|NavigationViewItem[Content=Settings]">
+                    <Setter Property="IconSource" Value="{StaticResource SettingsIcon}" />
+                </Style>
+                <Style Selector="ui|NavigationViewItem[Content=Games]">
+                    <Setter Property="IconSource" Value="{StaticResource GamesIcon}" />
+                </Style>
+                <Style Selector="ui|NavigationViewItem[Content=About]">
+                    <Setter Property="IconSource" Value="{StaticResource AboutIcon}" />
+                </Style>
+            </ui:NavigationView.Styles>
+        </ui:NavigationView>
+    </Grid>
 </UserControl>
