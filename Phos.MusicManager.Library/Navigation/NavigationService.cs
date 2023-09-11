@@ -1,12 +1,14 @@
 ﻿namespace Phos.MusicManager.Library.Navigation;
 
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Extensions.Logging;
 
 /// <summary>
 /// Navigation service.
 /// </summary>
 public partial class NavigationService : ObservableObject, INavigationService
 {
+    private readonly ILogger? log;
     private readonly IEnumerable<IPage> pages;
 
     [ObservableProperty]
@@ -16,8 +18,10 @@ public partial class NavigationService : ObservableObject, INavigationService
     /// Initializes a new instance of the <see cref="NavigationService"/> class.
     /// </summary>
     /// <param name="pages">Pages available to navigate to.</param>
-    public NavigationService(IEnumerable<IPage> pages)
+    /// <param name="log"></param>
+    public NavigationService(IEnumerable<IPage> pages, ILogger? log = null)
     {
+        this.log = log;
         this.pages = pages;
     }
 
@@ -31,7 +35,7 @@ public partial class NavigationService : ObservableObject, INavigationService
         }
         else
         {
-            throw new NotImplementedException("Id not found.");
+            this.log?.LogError("Page not found by name: {name}", name);
         }
     }
 
@@ -46,7 +50,7 @@ public partial class NavigationService : ObservableObject, INavigationService
         }
         else
         {
-            throw new NotImplementedException("Id not found.");
+            this.log?.LogError("Page not found by type: {type}", typeof(TPage).Name);
         }
     }
 }
