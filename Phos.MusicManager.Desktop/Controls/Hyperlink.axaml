@@ -1,0 +1,25 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Phos.MusicManager.Desktop.Controls">
+    <Design.PreviewWith>
+        <controls:Hyperlink />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|Hyperlink">
+        <!--  Set Defaults  -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TextBlock
+                    Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                    Text="{TemplateBinding Alias}"
+                    ToolTip.Tip="{TemplateBinding Url}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|Hyperlink /template/ TextBlock:pointerover">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentTextFillColorTertiaryBrush}" />
+    </Style>
+</Styles>
