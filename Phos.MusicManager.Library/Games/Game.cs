@@ -1,6 +1,5 @@
 ﻿namespace Phos.MusicManager.Library.Games;
 
-using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Common;
 
 #pragma warning disable SA1600 // Elements should be documented
