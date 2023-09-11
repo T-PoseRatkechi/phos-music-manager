@@ -65,7 +65,11 @@ internal static class ServiceCollectionExtensions
     public static IServiceCollection AddLogging(this IServiceCollection serviceCollection)
     {
         var logFile = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
-        File.Delete(logFile);
+        try
+        {
+            File.Delete(logFile);
+        }
+        catch (Exception) { }
 
         Log.Logger = new LoggerConfiguration()
             .WriteTo.File(logFile, outputTemplate: "{Timestamp:HH:mm:ss} [{Level}] {Message:lj}{NewLine}{Exception}")
