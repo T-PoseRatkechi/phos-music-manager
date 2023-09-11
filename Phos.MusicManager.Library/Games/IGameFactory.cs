@@ -11,4 +11,10 @@ public interface IGameFactory
     /// <param name="name">Name of game.</param>
     /// <returns>Game instance.</returns>
     Game GetGame(string name);
+
+    /// <summary>
+    /// Gets list of all existing games.
+    /// </summary>
+    /// <returns>All existing games.</returns>
+    IEnumerable<Game> GetGames();
 }
