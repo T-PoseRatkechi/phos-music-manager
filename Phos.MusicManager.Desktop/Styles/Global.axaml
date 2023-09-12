@@ -3,9 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="using:FluentAvalonia.UI.Controls">
     <Design.PreviewWith>
-        <Border Padding="20">
-            <!--  Add Controls for Previewer Here  -->
-        </Border>
+        <StackPanel>
+            <CheckBox Classes="simple" />
+        </StackPanel>
     </Design.PreviewWith>
 
     <!--  Buttons  -->
@@ -18,6 +18,10 @@
                 </Template>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style Selector="CheckBox.simple > Border > Grid > ContentPresenter">
+        <Setter Property="IsVisible" Value="False" />
     </Style>
 
     <!--  Item Tags  -->
