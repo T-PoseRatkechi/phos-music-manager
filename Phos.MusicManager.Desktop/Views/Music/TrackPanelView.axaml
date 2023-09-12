@@ -1,0 +1,145 @@
+<UserControl
+    x:Class="Phos.MusicManager.Desktop.Views.Music.TrackPanelView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    d:DesignHeight="500"
+    d:DesignWidth="250"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ui:SymbolIcon
+            x:Key="EditIcon"
+            Symbol="Edit" />
+        <ui:SymbolIcon
+            x:Key="DeleteIcon"
+            Symbol="Delete" />
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="TextBlock.section-header">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="NumericUpDown.disabled">
+            <Setter Property="IsEnabled" Value="False" />
+        </Style>
+        <Style Selector="StackPanel">
+            <Setter Property="Spacing" Value="2" />
+        </Style>
+    </UserControl.Styles>
+    <Border
+        Background="{DynamicResource ControlFillColorDefault}"
+        CornerRadius="{StaticResource ControlCornerRadius}">
+        <Grid RowDefinitions="* auto">
+            <ScrollViewer Padding="{StaticResource FlyoutContentThemePadding}">
+                <StackPanel>
+                    <Border
+                        Padding="0,0,0,8"
+                        BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
+                        BorderThickness="0,0,0,2">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="{Binding Track.Name}"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="Light"
+                                IsVisible="{Binding Track.Category, Converter={StaticResource NullBoolConverter}}"
+                                Text="{Binding Track.Category, Converter={StaticResource ToUpperConverter}}"
+                                TextWrapping="Wrap" />
+                            <ItemsRepeater
+                                Classes="tags"
+                                ItemsSource="{Binding Track.Tags}" />
+                        </StackPanel>
+                    </Border>
+                    <TextBlock
+                        Classes="section-header"
+                        Text="Replacement" />
+                    <Grid ColumnDefinitions="* 8 auto">
+                        <ComboBox
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{Binding Replacements}"
+                            SelectedItem="{Binding SelectedReplacement}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource PathNameConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Button
+                            Grid.Column="2"
+                            Classes="selectFileButton"
+                            Command="{Binding SelectReplacementFileCommand}" />
+                    </Grid>
+                    <Grid ColumnDefinitions="auto *">
+                        <TextBlock
+                            Classes="section-header"
+                            Text="Loop" />
+                        <CheckBox
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Classes="simple"
+                            IsChecked="{Binding Track.Loop.Enabled}"
+                            IsEnabled="{Binding Track.ReplacementFile, Converter={StaticResource NullBoolConverter}}" />
+                    </Grid>
+                    <TextBlock Text="Start Sample" />
+                    <NumericUpDown
+                        Classes.disabled="{Binding Track.ReplacementFile, Converter={StaticResource NullBoolConverter}}"
+                        Increment="1"
+                        IsEnabled="{Binding LoopInputEnabled}"
+                        Minimum="0"
+                        Value="{Binding Track.Loop.StartSample}" />
+                    <TextBlock Text="End Sample" />
+                    <NumericUpDown
+                        Increment="1"
+                        IsEnabled="{Binding LoopInputEnabled}"
+                        Minimum="0"
+                        Value="{Binding Track.Loop.EndSample}" />
+                    <TextBlock
+                        Classes="section-header"
+                        Text="Encoder" />
+                    <ComboBox
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding Encoders}"
+                        SelectedItem="{Binding SelectedEncoder}" />
+                    <TextBlock
+                        Classes="section-header"
+                        Text="Output" />
+                    <TextBlock
+                        FontStyle="Italic"
+                        Text="{Binding Track.OutputPath}"
+                        TextWrapping="Wrap" />
+                    <Border
+                        Margin="0,8,0,0"
+                        Padding="0,8"
+                        BorderBrush="{DynamicResource TextFillColorSecondaryBrush}"
+                        BorderThickness="0,1,0,0">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <Button
+                                Padding="8"
+                                Command="{Binding EditCommand}"
+                                Content="{StaticResource EditIcon}"
+                                ToolTip.Tip="Edit" />
+                            <Button
+                                Padding="8"
+                                Command="{Binding DeleteCommand}"
+                                Content="{StaticResource DeleteIcon}"
+                                ToolTip.Tip="Delete" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+            <Button
+                Grid.Row="1"
+                Margin="{StaticResource FlyoutContentThemePadding}"
+                HorizontalAlignment="Stretch"
+                Command="{Binding CloseCommand}"
+                Content="Close" />
+        </Grid>
+    </Border>
+</UserControl>
