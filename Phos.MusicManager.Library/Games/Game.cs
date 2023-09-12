@@ -1,6 +1,8 @@
 ﻿namespace Phos.MusicManager.Library.Games;
 
+using System.Collections.ObjectModel;
 using Phos.MusicManager.Library.Audio;
+using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
 
 #pragma warning disable SA1600 // Elements should be documented
@@ -24,7 +26,7 @@ public class Game
             }
         }
 
-        this.Audio = new(tracksFile);
+        this.Audio = new(new SavableFile<ObservableCollection<AudioTrack>>(tracksFile));
     }
 
     public string Name { get; }

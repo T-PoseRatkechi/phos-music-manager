@@ -2,12 +2,15 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Phos.MusicManager.Desktop.Common;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library;
+using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Games;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.ViewModels;
+using Phos.MusicManager.Library.ViewModels.Music;
 using Serilog;
 using System;
 using System.IO;
@@ -23,7 +26,7 @@ internal static class ServiceCollectionExtensions
             var settings = s.GetRequiredService<ISavable<AppSettings>>();
 
             /* FluentAvalonia NavigationView breaks if left as IEnumerable. */
-            var gameMenuItems = s.GetRequiredService<IGameService>().Games.Select(x => new GameHubViewModel(x)).ToArray();
+            var gameMenuItems = s.GetRequiredService<IGameService>().Games.Select(x => new GameHubViewModel(x, s.GetRequiredService<TrackPanelFactory>())).ToArray();
             var appMenuItems = new IPage[]
             {
                 s.GetRequiredService<SettingsViewModel>(),
@@ -59,6 +62,9 @@ internal static class ServiceCollectionExtensions
     {
         serviceCollection.AddSingleton<IGameFactory, GameFactory>();
         serviceCollection.AddSingleton<IGameService, GameService>();
+        serviceCollection.AddSingleton<IDialogService, DialogService>();
+        serviceCollection.AddSingleton<AudioEncoderRegistry>();
+        serviceCollection.AddSingleton<TrackPanelFactory>();
         return serviceCollection;
     }
 
@@ -77,6 +83,7 @@ internal static class ServiceCollectionExtensions
 
         var log = LoggerFactory.Create(logger => logger.AddSerilog(Log.Logger)).CreateLogger("Logger");
         serviceCollection.AddSingleton(log);
+        log.LogInformation("Ready.");
 
         return serviceCollection;
     }

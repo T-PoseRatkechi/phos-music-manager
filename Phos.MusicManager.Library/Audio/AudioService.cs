@@ -15,10 +15,10 @@ public class AudioService
     /// <summary>
     /// Initializes a new instance of the <see cref="AudioService"/> class.
     /// </summary>
-    /// <param name="tracksFile"></param>
-    public AudioService(string tracksFile)
+    /// <param name="tracks">Audio tracks.</param>
+    public AudioService(ISavable<ObservableCollection<AudioTrack>> tracks)
     {
-        this.tracks = new SavableFile<ObservableCollection<AudioTrack>>(tracksFile);
+        this.tracks = tracks;
         this.Tracks.CollectionChanged += this.Tracks_CollectionChanged;
     }
 
