@@ -1,17 +1,28 @@
-<Application xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:sty="using:FluentAvalonia.Styling"
-             x:Class="Phos.MusicManager.Desktop.App"
-             xmlns:local="using:Phos.MusicManager.Desktop"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+<Application
+    x:Class="Phos.MusicManager.Desktop.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Phos.MusicManager.Desktop.Converters"
+    xmlns:local="using:Phos.MusicManager.Desktop"
+    xmlns:sty="using:FluentAvalonia.Styling"
+    RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
-  
+
     <Application.Styles>
-		<sty:FluentAvaloniaTheme />
-		<!--<FluentTheme />-->
+        <sty:FluentAvaloniaTheme />
+        <StyleInclude Source="/Controls/Hyperlink.axaml" />
+        <!--<FluentTheme />-->
     </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:NullBoolConverter x:Key="NullBoolConverter" />
+            <converters:ToUpperConverter x:Key="ToUpperConverter" />
+            <converters:PathNameConverter x:Key="PathNameConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
