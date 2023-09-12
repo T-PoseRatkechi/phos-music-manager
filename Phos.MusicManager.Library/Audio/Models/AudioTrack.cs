@@ -1,19 +1,28 @@
 ﻿namespace Phos.MusicManager.Library.Audio.Models;
 
-#pragma warning disable SA1600 // Elements should be documented
-public class AudioTrack
+using CommunityToolkit.Mvvm.ComponentModel;
+
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class AudioTrack : ObservableObject
 {
-    public string Name { get; set; } = "Unknown";
+    [ObservableProperty]
+    private string name = "Unknown";
 
-    public string? Category { get; set; }
+    [ObservableProperty]
+    private string? category;
 
-    public string[] Tags { get; set; } = Array.Empty<string>();
+    [ObservableProperty]
+    private string[] tags = Array.Empty<string>();
 
-    public string? OutputPath { get; set; }
+    [ObservableProperty]
+    private string? outputPath;
 
-    public string? ReplacementFile { get; set; }
+    [ObservableProperty]
+    private string? replacementFile;
 
-    public string? Encoder { get; set; }
+    [ObservableProperty]
+    private string encoder = "HCA";
 
-    public Loop Loop { get; set; } = new();
+    [ObservableProperty]
+    private Loop loop = new();
 }

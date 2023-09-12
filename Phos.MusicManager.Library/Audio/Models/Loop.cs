@@ -1,11 +1,16 @@
 ﻿namespace Phos.MusicManager.Library.Audio.Models;
 
-#pragma warning disable SA1600 // Elements should be documented
-public class Loop
+using CommunityToolkit.Mvvm.ComponentModel;
+
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class Loop : ObservableObject
 {
-    public bool Enabled { get; set; }
+    [ObservableProperty]
+    private bool enabled;
 
-    public int StartSample { get; set; }
+    [ObservableProperty]
+    private int startSample;
 
-    public int EndSample { get; set; }
+    [ObservableProperty]
+    private int endSample;
 }
