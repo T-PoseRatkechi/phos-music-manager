@@ -66,6 +66,8 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
 
     public ICommand CloseCommand { get; }
 
+    public bool LoopInputEnabled => this.Track.ReplacementFile != null && this.Track.Loop.Enabled;
+
     public ObservableCollection<string> Replacements { get; } = new() { NoReplacement };
 
     public string SelectedReplacement
@@ -105,6 +107,11 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     private void Track_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         this.audioManager.SaveTracks();
+
+        if (e.PropertyName == nameof(this.Track.ReplacementFile) || e.PropertyName == nameof(this.Track.Loop.Enabled))
+        {
+            this.OnPropertyChanged(nameof(this.LoopInputEnabled));
+        }
     }
 
     [RelayCommand]
