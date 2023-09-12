@@ -1,19 +1,19 @@
-﻿namespace Phos.MusicManager.Library.Audio.Processors;
+﻿namespace Phos.MusicManager.Library.Audio.Models;
 
 /// <summary>
-/// Processor config.
+/// Encoder config.
 /// </summary>
-public class ProcessorConfig
+public class EncoderConfig
 {
     /// <summary>
-    /// Gets or sets the processor name.
+    /// Gets or sets the encoder name.
     /// </summary>
-    public string? Name { get; set; }
+    public string Name { get; set; } = "Unknown";
 
     /// <summary>
     /// Gets or sets the encoder to use.
     /// </summary>
-    public string Encoder { get; set; } = Processors.Encoder.HCA;
+    public string Encoder { get; set; } = "HCA";
 
     /// <summary>
     /// Gets or sets the encode quality.
