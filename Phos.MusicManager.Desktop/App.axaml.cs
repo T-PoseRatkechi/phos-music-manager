@@ -5,7 +5,6 @@ using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Desktop.Views;
-using Serilog;
 using System;
 
 namespace Phos.MusicManager.Desktop;
@@ -44,8 +43,6 @@ public partial class App : Application
             {
                 DataContext = mainWindowVm,
             };
-
-            Log.Information("Ready.");
         }
 
         base.OnFrameworkInitializationCompleted();

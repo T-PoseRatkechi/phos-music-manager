@@ -1,0 +1,46 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="using:FluentAvalonia.UI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  Buttons  -->
+    <Style Selector="Button.selectFileButton">
+        <Setter Property="ToolTip.Tip" Value="Select file..." />
+        <Setter Property="Content">
+            <Setter.Value>
+                <Template>
+                    <ui:SymbolIcon Symbol="OpenFile" />
+                </Template>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Item Tags  -->
+    <Style Selector="ItemsRepeater.tags">
+        <Setter Property="Layout">
+            <WrapLayout
+                HorizontalSpacing="4"
+                Orientation="Horizontal"
+                VerticalSpacing="4" />
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <DataTemplate>
+                <Border
+                    Padding="4,0"
+                    BorderBrush="{DynamicResource TextFillColorSecondaryBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{StaticResource ControlCornerRadius}">
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{Binding}" />
+                </Border>
+            </DataTemplate>
+        </Setter>
+    </Style>
+</Styles>

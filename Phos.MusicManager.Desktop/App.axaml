@@ -14,6 +14,7 @@
 
     <Application.Styles>
         <sty:FluentAvaloniaTheme />
+        <StyleInclude Source="/Styles/Global.axaml" />
         <StyleInclude Source="/Controls/Hyperlink.axaml" />
         <!--<FluentTheme />-->
     </Application.Styles>
