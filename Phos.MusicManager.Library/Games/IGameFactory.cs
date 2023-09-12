@@ -6,14 +6,14 @@
 public interface IGameFactory
 {
     /// <summary>
-    /// Gets an existing game instance or creates a new one.
+    /// Create game instance.
     /// </summary>
     /// <param name="name">Name of game.</param>
     /// <returns>Game instance.</returns>
-    Game GetGame(string name);
+    Game CreateGame(string name);
 
     /// <summary>
-    /// Gets list of all existing games.
+    /// Get all available games.
     /// </summary>
     /// <returns>All existing games.</returns>
     IEnumerable<Game> GetGames();

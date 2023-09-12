@@ -1,15 +1,18 @@
 ﻿namespace Phos.MusicManager.Library.Games;
 
 using System.Collections.Generic;
-using Phos.MusicManager.Library.Common;
+using Microsoft.Extensions.Logging;
+using Phos.MusicManager.Library.Audio.Models;
+using Phos.MusicManager.Library.Common.Serializers;
 
 /// <summary>
 /// Game factory.
 /// </summary>
 public class GameFactory : IGameFactory
 {
+    private readonly ILogger? log;
     private readonly string gamesDir = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "games");
-    private readonly string[] knownGames = new string[]
+    private readonly string[] supportedGames = new string[]
     {
         Constants.P4G_PC_64,
         Constants.P3P_PC,
@@ -19,20 +22,20 @@ public class GameFactory : IGameFactory
     /// <summary>
     /// Initializes a new instance of the <see cref="GameFactory"/> class.
     /// </summary>
-    public GameFactory()
+    /// <param name="log"></param>
+    public GameFactory(ILogger? log = null)
     {
+        this.log = log;
         Directory.CreateDirectory(this.gamesDir);
     }
 
     /// <inheritdoc/>
-    public Game GetGame(string name)
+    public Game CreateGame(string name)
     {
         var gameFolder = Path.Join(this.gamesDir, name);
-        Directory.CreateDirectory(gameFolder);
+        var game = new Game(name, gameFolder);
+        this.AddCustomTracks(game);
 
-        var settingsFile = Path.Join(gameFolder, "game-settings.json");
-        var settings = new SavableFile<GameSettings>(settingsFile);
-        var game = new Game(name, settings);
         return game;
     }
 
@@ -41,26 +44,67 @@ public class GameFactory : IGameFactory
     {
         var games = new List<Game>();
 
-        // Load known games.
-        foreach (var knownGame in this.knownGames)
+        // Add known games.
+        foreach (var supportedGame in this.supportedGames)
         {
-            var game = this.GetGame(knownGame);
-            games.Add(game);
+            try
+            {
+                var game = this.CreateGame(supportedGame);
+                games.Add(game);
+            }
+            catch (Exception ex)
+            {
+                this.log?.LogError(ex, "Failed to create game {game}.", supportedGame);
+            }
         }
 
-        // Load custom games.
+        // Add custom games.
         foreach (var dir in Directory.EnumerateDirectories(this.gamesDir))
         {
             var gameName = Path.GetFileName(dir);
-            if (gameName == null || this.knownGames.Contains(gameName))
+            if (gameName == null || this.supportedGames.Contains(gameName))
             {
                 continue;
             }
 
-            var game = this.GetGame(gameName);
-            games.Add(game);
+            try
+            {
+                var game = this.CreateGame(gameName);
+                games.Add(game);
+            }
+            catch (Exception ex)
+            {
+                this.log?.LogError(ex, "Failed to create game {game}.", gameName);
+            }
         }
 
         return games;
+    }
+
+    private void AddCustomTracks(Game game)
+    {
+        // Add new custom tracks.
+        var customTracksDir = Directory.CreateDirectory(Path.Join(game.AudioFolder, "custom"));
+
+        foreach (var customFile in Directory.EnumerateFiles(customTracksDir.FullName, "*.json", SearchOption.AllDirectories))
+        {
+            try
+            {
+                var customTracks = JsonFileSerializer.Deserialize<AudioTrack[]>(customFile)!;
+
+                foreach (var customTrack in customTracks)
+                {
+                    if (game.Audio.Tracks.FirstOrDefault(x => x.OutputPath == customTrack.OutputPath) == null)
+                    {
+                        game.Audio.Tracks.Add(customTrack);
+                        this.log?.LogInformation("Custom track added: {name}", customTrack.Name);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this.log?.LogError(ex, "Failed to add custom tracks from file.\nFile: {file}", customFile);
+            }
+        }
     }
 }
