@@ -23,6 +23,17 @@ public class AdxEncoder : IEncoder
         this.log = log;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AdxEncoder"/> class.
+    /// </summary>
+    /// <param name="config">ADX configuration.</param>
+    /// <param name="log"></param>
+    public AdxEncoder(AdxConfiguration config, ILogger? log = null)
+    {
+        this.log = log;
+        this.writer.Configuration = config;
+    }
+
     /// <inheritdoc/>
     public string EncodedExt { get; } = ".adx";
 

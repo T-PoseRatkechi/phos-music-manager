@@ -23,6 +23,17 @@ public class HcaEncoder : IEncoder
         this.log = log;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="HcaEncoder"/> class.
+    /// </summary>
+    /// <param name="config">HCA configuration.</param>
+    /// <param name="log"></param>
+    public HcaEncoder(HcaConfiguration config, ILogger? log = null)
+    {
+        this.log = log;
+        this.writer.Configuration = config;
+    }
+
     /// <inheritdoc/>
     public string EncodedExt { get; } = ".hca";
 
