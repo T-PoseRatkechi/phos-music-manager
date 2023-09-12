@@ -1,4 +1,4 @@
-﻿namespace Phos.MusicManager.Library.Audio;
+﻿namespace Phos.MusicManager.Library.Audio.Models;
 
 #pragma warning disable SA1600 // Elements should be documented
 public class Loop
