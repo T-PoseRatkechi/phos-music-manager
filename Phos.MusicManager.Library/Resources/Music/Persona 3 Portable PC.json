@@ -1,0 +1,795 @@
+[
+  {
+    "Name": "Tartarus Thebel",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/1.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Shadow",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/19.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Deep Breath Deep Breath",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/20.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Basement",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/21.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A Deep Mentality",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/22.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "When The Moon\u0027s Reaching Out Stars",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/25.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mass Destruction",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/26.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Master Of Shadows",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/27.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Unavoidable Battle",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/28.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Burn My Dread -Last Battle-",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/29.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Battle For Everyone\u0027s Soul",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/30.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Master Of Tartarus",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/31.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Kyoto",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/32.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Troubled",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/35.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "That Which Escaped The Darkness",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/36.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Living With Determination",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/37.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Joy",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/38.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Fearful Experience",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/39.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Calamity",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/40.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Joy",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/43.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "This Mysterious Feeling",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/44.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Crisis",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/45.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Path Is Open",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/46.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I Want To Be Close",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/50.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Iwatodai Dorm",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/53.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Poem For Everyone\u0027s Soul",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/54.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tanaka\u0027s Amazing Commodities",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/55.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Paulownia Mall",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/56.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "After The Battle",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/60.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Path Is Closed",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/62.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Arqa",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/70.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Voice Someone Calls",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/71.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Tziah",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/72.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Harabah",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/73.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Adamah",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/74.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Adamah",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/75.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Living With Determination Iwatodai Dorm Arrange",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/77.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mistic",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/79.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Memories Of The City",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/80.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tartarus Yabbashah",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/81.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tranquility",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/85.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Power Of The Heart",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/86.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Adventured Act",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/87.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Memories Of The School",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/88.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "During The Test",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/89.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "An Unpleasant Premonition",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/90.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Afternoon Break",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/91.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Between Doors",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/101.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Snow Queen",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/102.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Maya Theme",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/103.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Persona",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/104.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Time Castle",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/105.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Brand New Days",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/115.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Memories of You",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/42.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Time",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/120.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sun",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/121.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Wiping All Out",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/122.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Danger Zone",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/123.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Way of Life",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/124.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "After School",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/125.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tender Feeling",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/126.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  }
+]

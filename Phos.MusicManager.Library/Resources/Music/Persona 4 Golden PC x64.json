@@ -1,0 +1,843 @@
+[
+  {
+    "Name": "Reach Out To The Truth",
+    "Category": "Regular Battles",
+    "Tags": [
+      "Normal"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/30.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I\u0027ll Face Myself -Battle-",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Shadow Bosses",
+      "Mini-bosses",
+      "Optional Bosses"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/31.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A New World Fool",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Adachi",
+      "Kunino-sagiri"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/32.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Almighty",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Ameno-sagiri"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/33.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Fog",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Izanmi"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/34.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Genesis",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Izanami-no-Okami"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/29.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Period",
+    "Category": "Menus",
+    "Tags": [
+      "Results Screen"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/35.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "New Days",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/36.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I\u0027ll Face Myself",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/37.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Borderline of Madness",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/38.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Who\u0027s There?",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/39.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "SMILE",
+    "Category": "Events",
+    "Tags": [
+      "Tone: Happy"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/40.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Reasoning",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/41.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Power of the Heart",
+    "Category": "S-Links",
+    "Tags": [
+      "Obtained"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/42.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Path is Open",
+    "Category": "S-Links",
+    "Tags": [
+      "Maxed"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/43.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Jika Net Tanaka",
+    "Category": "Menus",
+    "Tags": [
+      "Shop"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/44.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "youthful lunch",
+    "Category": "School",
+    "Tags": [
+      "Lunchtime"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/45.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "specialist",
+    "Category": "School",
+    "Tags": [
+      "Lessons"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/46.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A Corner of Memories",
+    "Category": "Menus",
+    "Tags": [
+      "Title Screen"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/47.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Poem for Everyone\u0027s Souls",
+    "Category": "Menus",
+    "Tags": [
+      "Velvet Room"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/48.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "How much?",
+    "Category": "Menus",
+    "Tags": [
+      "Shop"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/49.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Your Affection",
+    "Category": "Inaba",
+    "Tags": [
+      "Clear",
+      "Sunny"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/50.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Heartbeat,Heartbreak",
+    "Category": "Inaba",
+    "Tags": [
+      "Cloudy"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/51.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Omen",
+    "Category": "Inaba",
+    "Tags": [
+      "Foggy"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/52.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Signs of Love",
+    "Category": "Dojima Residence",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/53.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Alone",
+    "Category": "Dojima Residence",
+    "Tags": [
+      "Story"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/54.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Backside of the TV",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "TV World"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/55.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Castle",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Yukiko"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/56.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sauna",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Kanji"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/57.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Theater",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Rise"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/58.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Game",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Mitsuo"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/59.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Secret Base",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Naoto"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/60.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Heaven",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Nanako"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/61.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Long Way",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Adachi"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/62.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Corridor",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Izanami"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/63.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Joy (Persona 3)",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/64.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Fearful Experience (Persona 3)",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/65.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Crisis (Persona 3)",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/66.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "P3 fes (Persona 3)",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/67.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Like a dream come true",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/68.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Borderline of Madness (2nd loop)",
+    "Category": "Boss Battles",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/69.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Borderline of Madness (3rd loop)",
+    "Category": "Boss Battles",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/70.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "ZONE TIME",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/71.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Reasoning -another version-",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/72.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I\u0027ll Face Myself -another version-",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/73.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Reach Out To The Truth -First Battle-",
+    "Category": "Boss Battles",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/74.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Traumerei",
+    "Category": "Events",
+    "Tags": [
+      "Tone: Sad"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/75.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Everyday Sunshine",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/83.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Girl of the Hollow Forest",
+    "Category": "Midnight Channel",
+    "Tags": [
+      "Marie"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/77.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A Sky Full Of Stars",
+    "Category": "Inaba",
+    "Tags": [
+      "Night"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/85.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Let\u0027s Hit the Beach!",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/86.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "SNOWFLAKES",
+    "Category": "Inaba",
+    "Tags": [
+      "Snow"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/76.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Memory",
+    "Category": "Events",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/28.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Time To Make History",
+    "Category": "Regular Battles",
+    "Tags": [
+      "Advantage"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/77.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I\u0027ll Face Myself -Battle- (Reincarnation)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/78.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I\u0027ll Face Myself -Battle- (Reincarnation)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/79.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Girl of the Hollow Forest",
+    "Category": "Unused",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/80.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Shin Mitsuo Tensei",
+    "Category": "Boss Battles",
+    "Tags": [
+      "Shadow Mitsuo"
+    ],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/81.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Electronica in Velvet Room (filtered)",
+    "Category": "Unused",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/snd00_bgm.awb/82.hca",
+    "ReplacementFile": null,
+    "Encoder": "HCA",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  }
+]

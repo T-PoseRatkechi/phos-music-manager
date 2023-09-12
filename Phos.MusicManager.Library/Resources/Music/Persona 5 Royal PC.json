@@ -1,0 +1,1640 @@
+[
+  {
+    "Name": "Endless Days",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/0.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Ideal and the Real",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/1.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "No More What Ifs - instrumental version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/2.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "No More What Ifs",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/3.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "No More What Ifs (Cafe Mix?)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/4.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "I believe",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/5.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Take Over",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/6.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Keep Your Faith (Throw Away Your Mask Instrumental)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/7.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Throw Away Your Mask",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/8.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Our Light (Just the Begining)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/9.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Gentle Madman",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/10.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Out of Kindness",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/11.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "So Happy World",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/12.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mementos: Mid Area",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/13.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mementos: Lower Area",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/14.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mementos: Upper Area",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/15.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Our Light (Full)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/16.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Wake Up",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/17.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Hoshi To Bokura To",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/18.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Wake Up",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/19.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Colors Flying High (Opening)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/20.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "He\u0027s a Trickster",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/21.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Idea and Real - end version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/22.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Prison Labor",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/23.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Colors Flying High (Again?)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/24.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "!!! NO IDEA !!!",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/25.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Kichijoji 199X",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/26.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Royal Days - another version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/27.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "wish come true",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/28.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Ideal and the Real",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/29.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Royal Days",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/30.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mass Destruction",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/31.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Reach Unto The Truth",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/32.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mementos: New Area",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/33.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "He\u0027s a Trickster (Again)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/34.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Another Ideology",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/35.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Another Ideology (Shorter)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/36.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Ideal and the Real - end version (Again)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/37.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "!!! NO IDEA !!!",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/38.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Rivers in the desert intrumental (Short)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/39.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "CRANE GAME",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/40.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Crossroads",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/41.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "TRIPLE SEVEN",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/42.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Destinyland",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/43.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Big Bang Buger March",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/44.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Planetarium",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/45.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Welcome Home",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/46.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Time to Repent",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/47.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Meiji Shrine",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/48.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tanaka\u0027s Shady Commodities",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/49.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Home Electronics Store",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/50.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "New Begining (Quiet) (No Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/51.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "New Begining (Quiet)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/52.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "(A Minute of Silence)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/53.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Erosion",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/54.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "My Homie",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/55.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Spirit",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/56.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "What\u0027s Going On?",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/57.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Blood of Villain",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/58.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Regret",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/59.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "New Begining",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/60.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "New Begining",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/61.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Interrogation Room",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/62.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Desire",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/63.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Suspicion",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/64.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Confession / Secret (No Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/65.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Confession / Secret",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/66.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Alleycat (No Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/67.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Alleycat",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/68.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "So Boring",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/69.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Wicket Plan (No Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/70.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Wicked Plan",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/71.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Days of SIsters",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/72.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Alright",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/73.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Alright - elp version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/74.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Break it Down",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/75.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Break it Down - elp version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/76.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Swear to My Bones",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/77.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Life Will Change",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/78.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Life Will Change - instrumental version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/79.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Life Will Change - instrumental version (Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/80.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sunset Bridge (No Intro)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/81.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sunset Bridge",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/82.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sweet",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/83.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "RUN",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/84.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tension",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/85.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "High Pressure",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/86.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Awakening",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/87.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Awakening (Another Version)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/88.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Life Goes On",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/89.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Layer Cake",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/90.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Butterfly Kiss",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/91.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Phantom",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/92.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sweatshop - anotherversion",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/93.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Sweatshop - anotherversion",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/94.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Prince - another version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/95.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Prince",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/96.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "King",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/97.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "King",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/98.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Have a Short Rest",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/99.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "When Mother Was There - another version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/100.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "When Mother Was There",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/101.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A Woman - another version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/102.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "A Woman",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/103.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Mementos",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/104.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Freedom and Peace",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/105.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "The Whims of Fate",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/106.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Ark",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/107.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Will Power",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/108.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Jaldaboth",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/109.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Our Begining",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/110.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Triumph",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/111.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Keeper of Lust",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/112.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Talk",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/113.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Blooming Villian",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/114.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Blooming Villian (Short)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/115.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Rivers In the Desert - instrumental version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/116.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Rivers In the Desert",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/117.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Last Suprise",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/118.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Hymn of the Soul",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/119.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tokyo Emergency",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/120.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Tokyo Daylight",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/121.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Beneath the Mask - instumental version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/122.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Beneath the Mask",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/123.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Beneath the Mask -rain- - instumental version",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/124.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  },
+  {
+    "Name": "Swear to My Bones (Short Loop)",
+    "Category": "Uncategorized",
+    "Tags": [],
+    "OutputPath": "FEmulator/AWB/BGM.AWB/125.adx",
+    "ReplacementFile": null,
+    "Encoder": "ADX (Persona 5 Royal PC)",
+    "Loop": {
+      "Enabled": false,
+      "StartSample": 0,
+      "EndSample": 0
+    }
+  }
+]
