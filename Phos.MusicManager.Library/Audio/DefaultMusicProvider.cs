@@ -1,5 +1,6 @@
 ﻿namespace Phos.MusicManager.Library.Audio;
 
+using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common.Serializers;
 using Phos.MusicManager.Library.Games;
 

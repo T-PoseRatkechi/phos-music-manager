@@ -13,7 +13,7 @@ public class AudioTrack
 
     public string? ReplacementFile { get; set; }
 
-    public string? Processor { get; set; }
+    public string? Encoder { get; set; }
 
     public Loop Loop { get; set; } = new();
 }
