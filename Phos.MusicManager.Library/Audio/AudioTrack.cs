@@ -14,4 +14,6 @@ public class AudioTrack
     public string? ReplacementFile { get; set; }
 
     public string? Processor { get; set; }
+
+    public Loop Loop { get; set; } = new();
 }
