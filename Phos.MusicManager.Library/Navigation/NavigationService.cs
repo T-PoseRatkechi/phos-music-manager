@@ -23,7 +23,11 @@ public partial class NavigationService : ObservableObject, INavigationService
     {
         this.log = log;
         this.pages = pages;
+        this.AvailablePages = pages.Select(x => x.Name).ToArray();
     }
+
+    /// <inheritdoc/>
+    public string[] AvailablePages { get; }
 
     /// <inheritdoc/>
     public void NavigateTo(string name)

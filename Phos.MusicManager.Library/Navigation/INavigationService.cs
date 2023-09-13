@@ -11,6 +11,11 @@ public interface INavigationService
     IPage Current { get; }
 
     /// <summary>
+    /// Gets names of available pages.
+    /// </summary>
+    string[] AvailablePages { get; }
+
+    /// <summary>
     /// Navigate to specific page.
     /// </summary>
     /// <param name="name">Page name.</param>
