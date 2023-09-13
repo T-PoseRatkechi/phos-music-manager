@@ -29,6 +29,7 @@ public partial class DashboardViewModel : ViewModelBase
         // Navigation.
         var pages = this.GameMenuItems.Concat(this.FooterMenuItems);
         this.Navigation = new NavigationService(pages);
+        this.Navigation.NavigateTo(settings.Value.CurrentGame);
 
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
