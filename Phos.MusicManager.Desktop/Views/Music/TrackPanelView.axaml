@@ -104,7 +104,7 @@
                     <ComboBox
                         HorizontalAlignment="Stretch"
                         ItemsSource="{Binding Encoders}"
-                        SelectedItem="{Binding SelectedEncoder}" />
+                        SelectedItem="{Binding Track.Encoder}" />
                     <TextBlock
                         Classes="section-header"
                         Text="Output" />

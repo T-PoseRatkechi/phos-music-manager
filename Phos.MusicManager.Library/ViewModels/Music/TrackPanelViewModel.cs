@@ -9,6 +9,7 @@ using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
+using Phos.MusicManager.Library.ViewModels.Music.Dialogs;
 
 /// <summary>
 /// Track panel view model.
@@ -43,7 +44,6 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
 
         this.Track = track;
         this.Encoders = encoders;
-        this.SelectedEncoder = track.Encoder;
         this.CloseCommand = closeCommand;
 
         // Set current replacement selection.
@@ -91,12 +91,6 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
 
     public string[] Encoders { get; }
 
-    public string SelectedEncoder
-    {
-        get => this.Track.Encoder;
-        set => this.Track.Encoder = value;
-    }
-
     public void Dispose()
     {
         this.Track.PropertyChanged -= this.Track_PropertyChanged;
@@ -122,6 +116,22 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
         {
             this.Replacements.Add(replacementFile);
             this.SelectedReplacement = replacementFile;
+        }
+    }
+
+    [RelayCommand]
+    private async Task Edit()
+    {
+        var editTrack = new AddTrackViewModel(this.Encoders, this.Track);
+        var updatedTrack = await this.dialog.OpenDialog<AudioTrack>(editTrack);
+
+        if (updatedTrack != null)
+        {
+            this.Track.Name = updatedTrack.Name;
+            this.Track.Category = updatedTrack.Category;
+            this.Track.Tags = updatedTrack.Tags;
+            this.Track.OutputPath = updatedTrack.OutputPath;
+            this.Track.Encoder = updatedTrack.Encoder;
         }
     }
 
