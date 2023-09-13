@@ -1,0 +1,91 @@
+<Window
+    x:Class="Phos.MusicManager.Desktop.Views.Music.Dialogs.AddTrackView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="using:System"
+    Width="400"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    CanResize="False"
+    Classes.isEditing="{Binding IsEditing}"
+    SizeToContent="Height"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <sys:String x:Key="AddTrackText">Add Track</sys:String>
+        <sys:String x:Key="EditTrackText">Edit Track</sys:String>
+        <sys:String x:Key="ConfirmAddText">Add</sys:String>
+        <sys:String x:Key="ConfirmEditText">Confirm</sys:String>
+    </Window.Resources>
+    <Window.Styles>
+        <!--  Titles  -->
+        <Style Selector="Window">
+            <Setter Property="Title" Value="{StaticResource AddTrackText}" />
+        </Style>
+        <Style Selector="Window TextBlock.title">
+            <Setter Property="Text" Value="{StaticResource AddTrackText}" />
+        </Style>
+        <Style Selector="Window.isEditing">
+            <Setter Property="Title" Value="{StaticResource EditTrackText}" />
+        </Style>
+        <Style Selector="Window.isEditing TextBlock.title">
+            <Setter Property="Text" Value="{StaticResource EditTrackText}" />
+        </Style>
+
+        <!--  Confirm button  -->
+        <Style Selector="Window Button.confirmButton">
+            <Setter Property="Content" Value="Add" />
+        </Style>
+        <Style Selector="Window.isEditing Button.confirmButton">
+            <Setter Property="Content" Value="Confirm" />
+        </Style>
+    </Window.Styles>
+    <StackPanel
+        Margin="16,8"
+        Spacing="4">
+        <TextBlock
+            Classes="title"
+            Theme="{StaticResource TitleTextBlockStyle}" />
+        <TextBlock
+            Text="Name"
+            Theme="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBox Text="{Binding Name}" />
+        <TextBlock
+            Text="Category"
+            Theme="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBox Text="{Binding Category}" />
+        <TextBlock
+            Text="Tags"
+            Theme="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBox Text="{Binding Tags}" />
+        <TextBlock
+            Text="Use commas to separate tags. Example: Tag 1,Tag 2,Tag 3"
+            Theme="{StaticResource CaptionTextBlockStyle}" />
+        <TextBlock
+            Text="Output Path"
+            Theme="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBox Text="{Binding OutputPath}" />
+        <TextBlock
+            Text="Use '/' for folders. Example: output/path/file.adx"
+            Theme="{StaticResource CaptionTextBlockStyle}" />
+        <TextBlock
+            Text="Encoder"
+            Theme="{StaticResource SubtitleTextBlockStyle}" />
+        <ComboBox
+            ItemsSource="{Binding Encoders}"
+            SelectedItem="{Binding SelectedEncoder}" />
+        <StackPanel
+            Margin="0,4,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button
+                Command="{Binding CancelCommand}"
+                Content="Cancel" />
+            <Button
+                Classes="confirmButton"
+                Command="{Binding ConfirmCommand}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
