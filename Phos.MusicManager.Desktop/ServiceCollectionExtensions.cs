@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Phos.MusicManager.Desktop.Common;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library;
+using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Games;
@@ -24,19 +25,22 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton(s =>
         {
             var settings = s.GetRequiredService<ISavable<AppSettings>>();
+            var audioBuilder = s.GetRequiredService<AudioBuilder>();
+            var musicFactory = s.GetRequiredService<MusicFactory>();
+            var dialog = s.GetRequiredService<IDialogService>();
+            var log = s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>();
 
-            /* FluentAvalonia NavigationView breaks if left as IEnumerable. */
-            var gameMenuItems = s.GetRequiredService<IGameService>().Games
-                .Select(x =>new GameHubViewModel(x, s.GetRequiredService<MusicFactory>(), s.GetRequiredService<IDialogService>()))
-                .ToArray();
+            var gamesFactory = s.GetRequiredService<IGameFactory>();
 
-            var appMenuItems = new IPage[]
+            var gamePages = gamesFactory.GetGames().Select(x => new GameHubViewModel(x, audioBuilder, musicFactory, dialog, log)).ToArray();
+            var appPages = new IPage[]
             {
                 s.GetRequiredService<SettingsViewModel>(),
                 s.GetRequiredService<AboutViewModel>(),
             };
 
-            return new DashboardViewModel(settings, gameMenuItems, appMenuItems);
+            var navigation = new NavigationService(gamePages.Concat(appPages), log);
+            return new DashboardViewModel(settings, navigation, appPages.Select(x => x.Name).ToArray());
         });
 
         serviceCollection.AddSingleton<SettingsViewModel>();
@@ -47,27 +51,18 @@ internal static class ServiceCollectionExtensions
     public static IServiceCollection AddConfiguration(this IServiceCollection serviceCollection)
     {
         var settingsFile = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "settings.json");
-
-        try
-        {
-            var settings = new SavableFile<AppSettings>(settingsFile);
-            serviceCollection.AddSingleton<ISavable<AppSettings>>(settings);
-        }
-        catch (Exception ex)
-        {
-            throw new NotImplementedException("To do.", ex);
-        }
-
+        var settings = new SavableFile<AppSettings>(settingsFile);
+        serviceCollection.AddSingleton<ISavable<AppSettings>>(settings);
         return serviceCollection;
     }
 
     public static IServiceCollection AddLibrary(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddSingleton<IGameFactory, GameFactory>();
-        serviceCollection.AddSingleton<IGameService, GameService>();
         serviceCollection.AddSingleton<IDialogService, DialogService>();
         serviceCollection.AddSingleton<AudioEncoderRegistry>();
         serviceCollection.AddSingleton<MusicFactory>();
+        serviceCollection.AddSingleton<AudioBuilder>();
         return serviceCollection;
     }
 
@@ -76,7 +71,8 @@ internal static class ServiceCollectionExtensions
         var logFile = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
         try
         {
-            File.Delete(logFile);
+            if (File.Exists(logFile))
+                File.Delete(logFile);
         }
         catch (Exception) { }
 
