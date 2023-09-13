@@ -40,7 +40,7 @@ public class GameFactory : IGameFactory
     }
 
     /// <inheritdoc/>
-    public IEnumerable<Game> GetGames()
+    public Game[] GetGames()
     {
         var games = new List<Game>();
 
@@ -78,7 +78,7 @@ public class GameFactory : IGameFactory
             }
         }
 
-        return games;
+        return games.ToArray();
     }
 
     private void AddCustomTracks(Game game)

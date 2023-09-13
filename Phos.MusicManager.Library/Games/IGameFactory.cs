@@ -13,8 +13,8 @@ public interface IGameFactory
     Game CreateGame(string name);
 
     /// <summary>
-    /// Get all available games.
+    /// Gets current games.
     /// </summary>
-    /// <returns>All existing games.</returns>
-    IEnumerable<Game> GetGames();
+    /// <returns>List of games.</returns>
+    Game[] GetGames();
 }
