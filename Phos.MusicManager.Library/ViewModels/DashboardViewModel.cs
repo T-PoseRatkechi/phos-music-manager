@@ -5,56 +5,50 @@ using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Navigation;
 
-/// <summary>
-/// Dashboard view model.
-/// </summary>
+#pragma warning disable SA1600 // Elements should be documented
+#pragma warning disable SA1601 // Partial elements should be documented
 public partial class DashboardViewModel : ViewModelBase
 {
     private readonly ISavable<AppSettings> settings;
+    private string selectedPage;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="DashboardViewModel"/> class.
-    /// </summary>
-    /// <param name="settings"></param>
-    /// <param name="gameMenuItems"></param>
-    /// <param name="appMenuItems"></param>
-    public DashboardViewModel(ISavable<AppSettings> settings, IEnumerable<IPage> gameMenuItems, IEnumerable<IPage> appMenuItems)
+    public DashboardViewModel(ISavable<AppSettings> settings, NavigationService navigation, string[]? footerMenuItems = null)
     {
         this.settings = settings;
 
-        // Menu items.
-        this.GameMenuItems = gameMenuItems;
-        this.FooterMenuItems = appMenuItems;
+        this.Navigation = navigation;
+        this.MenuItems = footerMenuItems == null ? navigation.AvailablePages : navigation.AvailablePages.Except(footerMenuItems).ToArray();
+        this.FooterMenuItems = footerMenuItems ?? Array.Empty<string>();
 
-        // Navigation.
-        var pages = this.GameMenuItems.Concat(this.FooterMenuItems);
-        this.Navigation = new NavigationService(pages);
+        // Set initial page.
         this.Navigation.NavigateTo(settings.Value.CurrentGame);
+        this.selectedPage = settings.Value.CurrentGame;
 
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
 
-    /// <summary>
-    /// Gets navigation.
-    /// </summary>
     public NavigationService Navigation { get; }
 
-    /// <summary>
-    /// Gets game menu items.
-    /// </summary>
-    public IEnumerable<IPage> GameMenuItems { get; }
+    public string SelectedPage
+    {
+        get => this.selectedPage;
+        set
+        {
+            this.SetProperty(ref this.selectedPage, value);
+            this.Navigation.NavigateTo(value);
+        }
+    }
 
-    /// <summary>
-    /// Gets app footer menu items.
-    /// </summary>
-    public IEnumerable<IPage> FooterMenuItems { get; }
+    public string[] MenuItems { get; }
+
+    public string[] FooterMenuItems { get; }
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(this.Navigation.Current))
         {
             // Update selected game in app settings, if game item selected.
-            if (this.GameMenuItems.Contains(this.Navigation.Current))
+            if (this.MenuItems.Contains(this.Navigation.Current?.Name))
             {
                 this.settings.Value.CurrentGame = this.Navigation.Current?.Name ?? Constants.P4G_PC_64;
                 this.settings.Save();

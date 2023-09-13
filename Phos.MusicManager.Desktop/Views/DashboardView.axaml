@@ -9,26 +9,33 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <ui:SymbolIconSource x:Key="HomeIcon" Symbol="Home" />
-        <ui:SymbolIconSource x:Key="MusicIcon" Symbol="Audio" />
-        <ui:SymbolIconSource x:Key="LogsIcon" Symbol="Clipboard" />
-        <ui:SymbolIconSource x:Key="SettingsIcon" Symbol="Settings" />
-        <ui:SymbolIconSource x:Key="GamesIcon" Symbol="Games" />
-        <ui:SymbolIconSource x:Key="AboutIcon" Symbol="Help" />
+        <ui:SymbolIconSource
+            x:Key="HomeIcon"
+            Symbol="Home" />
+        <ui:SymbolIconSource
+            x:Key="MusicIcon"
+            Symbol="Audio" />
+        <ui:SymbolIconSource
+            x:Key="LogsIcon"
+            Symbol="Clipboard" />
+        <ui:SymbolIconSource
+            x:Key="SettingsIcon"
+            Symbol="Settings" />
+        <ui:SymbolIconSource
+            x:Key="GamesIcon"
+            Symbol="Games" />
+        <ui:SymbolIconSource
+            x:Key="AboutIcon"
+            Symbol="Help" />
     </UserControl.Resources>
     <Grid>
         <ui:NavigationView
             Content="{Binding Navigation.Current}"
             FooterMenuItemsSource="{Binding FooterMenuItems}"
             IsSettingsVisible="False"
-            MenuItemsSource="{Binding GameMenuItems}"
+            MenuItemsSource="{Binding MenuItems}"
             PaneTitle="Phos Music Manager"
-            SelectedItem="{Binding Navigation.Current}">
-            <ui:NavigationView.MenuItemTemplate>
-                <DataTemplate>
-                    <ui:NavigationViewItem Content="{Binding Name}" />
-                </DataTemplate>
-            </ui:NavigationView.MenuItemTemplate>
+            SelectedItem="{Binding SelectedPage}">
             <ui:NavigationView.Styles>
                 <Style Selector="ui|NavigationViewItem[Content=Music]">
                     <Setter Property="IconSource" Value="{StaticResource MusicIcon}" />
