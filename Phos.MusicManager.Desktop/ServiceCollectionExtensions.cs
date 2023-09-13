@@ -63,6 +63,7 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<AudioEncoderRegistry>();
         serviceCollection.AddSingleton<MusicFactory>();
         serviceCollection.AddSingleton<AudioBuilder>();
+        serviceCollection.AddSingleton<LoopService>();
         return serviceCollection;
     }
 

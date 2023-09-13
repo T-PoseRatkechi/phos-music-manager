@@ -20,26 +20,21 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     private const string NoReplacement = "None";
 
     private readonly AudioService audioManager;
+    private readonly LoopService loopService;
     private readonly IDialogService dialog;
 
     private string selectedReplacement;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TrackPanelViewModel"/> class.
-    /// </summary>
-    /// <param name="track"></param>
-    /// <param name="audioManager"></param>
-    /// <param name="encoders">List of encoders.</param>
-    /// <param name="dialog"></param>
-    /// <param name="closeCommand"></param>
     public TrackPanelViewModel(
         AudioTrack track,
         AudioService audioManager,
+        LoopService loopService,
         string[] encoders,
         IDialogService dialog,
         ICommand closeCommand)
     {
         this.audioManager = audioManager;
+        this.loopService = loopService;
         this.dialog = dialog;
 
         this.Track = track;
@@ -60,6 +55,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
         // Save tracks on changes made.
         this.Track.PropertyChanged += this.Track_PropertyChanged;
         this.Track.Loop.PropertyChanged += this.Track_PropertyChanged;
+        this.Track.Loop.PropertyChanged += this.Loop_PropertyChanged;
     }
 
     public AudioTrack Track { get; }
@@ -95,17 +91,8 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     {
         this.Track.PropertyChanged -= this.Track_PropertyChanged;
         this.Track.Loop.PropertyChanged -= this.Track_PropertyChanged;
+        this.Track.Loop.PropertyChanged -= this.Loop_PropertyChanged;
         GC.SuppressFinalize(this);
-    }
-
-    private void Track_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        this.audioManager.SaveTracks();
-
-        if (e.PropertyName == nameof(this.Track.ReplacementFile) || e.PropertyName == nameof(this.Track.Loop.Enabled))
-        {
-            this.OnPropertyChanged(nameof(this.LoopInputEnabled));
-        }
     }
 
     [RelayCommand]
@@ -114,6 +101,20 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
         var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...");
         if (replacementFile != null)
         {
+            var savedLoop = this.loopService.GetLoop(replacementFile);
+            if (savedLoop != null)
+            {
+                this.Track.Loop.Enabled = savedLoop.Enabled;
+                this.Track.Loop.StartSample = savedLoop.StartSample;
+                this.Track.Loop.EndSample = savedLoop.EndSample;
+            }
+            else
+            {
+                this.Track.Loop.Enabled = true;
+                this.Track.Loop.StartSample = 0;
+                this.Track.Loop.EndSample = 0;
+            }
+
             this.Replacements.Add(replacementFile);
             this.SelectedReplacement = replacementFile;
         }
@@ -139,5 +140,26 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     private void Delete()
     {
         this.audioManager.Tracks.Remove(this.Track);
+    }
+
+    private void Track_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        // Save tracks on changes.
+        this.audioManager.SaveTracks();
+
+        // Update loop input enabled state.
+        if (e.PropertyName == nameof(this.Track.ReplacementFile) || e.PropertyName == nameof(this.Track.Loop.Enabled))
+        {
+            this.OnPropertyChanged(nameof(this.LoopInputEnabled));
+        }
+    }
+
+    private void Loop_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        // Save loop settings for replacement file on changes.
+        if (this.Track.ReplacementFile != null)
+        {
+            this.loopService.SaveLoop(this.Track.ReplacementFile, this.Track.Loop);
+        }
     }
 }
