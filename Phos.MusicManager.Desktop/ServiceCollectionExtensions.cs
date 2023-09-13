@@ -26,7 +26,10 @@ internal static class ServiceCollectionExtensions
             var settings = s.GetRequiredService<ISavable<AppSettings>>();
 
             /* FluentAvalonia NavigationView breaks if left as IEnumerable. */
-            var gameMenuItems = s.GetRequiredService<IGameService>().Games.Select(x => new GameHubViewModel(x, s.GetRequiredService<TrackPanelFactory>())).ToArray();
+            var gameMenuItems = s.GetRequiredService<IGameService>().Games
+                .Select(x =>new GameHubViewModel(x, s.GetRequiredService<MusicFactory>(), s.GetRequiredService<IDialogService>()))
+                .ToArray();
+
             var appMenuItems = new IPage[]
             {
                 s.GetRequiredService<SettingsViewModel>(),
@@ -64,7 +67,7 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<IGameService, GameService>();
         serviceCollection.AddSingleton<IDialogService, DialogService>();
         serviceCollection.AddSingleton<AudioEncoderRegistry>();
-        serviceCollection.AddSingleton<TrackPanelFactory>();
+        serviceCollection.AddSingleton<MusicFactory>();
         return serviceCollection;
     }
 

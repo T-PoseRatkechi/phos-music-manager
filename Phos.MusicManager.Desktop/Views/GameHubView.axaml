@@ -10,6 +10,18 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <cc:Page Title="{Binding Name}">
+        <cc:Page.MenuItems>
+            <StackPanel
+                Orientation="Horizontal"
+                Spacing="4">
+                <Button
+                    Command="{Binding AddTrackCommand}"
+                    Content="Add Track" />
+                <Button
+                    Command="{Binding BuildCommand}"
+                    Content="Build" />
+            </StackPanel>
+        </cc:Page.MenuItems>
         <Border
             Background="{DynamicResource ControlFillColorDefault}"
             CornerRadius="{DynamicResource ControlCornerRadius}">

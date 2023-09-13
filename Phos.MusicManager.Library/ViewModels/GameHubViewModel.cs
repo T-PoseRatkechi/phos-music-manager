@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Audio.Models;
+using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Games;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.ViewModels.Music;
@@ -15,7 +16,8 @@ using Phos.MusicManager.Library.ViewModels.Music;
 public partial class GameHubViewModel : ViewModelBase, IPage
 {
     private readonly Game game;
-    private readonly TrackPanelFactory trackPanelFactory;
+    private readonly MusicFactory musicFactory;
+    private readonly IDialogService dialog;
 
     [ObservableProperty]
     private TrackPanelViewModel? trackPanel;
@@ -25,11 +27,13 @@ public partial class GameHubViewModel : ViewModelBase, IPage
     /// Initializes a new instance of the <see cref="GameHubViewModel"/> class.
     /// </summary>
     /// <param name="game"></param>
-    /// <param name="trackPanelFactory"></param>
-    public GameHubViewModel(Game game, TrackPanelFactory trackPanelFactory)
+    /// <param name="musicFactory"></param>
+    /// <param name="dialog"></param>
+    public GameHubViewModel(Game game, MusicFactory musicFactory, IDialogService dialog)
     {
         this.game = game;
-        this.trackPanelFactory = trackPanelFactory;
+        this.musicFactory = musicFactory;
+        this.dialog = dialog;
     }
 
     /// <inheritdoc/>
@@ -62,7 +66,18 @@ public partial class GameHubViewModel : ViewModelBase, IPage
             return;
         }
 
-        this.TrackPanel = this.trackPanelFactory.Create(this.SelectedTrack, this.game.Audio, this.CloseTrackPanelCommand);
+        this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.game.Audio, this.CloseTrackPanelCommand);
+    }
+
+    [RelayCommand]
+    private async Task AddTrack()
+    {
+        var addTrack = this.musicFactory.CreateAddTrack();
+        var newTrack = await this.dialog.OpenDialog<AudioTrack>(addTrack);
+        if (newTrack != null)
+        {
+            this.game.Audio.Tracks.Add(newTrack);
+        }
     }
 
     [RelayCommand]
