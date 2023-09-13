@@ -6,7 +6,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 public partial class AudioTrack : ObservableObject
 {
     [ObservableProperty]
-    private string name = "Unknown";
+    private string name = string.Empty;
 
     [ObservableProperty]
     private string? category;
