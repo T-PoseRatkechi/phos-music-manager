@@ -11,6 +11,7 @@
     CanResize="False"
     Classes.isEditing="{Binding IsEditing}"
     SizeToContent="Height"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
     <Window.Resources>
         <sys:String x:Key="AddTrackText">Add Track</sys:String>
