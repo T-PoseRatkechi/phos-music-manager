@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:music="using:Phos.MusicManager.Desktop.Views.Music"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -15,11 +16,22 @@
                 Orientation="Horizontal"
                 Spacing="4">
                 <Button
-                    Command="{Binding AddTrackCommand}"
-                    Content="Add Track" />
-                <Button
+                    VerticalAlignment="Stretch"
                     Command="{Binding BuildCommand}"
-                    Content="Build" />
+                    Content="Build"
+                    ToolTip.Tip="Build" />
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding AddTrackCommand}"
+                    ToolTip.Tip="Add Track">
+                    <ui:SymbolIcon Symbol="Add" />
+                </Button>
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding OpenSettingsCommand}"
+                    ToolTip.Tip="Settings">
+                    <ui:SymbolIcon Symbol="SettingsFilled" />
+                </Button>
             </StackPanel>
         </cc:Page.MenuItems>
         <Border

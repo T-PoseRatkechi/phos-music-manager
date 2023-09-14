@@ -11,6 +11,7 @@ using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Games;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.ViewModels.Music;
+using Phos.MusicManager.Library.ViewModels.Music.Dialogs;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
@@ -85,6 +86,13 @@ public partial class GameHubViewModel : ViewModelBase, IPage
         {
             this.game.Audio.Tracks.Add(newTrack);
         }
+    }
+
+    [RelayCommand]
+    private async Task OpenSettings()
+    {
+        var settings = new GameSettingsViewModel(this.game.Settings, this.dialog);
+        await this.dialog.OpenDialog(settings);
     }
 
     [RelayCommand]
