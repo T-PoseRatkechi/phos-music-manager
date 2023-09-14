@@ -41,4 +41,12 @@ public interface IDialogService
     /// <param name="owner">Owner view model.</param>
     /// <returns>Dialog result.</returns>
     Task<TResult?> OpenDialog<TResult>(ViewModelBase dialog, ViewModelBase? owner = null);
+
+    /// <summary>
+    /// Opens a dialog.
+    /// </summary>
+    /// <param name="dialog">Dialog view model.</param>
+    /// <param name="owner">Owner view model.</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    Task OpenDialog(ViewModelBase dialog, ViewModelBase? owner = null);
 }

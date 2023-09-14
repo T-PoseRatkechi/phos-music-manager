@@ -45,6 +45,11 @@ public class DialogService : IDialogService
         return default;
     }
 
+    public async Task OpenDialog(ViewModelBase dialog, ViewModelBase? owner = null)
+    {
+        await this.OpenDialog<object?>(dialog, owner);
+    }
+
     public async Task<string?> OpenFileSelect(string? title = null, string? filter = null, string? initialDirectory = null)
     {
         var options = new FilePickerOpenOptions

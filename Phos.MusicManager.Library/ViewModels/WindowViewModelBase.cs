@@ -16,7 +16,7 @@ public class WindowViewModelBase : ViewModelBase
     /// Close window.
     /// </summary>
     /// <param name="result">Dialog result.</param>
-    public void Close(object? result = null)
+    public virtual void Close(object? result = null)
     {
         this.Closing?.Invoke(this, result);
     }
