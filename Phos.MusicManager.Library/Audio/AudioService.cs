@@ -35,6 +35,23 @@ public class AudioService
         this.tracks.Save();
     }
 
+    /// <summary>
+    /// Add multiple tracks.
+    /// </summary>
+    /// <param name="tracks">Audio tracks to add.</param>
+    public void AddTracks(IEnumerable<AudioTrack> tracks)
+    {
+        this.Tracks.CollectionChanged -= this.Tracks_CollectionChanged;
+
+        foreach (var track in tracks)
+        {
+            this.Tracks.Add(track);
+        }
+
+        this.SaveTracks();
+        this.Tracks.CollectionChanged += this.Tracks_CollectionChanged;
+    }
+
     private void Tracks_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         this.tracks.Save();
