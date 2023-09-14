@@ -6,7 +6,10 @@ using CommunityToolkit.Mvvm.ComponentModel;
 public partial class AppSettings : ObservableObject
 {
     [ObservableProperty]
-    private string currentGame = Constants.P4G_PC_64;
+    private string currentProject = Constants.P4G_PC_64;
+
+    [ObservableProperty]
+    private List<string> projectFiles = new();
 
     [ObservableProperty]
     private bool debugEnabled;
