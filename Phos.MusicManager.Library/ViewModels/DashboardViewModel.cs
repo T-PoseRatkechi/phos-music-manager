@@ -21,8 +21,8 @@ public partial class DashboardViewModel : ViewModelBase
         this.FooterMenuItems = footerMenuItems ?? Array.Empty<string>();
 
         // Set initial page.
-        this.Navigation.NavigateTo(settings.Value.CurrentGame);
-        this.selectedPage = settings.Value.CurrentGame;
+        this.Navigation.NavigateTo(settings.Value.CurrentProject);
+        this.selectedPage = settings.Value.CurrentProject;
 
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
@@ -50,7 +50,7 @@ public partial class DashboardViewModel : ViewModelBase
             // Update selected game in app settings, if game item selected.
             if (this.MenuItems.Contains(this.Navigation.Current?.Name))
             {
-                this.settings.Value.CurrentGame = this.Navigation.Current?.Name ?? Constants.P4G_PC_64;
+                this.settings.Value.CurrentProject = this.Navigation.Current?.Name ?? Constants.P4G_PC_64;
                 this.settings.Save();
             }
         }
