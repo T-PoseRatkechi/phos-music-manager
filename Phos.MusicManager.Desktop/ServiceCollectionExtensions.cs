@@ -8,10 +8,10 @@ using Phos.MusicManager.Library;
 using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Common;
-using Phos.MusicManager.Library.Games;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.ViewModels;
 using Phos.MusicManager.Library.ViewModels.Music;
+using Phos.MusicManager.Library.Workspaces;
 using Serilog;
 using System;
 using System.IO;
@@ -30,16 +30,17 @@ internal static class ServiceCollectionExtensions
             var dialog = s.GetRequiredService<IDialogService>();
             var log = s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>();
 
-            var gamesFactory = s.GetRequiredService<IGameFactory>();
-
-            var gamePages = gamesFactory.GetGames().Select(x => new GameHubViewModel(x, audioBuilder, musicFactory, dialog, log)).ToArray();
+            var workService = s.GetRequiredService<WorkspaceService>();
+            var workspacePages = s.GetRequiredService<WorkspaceService>().Projects
+                .Select(x => new WorkspaceViewModel(x, audioBuilder, musicFactory, dialog, log))
+                .ToArray();
             var appPages = new IPage[]
             {
                 s.GetRequiredService<SettingsViewModel>(),
                 s.GetRequiredService<AboutViewModel>(),
             };
 
-            var navigation = new NavigationService(gamePages.Concat(appPages), log);
+            var navigation = new NavigationService(workspacePages.Concat(appPages), log);
             return new DashboardViewModel(settings, navigation, appPages.Select(x => x.Name).ToArray());
         });
 
@@ -58,12 +59,12 @@ internal static class ServiceCollectionExtensions
 
     public static IServiceCollection AddLibrary(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddSingleton<IGameFactory, GameFactory>();
         serviceCollection.AddSingleton<IDialogService, DialogService>();
         serviceCollection.AddSingleton<AudioEncoderRegistry>();
         serviceCollection.AddSingleton<MusicFactory>();
         serviceCollection.AddSingleton<AudioBuilder>();
         serviceCollection.AddSingleton<LoopService>();
+        serviceCollection.AddSingleton<WorkspaceService>();
         return serviceCollection;
     }
 
