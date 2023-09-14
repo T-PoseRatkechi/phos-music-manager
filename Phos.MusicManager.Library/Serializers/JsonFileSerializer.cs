@@ -9,6 +9,12 @@ public static class JsonFileSerializer
 
     public static void Serialize(string file, object? value)
     {
+        var dir = Path.GetDirectoryName(file);
+        if (dir != null)
+        {
+            Directory.CreateDirectory(dir);
+        }
+
         File.WriteAllText(file, JsonSerializer.Serialize(value, Options));
     }
 
