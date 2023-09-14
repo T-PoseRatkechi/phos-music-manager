@@ -109,6 +109,8 @@
                         Classes="section-header"
                         Text="Output" />
                     <TextBlock
+                        FontFamily="{StaticResource FiraCode}"
+                        FontSize="12"
                         FontStyle="Italic"
                         Text="{Binding Track.OutputPath}"
                         TextWrapping="Wrap" />

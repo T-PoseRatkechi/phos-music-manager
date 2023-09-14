@@ -17,6 +17,7 @@
             <TextBlock
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource FiraCode}"
+                FontSize="12"
                 Text="{Binding Text, ElementName=pathSelector}"
                 TextTrimming="CharacterEllipsis"
                 ToolTip.Tip="{Binding Text, ElementName=pathSelector}" />
