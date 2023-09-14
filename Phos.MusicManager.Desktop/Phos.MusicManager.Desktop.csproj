@@ -11,6 +11,10 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaResource Remove="Assets\Fonts\Fira Code\LICENSE.txt" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.4" />
@@ -30,5 +34,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Phos.MusicManager.Library\Phos.MusicManager.Library.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Assets\Fonts\Fira Code\LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

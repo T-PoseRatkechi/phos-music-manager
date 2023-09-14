@@ -21,6 +21,7 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="FiraCode">/Assets/Fonts/Fira Code#Fira Code</FontFamily>
             <converters:NullBoolConverter x:Key="NullBoolConverter" />
             <converters:ToUpperConverter x:Key="ToUpperConverter" />
             <converters:PathNameConverter x:Key="PathNameConverter" />
