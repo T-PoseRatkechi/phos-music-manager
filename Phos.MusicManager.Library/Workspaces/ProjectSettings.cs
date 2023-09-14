@@ -1,0 +1,49 @@
+﻿namespace Phos.MusicManager.Library.Workspaces;
+
+using CommunityToolkit.Mvvm.ComponentModel;
+
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class ProjectSettings : ObservableObject
+{
+    /// <summary>
+    /// Gets or sets name.
+    /// </summary>
+    [ObservableProperty]
+    private string name = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the target game.
+    /// </summary>
+    [ObservableProperty]
+    private string game = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the post build.
+    /// </summary>
+    [ObservableProperty]
+    private string? postBuild;
+
+    /// <summary>
+    /// Gets or sets the default project preset.
+    /// </summary>
+    [ObservableProperty]
+    private string preset = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the install path of game target.
+    /// </summary>
+    [ObservableProperty]
+    private string? gameInstallPath;
+
+    /// <summary>
+    /// Gets or sets the output directory for build files.
+    /// </summary>
+    [ObservableProperty]
+    private string? outputDir;
+
+    /// <summary>
+    /// Gets or sets the app theme to use for project.
+    /// </summary>
+    [ObservableProperty]
+    private string theme = "Dark";
+}
