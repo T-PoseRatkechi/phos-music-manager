@@ -25,7 +25,7 @@
             HorizontalAlignment="Stretch"
             IsEnabled="False" />
         <TextBlock
-            Text="Game Target"
+            Text="Game"
             Theme="{StaticResource SubtitleTextBlockStyle}" />
         <ComboBox
             HorizontalAlignment="Stretch"
@@ -35,6 +35,7 @@
             Theme="{StaticResource SubtitleTextBlockStyle}" />
         <cc:PathSelector
             Command="{Binding SelectInstallPathCommand}"
+            IsEnabled="False"
             Text="{Binding Settings.GameInstallPath}"
             Type="File" />
         <TextBlock

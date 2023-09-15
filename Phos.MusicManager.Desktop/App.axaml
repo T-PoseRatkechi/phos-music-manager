@@ -25,6 +25,7 @@
             <converters:NullBoolConverter x:Key="NullBoolConverter" />
             <converters:ToUpperConverter x:Key="ToUpperConverter" />
             <converters:PathNameConverter x:Key="PathNameConverter" />
+            <converters:WorkspaceIconConverter x:Key="WorkspaceIconConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

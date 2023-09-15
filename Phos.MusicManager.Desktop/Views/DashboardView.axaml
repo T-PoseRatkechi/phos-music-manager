@@ -13,20 +13,14 @@
             x:Key="HomeIcon"
             Symbol="Home" />
         <ui:SymbolIconSource
-            x:Key="MusicIcon"
-            Symbol="Audio" />
-        <ui:SymbolIconSource
             x:Key="LogsIcon"
             Symbol="Clipboard" />
         <ui:SymbolIconSource
-            x:Key="SettingsIcon"
-            Symbol="Settings" />
-        <ui:SymbolIconSource
-            x:Key="GamesIcon"
-            Symbol="Games" />
-        <ui:SymbolIconSource
             x:Key="AboutIcon"
             Symbol="Help" />
+        <ui:SymbolIconSource
+            x:Key="ProjectIcon"
+            Symbol="PlayFilled" />
     </UserControl.Resources>
     <Grid>
         <ui:NavigationView
@@ -37,17 +31,14 @@
             PaneTitle="Phos Music Manager"
             SelectedItem="{Binding SelectedPage}">
             <ui:NavigationView.Styles>
-                <Style Selector="ui|NavigationViewItem[Content=Music]">
-                    <Setter Property="IconSource" Value="{StaticResource MusicIcon}" />
+                <Style Selector="ui|NavigationViewItem">
+                    <Setter Property="IconSource" Value="{StaticResource ProjectIcon}" />
+                </Style>
+                <Style Selector="ui|NavigationViewItem[Content=Home]">
+                    <Setter Property="IconSource" Value="{StaticResource HomeIcon}" />
                 </Style>
                 <Style Selector="ui|NavigationViewItem[Content=Logs]">
                     <Setter Property="IconSource" Value="{StaticResource LogsIcon}" />
-                </Style>
-                <Style Selector="ui|NavigationViewItem[Content=Settings]">
-                    <Setter Property="IconSource" Value="{StaticResource SettingsIcon}" />
-                </Style>
-                <Style Selector="ui|NavigationViewItem[Content=Games]">
-                    <Setter Property="IconSource" Value="{StaticResource GamesIcon}" />
                 </Style>
                 <Style Selector="ui|NavigationViewItem[Content=About]">
                     <Setter Property="IconSource" Value="{StaticResource AboutIcon}" />
