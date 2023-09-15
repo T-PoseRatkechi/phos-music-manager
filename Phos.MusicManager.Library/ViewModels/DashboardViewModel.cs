@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Navigation;
+using Phos.MusicManager.Library.ViewModels.Services;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
@@ -12,18 +13,28 @@ public partial class DashboardViewModel : ViewModelBase
     private readonly ISavable<AppSettings> settings;
     private string selectedPage;
 
-    public DashboardViewModel(ISavable<AppSettings> settings, NavigationService navigation, string[]? footerMenuItems = null)
+    public DashboardViewModel(DashboardService dashboard, ISavable<AppSettings> settings)
     {
+        this.Navigation = dashboard.Navigation;
         this.settings = settings;
 
-        this.Navigation = navigation;
-        this.MenuItems = footerMenuItems == null ? navigation.AvailablePages : navigation.AvailablePages.Except(footerMenuItems).ToArray();
-        this.FooterMenuItems = footerMenuItems ?? Array.Empty<string>();
+        // Workspace pages as top menu items.
+        this.MenuItems = dashboard.Navigation.Pages
+            .Where(x => x.GetType() == typeof(WorkspaceViewModel))
+            .Select(x => x.Name)
+            .ToArray();
 
-        // Set initial page.
-        this.Navigation.NavigateTo(settings.Value.CurrentProject);
-        this.selectedPage = settings.Value.CurrentProject;
+        // Other pages as bottom menu items.
+        this.FooterMenuItems = dashboard.Navigation.Pages
+            .Where(x => !this.MenuItems.Contains(x.Name))
+            .Select(x => x.Name)
+            .ToArray();
 
+        // Set initial page (last opened project or home page).
+        this.selectedPage = settings.Value.CurrentProject ?? "Home";
+        this.Navigation.NavigateTo(this.selectedPage);
+
+        // Keep selected page in sync with navigation page.
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
 
@@ -50,9 +61,12 @@ public partial class DashboardViewModel : ViewModelBase
             // Update selected game in app settings, if game item selected.
             if (this.MenuItems.Contains(this.Navigation.Current?.Name))
             {
-                this.settings.Value.CurrentProject = this.Navigation.Current?.Name ?? Constants.P4G_PC_64;
+                this.settings.Value.CurrentProject = this.Navigation.Current?.Name;
                 this.settings.Save();
             }
+
+            // Update selected.
+            this.SelectedPage = this.Navigation.Current?.Name ?? "Home";
         }
     }
 }
