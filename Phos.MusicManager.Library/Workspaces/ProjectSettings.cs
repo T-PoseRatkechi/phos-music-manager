@@ -18,6 +18,12 @@ public partial class ProjectSettings : ObservableObject
     private string game = string.Empty;
 
     /// <summary>
+    /// Gets or sets the project icon color.
+    /// </summary>
+    [ObservableProperty]
+    private string? color;
+
+    /// <summary>
     /// Gets or sets the post build.
     /// </summary>
     [ObservableProperty]

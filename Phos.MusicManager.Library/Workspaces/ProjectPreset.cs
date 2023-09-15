@@ -18,6 +18,11 @@ public class ProjectPreset
     public string Game { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets preset icon color.
+    /// </summary>
+    public string? Color { get; set; }
+
+    /// <summary>
     /// Gets or sets preset default tracks.
     /// </summary>
     public AudioTrack[] DefaultTracks { get; set; } = Array.Empty<AudioTrack>();

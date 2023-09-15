@@ -49,6 +49,7 @@ public class WorkspaceService
         {
             workspace.Settings.Value.Name = preset.Name;
             workspace.Settings.Value.Game = preset.Game;
+            workspace.Settings.Value.Color = preset.Color;
             workspace.Settings.Value.Preset = preset.Name;
             workspace.Settings.Value.PostBuild = preset.PostBuild;
             workspace.Settings.Save();
