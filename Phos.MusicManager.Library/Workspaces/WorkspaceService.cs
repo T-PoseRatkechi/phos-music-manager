@@ -67,14 +67,14 @@ public class WorkspaceService
     private ObservableCollection<Workspace> GetProjects()
     {
         var currentProjects = new ObservableCollection<Workspace>();
+        var removedProjects = new List<string>();
 
         // Load projects.
         foreach (var projectFile in this.appSettings.Value.ProjectFiles)
         {
             if (!File.Exists(projectFile))
             {
-                this.appSettings.Value.ProjectFiles.Remove(projectFile);
-                this.appSettings.Save();
+                removedProjects.Add(projectFile);
                 continue;
             }
 
@@ -86,6 +86,16 @@ public class WorkspaceService
             {
                 this.log?.LogWarning(ex, "Failed to load project.\nFile: {file}", projectFile);
             }
+        }
+
+        if (removedProjects.Count > 0)
+        {
+            foreach (var project in removedProjects)
+            {
+                this.appSettings.Value.ProjectFiles.Remove(project);
+            }
+
+            this.appSettings.Save();
         }
 
         return currentProjects;
