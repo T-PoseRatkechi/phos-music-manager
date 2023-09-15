@@ -23,7 +23,6 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton(s => new MainWindowViewModel(s.GetRequiredService<DashboardViewModel>()));
         serviceCollection.AddSingleton<DashboardViewModel>();
         serviceCollection.AddSingleton<DashboardService>();
-        serviceCollection.AddSingleton<SettingsViewModel>();
         serviceCollection.AddSingleton<AboutViewModel>();
         return serviceCollection;
     }
