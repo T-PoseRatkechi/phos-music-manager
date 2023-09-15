@@ -6,7 +6,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 public partial class AppSettings : ObservableObject
 {
     [ObservableProperty]
-    private string currentProject = Constants.P4G_PC_64;
+    private string? currentProject;
 
     [ObservableProperty]
     private List<string> projectFiles = new();
