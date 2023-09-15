@@ -13,7 +13,7 @@ public interface INavigationService
     /// <summary>
     /// Gets names of available pages.
     /// </summary>
-    string[] AvailablePages { get; }
+    IList<IPage> Pages { get; }
 
     /// <summary>
     /// Navigate to specific page.
