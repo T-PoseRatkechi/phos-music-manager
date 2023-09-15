@@ -45,6 +45,8 @@ public partial class WorkspaceViewModel : ViewModelBase, IPage
 
     public ObservableCollection<AudioTrack> Tracks => this.workspace.Audio.Tracks;
 
+    public string? Color => this.workspace.Settings.Value.Color;
+
     public AudioTrack? SelectedTrack
     {
         get => this.selectedTrack;

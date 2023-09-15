@@ -1,5 +1,6 @@
 ﻿namespace Phos.MusicManager.Library.ViewModels;
 
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Common;
@@ -11,28 +12,28 @@ using Phos.MusicManager.Library.ViewModels.Services;
 public partial class DashboardViewModel : ViewModelBase
 {
     private readonly ISavable<AppSettings> settings;
-    private string selectedPage;
+    private MenuItem? selectedItem;
 
     public DashboardViewModel(DashboardService dashboard, ISavable<AppSettings> settings)
     {
         this.Navigation = dashboard.Navigation;
         this.settings = settings;
 
-        // Workspace pages as top menu items.
-        this.MenuItems = dashboard.Navigation.Pages
-            .Where(x => x.GetType() == typeof(WorkspaceViewModel))
-            .Select(x => x.Name)
-            .ToArray();
-
-        // Other pages as bottom menu items.
-        this.FooterMenuItems = dashboard.Navigation.Pages
-            .Where(x => !this.MenuItems.Contains(x.Name))
-            .Select(x => x.Name)
-            .ToArray();
+        // Generate menu items from pages.
+        foreach (var page in this.Navigation.Pages)
+        {
+            if (page is WorkspaceViewModel workspace)
+            {
+                this.MenuItems.Add(new(workspace.Name, workspace.Color));
+            }
+            else
+            {
+                this.FooterMenuItems.Add(new(page.Name));
+            }
+        }
 
         // Set initial page (last opened project or home page).
-        this.selectedPage = settings.Value.CurrentProject ?? "Home";
-        this.Navigation.NavigateTo(this.selectedPage);
+        this.SelectedItem = this.GetSelectedItem(this.settings.Value.CurrentProject);
 
         // Keep selected page in sync with navigation page.
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
@@ -40,33 +41,41 @@ public partial class DashboardViewModel : ViewModelBase
 
     public NavigationService Navigation { get; }
 
-    public string SelectedPage
+    public MenuItem? SelectedItem
     {
-        get => this.selectedPage;
+        get => this.selectedItem;
         set
         {
-            this.SetProperty(ref this.selectedPage, value);
-            this.Navigation.NavigateTo(value);
+            this.SetProperty(ref this.selectedItem, value);
+            this.Navigation.NavigateTo(this.selectedItem?.Name ?? "Home");
         }
     }
 
-    public string[] MenuItems { get; }
+    public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
-    public string[] FooterMenuItems { get; }
+    public List<MenuItem> FooterMenuItems { get; } = new();
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(this.Navigation.Current))
         {
-            // Update selected game in app settings, if game item selected.
-            if (this.MenuItems.Contains(this.Navigation.Current?.Name))
+            // Update selected project in app settings, if project item selected.
+            if (this.MenuItems.FirstOrDefault(x => x.Name == this.Navigation.Current?.Name) != null)
             {
                 this.settings.Value.CurrentProject = this.Navigation.Current?.Name;
                 this.settings.Save();
             }
 
             // Update selected.
-            this.SelectedPage = this.Navigation.Current?.Name ?? "Home";
+            this.SelectedItem = this.GetSelectedItem(this.Navigation.Current?.Name);
         }
     }
+
+    private MenuItem? GetSelectedItem(string? name)
+    {
+        var items = this.MenuItems.Concat(this.FooterMenuItems);
+        return items.FirstOrDefault(x => x.Name == name);
+    }
+
+    public record MenuItem(string Name, string? Color = null);
 }
