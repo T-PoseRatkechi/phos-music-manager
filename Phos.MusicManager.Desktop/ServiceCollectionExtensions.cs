@@ -8,42 +8,21 @@ using Phos.MusicManager.Library;
 using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Common;
-using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.ViewModels;
 using Phos.MusicManager.Library.ViewModels.Music;
+using Phos.MusicManager.Library.ViewModels.Services;
 using Phos.MusicManager.Library.Workspaces;
 using Serilog;
 using System;
 using System.IO;
-using System.Linq;
 
 internal static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddViewModels(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddSingleton(s => new MainWindowViewModel(s.GetRequiredService<DashboardViewModel>()));
-        serviceCollection.AddSingleton(s =>
-        {
-            var settings = s.GetRequiredService<ISavable<AppSettings>>();
-            var audioBuilder = s.GetRequiredService<AudioBuilder>();
-            var musicFactory = s.GetRequiredService<MusicFactory>();
-            var dialog = s.GetRequiredService<IDialogService>();
-            var log = s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>();
-
-            var workService = s.GetRequiredService<WorkspaceService>();
-            var workspacePages = s.GetRequiredService<WorkspaceService>().Projects
-                .Select(x => new WorkspaceViewModel(x, audioBuilder, musicFactory, dialog, log))
-                .ToArray();
-            var appPages = new IPage[]
-            {
-                s.GetRequiredService<SettingsViewModel>(),
-                s.GetRequiredService<AboutViewModel>(),
-            };
-
-            var navigation = new NavigationService(workspacePages.Concat(appPages), log);
-            return new DashboardViewModel(settings, navigation, appPages.Select(x => x.Name).ToArray());
-        });
-
+        serviceCollection.AddSingleton<DashboardViewModel>();
+        serviceCollection.AddSingleton<DashboardService>();
         serviceCollection.AddSingleton<SettingsViewModel>();
         serviceCollection.AddSingleton<AboutViewModel>();
         return serviceCollection;
