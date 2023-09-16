@@ -1,0 +1,128 @@
+<Window
+    x:Class="Phos.MusicManager.Desktop.Views.Projects.Dialogs.CreateProjectView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Phos.MusicManager.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    Width="600"
+    d:DesignHeight="400"
+    d:DesignWidth="600"
+    CanResize="False"
+    Classes.isEditing="{Binding IsEditing}"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+    <Window.Styles>
+        <Style Selector="Window">
+            <Setter Property="Title" Value="Create Project" />
+        </Style>
+        <Style Selector="Window TextBlock#title">
+            <Setter Property="Text" Value="Create Project" />
+        </Style>
+        <Style Selector="Window.isEditing">
+            <Setter Property="Title" Value="Edit Project" />
+        </Style>
+        <Style Selector="Window.isEditing TextBlock#title">
+            <Setter Property="Text" Value="Edit Project" />
+        </Style>
+        <Style Selector="Window Button#confirmButton">
+            <Setter Property="Content" Value="Create" />
+        </Style>
+        <Style Selector="Window.isEditing Button#confirmButton">
+            <Setter Property="Content" Value="Confirm" />
+        </Style>
+    </Window.Styles>
+    <StackPanel Margin="8">
+        <TextBlock
+            Name="title"
+            Theme="{StaticResource TitleTextBlockStyle}" />
+        <Grid ColumnDefinitions="128 8 * 8 * 8">
+            <StackPanel Spacing="4">
+                <Border
+                    Width="128"
+                    Height="128"
+                    VerticalAlignment="Top"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{StaticResource ControlCornerRadius}">
+                    <Image Source="{Binding IconFile, Converter={StaticResource ProjectIconConverter}}" />
+                </Border>
+                <Grid ColumnDefinitions="* 2 auto">
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        Command="{Binding SelectIconCommand}"
+                        Content="Add Icon" />
+                    <Button
+                        Grid.Column="2"
+                        VerticalAlignment="Stretch"
+                        Command="{Binding RemoveIconCommand}"
+                        ToolTip.Tip="Remove Icon">
+                        <ui:SymbolIcon Symbol="Clear" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel
+                Grid.Column="2"
+                Spacing="4">
+                <TextBlock
+                    Text="Name"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBox Text="{Binding Form.Name}" />
+                <TextBlock
+                    Text="Project Color"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBox
+                    Text="{Binding Form.Color}"
+                    Watermark="Hex color (#ffffff)" />
+                <TextBlock
+                    Text="Game Install"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <cc:PathSelector
+                    Command="{Binding SelectGameInstallCommand}"
+                    Text="{Binding Form.GameInstallPath}"
+                    Type="File" />
+            </StackPanel>
+            <StackPanel
+                Grid.Column="4"
+                Spacing="4">
+                <TextBlock
+                    Text="Preset"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <ComboBox
+                    HorizontalAlignment="Stretch"
+                    ItemsSource="{Binding Form.PresetOptions}"
+                    SelectedItem="{Binding Form.SelectedPreset}" />
+                <TextBlock
+                    Text="Post Build"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <ComboBox
+                    HorizontalAlignment="Stretch"
+                    IsEnabled="False"
+                    ItemsSource="{Binding Form.PostBuildOptions}"
+                    SelectedItem="{Binding Form.SelectedPostBuild}" />
+                <TextBlock
+                    Text="Output Folder"
+                    Theme="{StaticResource SubtitleTextBlockStyle}" />
+                <cc:PathSelector
+                    Command="{Binding SelectOutputFolderCommand}"
+                    Text="{Binding Form.OutputDir}"
+                    Type="Folder" />
+            </StackPanel>
+        </Grid>
+        <StackPanel
+            Margin="0,16,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="4">
+            <Button
+                Command="{Binding CloseCommand}"
+                Content="Cancel" />
+            <Button
+                Name="confirmButton"
+                Command="{Binding ConfirmCommand}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
