@@ -1,5 +1,7 @@
 ﻿namespace Phos.MusicManager.Library.Navigation;
 
+using System.Collections.ObjectModel;
+
 /// <summary>
 /// Navigation service interface.
 /// </summary>
@@ -11,9 +13,9 @@ public interface INavigationService
     IPage Current { get; }
 
     /// <summary>
-    /// Gets names of available pages.
+    /// Gets available pages.
     /// </summary>
-    IList<IPage> Pages { get; }
+    ObservableCollection<IPage> Pages { get; }
 
     /// <summary>
     /// Navigate to specific page.

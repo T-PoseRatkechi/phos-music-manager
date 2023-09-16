@@ -25,7 +25,7 @@ public partial class NavigationService : ObservableObject, INavigationService
         this.Pages = new ObservableCollection<IPage>();
     }
 
-    public IList<IPage> Pages { get; }
+    public ObservableCollection<IPage> Pages { get; }
 
     /// <inheritdoc/>
     public void NavigateTo(string name)
