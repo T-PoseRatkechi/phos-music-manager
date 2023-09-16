@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Phos.MusicManager.Desktop.Converters;
 
-internal class ToUpperConverter : IValueConverter
+public class ToUpperConverter : IValueConverter
 {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {

@@ -1,13 +1,13 @@
 ﻿using Avalonia.Data.Converters;
 using Avalonia.Media.Imaging;
-using Phos.MusicManager.Library.Workspaces;
+using Phos.MusicManager.Library.Projects;
 using System;
 using System.Globalization;
 using System.IO;
 
 namespace Phos.MusicManager.Desktop.Converters;
 
-public class WorkspaceIconConverter : IValueConverter
+public class ProjectIconConverter : IValueConverter
 {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
@@ -15,15 +15,15 @@ public class WorkspaceIconConverter : IValueConverter
         {
             return new Bitmap(filePath);
         } 
-        else if (value is Workspace workspace)
+        else if (value is Project project)
         {
-            var workspaceIconFile = Path.Join(workspace.WorkspaceFolder, "icon.png");
-            if (File.Exists(workspaceIconFile))
+            var projectIconFile = Path.Join(project.ProjectFolder, "icon.png");
+            if (File.Exists(projectIconFile))
             {
-                return new Bitmap(workspaceIconFile);
+                return new Bitmap(projectIconFile);
             }
 
-            var resourceIconFile = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "resources", "icons", $"{workspace.Settings.Value.Preset}.png");
+            var resourceIconFile = Path.Join(AppDomain.CurrentDomain.BaseDirectory, "resources", "icons", $"{project.Settings.Value.Preset}.png");
             if (File.Exists(resourceIconFile))
             {
                 return new Bitmap(resourceIconFile);
