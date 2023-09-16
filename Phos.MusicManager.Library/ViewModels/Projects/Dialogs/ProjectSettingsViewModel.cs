@@ -1,9 +1,9 @@
-﻿namespace Phos.MusicManager.Library.ViewModels.Workspaces.Dialogs;
+﻿namespace Phos.MusicManager.Library.ViewModels.Projects.Dialogs;
 
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Phos.MusicManager.Library.Common;
-using Phos.MusicManager.Library.Workspaces;
+using Phos.MusicManager.Library.Projects;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
