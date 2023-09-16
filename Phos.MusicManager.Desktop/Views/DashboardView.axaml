@@ -29,13 +29,13 @@
             IsSettingsVisible="False"
             MenuItemsSource="{Binding MenuItems}"
             PaneTitle="Phos Music Manager"
-            SelectedItem="{Binding SelectedItem}">
+            SelectedItem="{Binding Navigation.Current}">
             <ui:NavigationView.MenuItemTemplate>
                 <DataTemplate>
                     <ui:NavigationViewItem
-                        Classes.colorIcon="{Binding Color, Converter={StaticResource NullBoolConverter}}"
+                        Classes.colorIcon="{Binding Project.Settings.Value.Color, Converter={StaticResource NullBoolConverter}}"
                         Content="{Binding Name}"
-                        Tag="{Binding Color}" />
+                        Tag="{Binding Project.Settings.Value.Color}" />
                 </DataTemplate>
             </ui:NavigationView.MenuItemTemplate>
             <ui:NavigationView.Styles>
@@ -47,9 +47,6 @@
                 </Style>
                 <Style Selector="ui|NavigationViewItem[Content=Home]">
                     <Setter Property="IconSource" Value="{StaticResource HomeIcon}" />
-                </Style>
-                <Style Selector="ui|NavigationViewItem[Content=Logs]">
-                    <Setter Property="IconSource" Value="{StaticResource LogsIcon}" />
                 </Style>
                 <Style Selector="ui|NavigationViewItem[Content=About]">
                     <Setter Property="IconSource" Value="{StaticResource AboutIcon}" />
