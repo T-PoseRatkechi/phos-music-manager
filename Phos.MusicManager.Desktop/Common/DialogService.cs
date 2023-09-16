@@ -4,6 +4,9 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Platform.Storage;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Common;
+using Serilog;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -52,10 +55,12 @@ public class DialogService : IDialogService
 
     public async Task<string?> OpenFileSelect(string? title = null, string? filter = null, string? initialDirectory = null)
     {
+        var filters = CreateFilterList(filter);
         var options = new FilePickerOpenOptions
         {
-            Title = title ?? "Select file...",
+            Title = title ?? "Select File",
             AllowMultiple = false,
+            FileTypeFilter = filters.Count > 0 ? filters : null,
         };
 
         var storageProvider = GetStorageProvider();
@@ -75,10 +80,12 @@ public class DialogService : IDialogService
 
     public async Task<string[]?> OpenFilesSelect(string? title = null, string? filter = null, string? initialDirectory = null)
     {
+        var filters = CreateFilterList(filter);
         var options = new FilePickerOpenOptions
         {
-            Title = title ?? "Select file(s)...",
+            Title = title ?? "Select File(s)",
             AllowMultiple = true,
+            FileTypeFilter = filters.Count > 0 ? filters : null,
         };
 
         var storageProvider = GetStorageProvider();
@@ -100,7 +107,7 @@ public class DialogService : IDialogService
     {
         var options = new FolderPickerOpenOptions
         {
-            Title = title ?? "Select folder...",
+            Title = title ?? "Select Folder",
             AllowMultiple = false,
         };
 
@@ -117,6 +124,35 @@ public class DialogService : IDialogService
         }
 
         return storageFolders[0].Path.LocalPath;
+    }
+
+    private static IReadOnlyList<FilePickerFileType> CreateFilterList(string? filter)
+    {
+        var filters = new List<FilePickerFileType>();
+        if (filter != null)
+        {
+            try
+            {
+                var filterSplit = filter.Split('|');
+                for (int i = 0; i < filterSplit.Length; i += 2)
+                {
+                    var filterName = filterSplit[0];
+                    var filterTypes = filterSplit[i + 1].Split(';');
+                    var newFilter = new FilePickerFileType(filterName)
+                    {
+                        Patterns = filterTypes,
+                    };
+
+                    filters.Add(newFilter);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Failed to create file filter list.");
+            }
+        }
+
+        return filters;
     }
 
     private static IStorageProvider? GetStorageProvider()
