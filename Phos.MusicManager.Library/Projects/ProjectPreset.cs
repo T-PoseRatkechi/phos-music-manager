@@ -1,4 +1,4 @@
-﻿namespace Phos.MusicManager.Library.Workspaces;
+﻿namespace Phos.MusicManager.Library.Projects;
 
 using Phos.MusicManager.Library.Audio.Models;
 

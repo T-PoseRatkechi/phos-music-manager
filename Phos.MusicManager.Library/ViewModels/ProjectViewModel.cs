@@ -9,15 +9,15 @@ using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Navigation;
+using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels.Music;
-using Phos.MusicManager.Library.ViewModels.Workspaces.Dialogs;
-using Phos.MusicManager.Library.Workspaces;
+using Phos.MusicManager.Library.ViewModels.Projects.Dialogs;
 
-#pragma warning disable SA1601 // Partial elements should be documented
 #pragma warning disable SA1600 // Elements should be documented
-public partial class WorkspaceViewModel : ViewModelBase, IPage
+#pragma warning disable SA1601 // Partial elements should be documented
+public partial class ProjectViewModel : ViewModelBase, IPage
 {
-    private readonly Workspace workspace;
+    private readonly Project project;
     private readonly AudioBuilder audioBuilder;
     private readonly MusicFactory musicFactory;
     private readonly IDialogService dialog;
@@ -27,25 +27,25 @@ public partial class WorkspaceViewModel : ViewModelBase, IPage
     private TrackPanelViewModel? trackPanel;
     private AudioTrack? selectedTrack;
 
-    public WorkspaceViewModel(
-        Workspace workspace,
+    public ProjectViewModel(
+        Project project,
         AudioBuilder audioBuilder,
         MusicFactory musicFactory,
         IDialogService dialog,
         ILogger? log = null)
     {
         this.log = log;
-        this.workspace = workspace;
+        this.project = project;
         this.audioBuilder = audioBuilder;
         this.musicFactory = musicFactory;
         this.dialog = dialog;
     }
 
-    public string Name => this.workspace.Settings.Value.Name;
+    public string Name => this.project.Settings.Value.Name;
 
-    public ObservableCollection<AudioTrack> Tracks => this.workspace.Audio.Tracks;
+    public ObservableCollection<AudioTrack> Tracks => this.project.Audio.Tracks;
 
-    public string? Color => this.workspace.Settings.Value.Color;
+    public string? Color => this.project.Settings.Value.Color;
 
     public AudioTrack? SelectedTrack
     {
@@ -65,12 +65,12 @@ public partial class WorkspaceViewModel : ViewModelBase, IPage
         try
         {
             this.CanBuild = false;
-            var outputDir = this.workspace.Settings.Value.OutputDir ?? this.workspace.BuildFolder;
-            await this.audioBuilder.Build(this.workspace.Audio.Tracks, outputDir);
+            var outputDir = this.project.Settings.Value.OutputDir ?? this.project.BuildFolder;
+            await this.audioBuilder.Build(this.project.Audio.Tracks, outputDir);
         }
         catch (Exception ex)
         {
-            this.log?.LogError(ex, "Failed to build output for project {project}.", this.workspace.Settings.Value.Name);
+            this.log?.LogError(ex, "Failed to build output for project {project}.", this.project.Settings.Value.Name);
         }
         finally
         {
@@ -85,14 +85,14 @@ public partial class WorkspaceViewModel : ViewModelBase, IPage
         var newTrack = await this.dialog.OpenDialog<AudioTrack>(addTrack);
         if (newTrack != null)
         {
-            this.workspace.Audio.Tracks.Add(newTrack);
+            this.project.Audio.Tracks.Add(newTrack);
         }
     }
 
     [RelayCommand]
     private async Task OpenSettings()
     {
-        var settings = new ProjectSettingsViewModel(this.workspace.Settings, this.dialog);
+        var settings = new ProjectSettingsViewModel(this.project.Settings, this.dialog);
         await this.dialog.OpenDialog(settings);
     }
 
@@ -111,6 +111,6 @@ public partial class WorkspaceViewModel : ViewModelBase, IPage
             return;
         }
 
-        this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.workspace.Audio, this.CloseTrackPanelCommand);
+        this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.project.Audio, this.CloseTrackPanelCommand);
     }
 }

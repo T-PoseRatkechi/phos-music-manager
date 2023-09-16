@@ -1,4 +1,4 @@
-﻿namespace Phos.MusicManager.Library.Workspaces;
+﻿namespace Phos.MusicManager.Library.Projects;
 
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
