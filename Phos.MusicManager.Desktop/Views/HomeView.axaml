@@ -10,7 +10,9 @@
     mc:Ignorable="d">
     <cc:Page Title="Home">
         <cc:Page.MenuItems>
-            <Button Content="New Project" />
+            <Button
+                Command="{Binding CreateProjectCommand}"
+                Content="New Project" />
         </cc:Page.MenuItems>
         <ScrollViewer>
             <StackPanel>
@@ -19,9 +21,10 @@
                     Theme="{StaticResource SubtitleTextBlockStyle}" />
                 <ItemsRepeater ItemsSource="{Binding Projects}">
                     <ItemsRepeater.Layout>
-                        <StackLayout
+                        <WrapLayout
+                            HorizontalSpacing="8"
                             Orientation="Horizontal"
-                            Spacing="8" />
+                            VerticalSpacing="8" />
                     </ItemsRepeater.Layout>
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate>
@@ -30,16 +33,16 @@
                                 Height="128"
                                 Command="{Binding $parent.DataContext.OpenProjectCommand}"
                                 CommandParameter="{Binding Settings.Value.Name}"
-								ToolTip.Tip="{Binding Settings.Value.Name}">
+                                ToolTip.Tip="{Binding Settings.Value.Name}">
                                 <Grid>
                                     <TextBlock
-                                        IsVisible="{Binding #workspaceIcon.Source, Converter={StaticResource NullBoolConverter}, ConverterParameter=true}"
+                                        IsVisible="{Binding #projectIcon.Source, Converter={StaticResource NullBoolConverter}, ConverterParameter=true}"
                                         Text="{Binding Settings.Value.Name}"
                                         TextAlignment="Center"
                                         TextWrapping="Wrap" />
                                     <Image
-                                        Name="workspaceIcon"
-                                        Source="{Binding, Converter={StaticResource WorkspaceIconConverter}}" />
+                                        Name="projectIcon"
+                                        Source="{Binding, Converter={StaticResource ProjectIconConverter}}" />
                                 </Grid>
                             </Button>
                         </DataTemplate>
