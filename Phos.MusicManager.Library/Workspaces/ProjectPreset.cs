@@ -13,11 +13,6 @@ public class ProjectPreset
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets preset target game.
-    /// </summary>
-    public string Game { get; set; } = string.Empty;
-
-    /// <summary>
     /// Gets or sets preset icon color.
     /// </summary>
     public string? Color { get; set; }
