@@ -11,7 +11,11 @@ public partial class Page : UserControl
     public static readonly DirectProperty<Page, object?> MenuItemsProperty =
         AvaloniaProperty.RegisterDirect<Page, object?>(nameof(MenuItems), o => o.MenuItems, (o, v) => o.MenuItems = v);
 
+    public static readonly DirectProperty<Page, object?> IconProperty =
+        AvaloniaProperty.RegisterDirect<Page, object?>(nameof(Icon), o => o.Icon, (o, v) => o.Icon = v);
+
     private object? menuItems;
+    private object? icon;
 
     public Page()
     {
@@ -28,5 +32,11 @@ public partial class Page : UserControl
     {
         get => this.menuItems;
         set => this.SetAndRaise(MenuItemsProperty, ref this.menuItems, value);
+    }
+
+    public object? Icon
+    {
+        get => this.icon;
+        set => this.SetAndRaise(IconProperty, ref this.icon, value);
     }
 }

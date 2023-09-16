@@ -9,12 +9,24 @@
     mc:Ignorable="d">
     <UserControl.Template>
         <ControlTemplate>
-            <Grid Margin="16,8,16,16" RowDefinitions="auto *">
-                <Grid Margin="0,0,0,8" ColumnDefinitions="auto * auto">
-                    <TextBlock Text="{TemplateBinding Title}" Theme="{StaticResource TitleTextBlockStyle}" />
-                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding MenuItems}" />
+            <Grid
+                Margin="16,8,16,16"
+                RowDefinitions="auto *">
+                <Grid
+                    Margin="0,0,0,8"
+                    ColumnDefinitions="auto auto * auto">
+                    <ContentPresenter Content="{TemplateBinding Icon}" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{TemplateBinding Title}"
+                        Theme="{StaticResource TitleTextBlockStyle}" />
+                    <ContentPresenter
+                        Grid.Column="3"
+                        Content="{TemplateBinding MenuItems}" />
                 </Grid>
-                <ContentControl Grid.Row="1" Content="{TemplateBinding Content}" />
+                <ContentControl
+                    Grid.Row="1"
+                    Content="{TemplateBinding Content}" />
             </Grid>
         </ControlTemplate>
     </UserControl.Template>
