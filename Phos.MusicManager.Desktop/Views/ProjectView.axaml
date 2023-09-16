@@ -1,5 +1,5 @@
 <UserControl
-    x:Class="Phos.MusicManager.Desktop.Views.WorkspaceView"
+    x:Class="Phos.MusicManager.Desktop.Views.ProjectView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="using:Phos.MusicManager.Desktop.Controls"

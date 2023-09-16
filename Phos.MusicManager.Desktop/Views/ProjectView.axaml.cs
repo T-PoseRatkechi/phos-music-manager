@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Phos.MusicManager.Desktop.Views;
 
-public partial class WorkspaceView : UserControl
+public partial class ProjectView : UserControl
 {
-    public WorkspaceView()
+    public ProjectView()
     {
         InitializeComponent();
     }
