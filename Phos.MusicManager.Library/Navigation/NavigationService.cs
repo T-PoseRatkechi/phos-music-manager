@@ -28,31 +28,35 @@ public partial class NavigationService : ObservableObject, INavigationService
     public ObservableCollection<IPage> Pages { get; }
 
     /// <inheritdoc/>
-    public void NavigateTo(string name)
+    public bool NavigateTo(string name)
     {
         var newPage = this.Pages.FirstOrDefault(pages => pages.Name == name);
         if (newPage != null)
         {
             this.Current = newPage;
+            return true;
         }
         else
         {
             this.log?.LogError("Page not found by name: {name}", name);
+            return false;
         }
     }
 
     /// <inheritdoc/>
-    public void NavigateTo<TPage>()
+    public bool NavigateTo<TPage>()
         where TPage : IPage
     {
         var newPage = this.Pages.FirstOrDefault(x => x.GetType() == typeof(TPage));
         if (newPage != null)
         {
             this.Current = newPage;
+            return true;
         }
         else
         {
             this.log?.LogError("Page not found by type: {type}", typeof(TPage).Name);
+            return false;
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿namespace Phos.MusicManager.Library.Navigation;
 
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 /// <summary>
 /// Navigation service interface.
 /// </summary>
-public interface INavigationService
+public interface INavigationService : INotifyPropertyChanged
 {
     /// <summary>
     /// Gets current page.
@@ -21,12 +22,14 @@ public interface INavigationService
     /// Navigate to specific page.
     /// </summary>
     /// <param name="name">Page name.</param>
-    void NavigateTo(string name);
+    /// <returns>Value indicating navigation was successful.</returns>
+    bool NavigateTo(string name);
 
     /// <summary>
     /// Navigate to specific page.
     /// </summary>
     /// <typeparam name="TPage">Page type.</typeparam>
-    void NavigateTo<TPage>()
+    /// <returns>Value indicating navigation was successful.</returns>
+    bool NavigateTo<TPage>()
         where TPage : IPage;
 }
