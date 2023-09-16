@@ -6,7 +6,10 @@ using CommunityToolkit.Mvvm.ComponentModel;
 public partial class AppSettings : ObservableObject
 {
     [ObservableProperty]
-    private string? currentProject;
+    private string? previousProject;
+
+    [ObservableProperty]
+    private bool restorePreviousProject = true;
 
     [ObservableProperty]
     private List<string> projectFiles = new();
