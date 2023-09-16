@@ -75,15 +75,30 @@ public class ProjectRepository
 
     private void LoadProjects()
     {
-        var missingProjectFiles = new List<string>();
-        foreach (var projectFile in this.appSettings.Value.ProjectFiles)
-        {
-            if (!File.Exists(projectFile))
-            {
-                missingProjectFiles.Add(projectFile);
-                continue;
-            }
+        var projectFiles = new HashSet<string>();
 
+        // Add known project files.
+        foreach (var file in this.appSettings.Value.ProjectFiles)
+        {
+            if (File.Exists(file))
+            {
+                projectFiles.Add(file);
+            }
+        }
+
+        // Add project files from projects folder.
+        foreach (var folder in Directory.EnumerateDirectories(this.projectsDir))
+        {
+            var file = Path.Join(folder, "project.phos");
+            if (File.Exists(file))
+            {
+                projectFiles.Add(file);
+            }
+        }
+
+        // Load projects.
+        foreach (var projectFile in projectFiles)
+        {
             try
             {
                 var project = new Project(projectFile);
@@ -95,16 +110,10 @@ public class ProjectRepository
             }
         }
 
-        // Remove missing projects.
-        if (missingProjectFiles.Count > 0)
-        {
-            foreach (var file in missingProjectFiles)
-            {
-                this.appSettings.Value.ProjectFiles.Remove(file);
-            }
-
-            this.appSettings.Save();
-        }
+        // Update known project files in settings.
+        this.appSettings.Value.ProjectFiles.Clear();
+        this.appSettings.Value.ProjectFiles.AddRange(projectFiles);
+        this.appSettings.Save();
     }
 
     private void AddDefaultProjects()
