@@ -6,85 +6,70 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Navigation;
-using Phos.MusicManager.Library.ViewModels.Services;
+using Phos.MusicManager.Library.ViewModels.Projects;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class DashboardViewModel : ViewModelBase
 {
-    private readonly DashboardService dashboard;
-    private readonly ISavable<AppSettings> settings;
-    private MenuItem? selectedItem;
+    private readonly ISavable<AppSettings> appSettings;
 
     [ObservableProperty]
-    private MenuItem[] menuItems;
+    private IPage[] menuItems;
 
-    public DashboardViewModel(DashboardService dashboard, ISavable<AppSettings> settings)
+    public DashboardViewModel(ProjectsNavigation navigation, ISavable<AppSettings> appSettings)
     {
-        this.dashboard = dashboard;
-        this.settings = settings;
-        this.Navigation = dashboard.Navigation;
+        this.appSettings = appSettings;
+        this.Navigation = navigation;
 
-        // Generate menu items from pages.
-        this.MenuItems = dashboard.ProjectPages.Select(x => new MenuItem(x.Name, x.Color)).ToArray();
-        foreach (var page in this.Navigation.Pages)
+        // Generate menu items for pages.
+        this.menuItems = this.Navigation.Pages.Where(x => x is ProjectViewModel).ToArray();
+        this.FooterMenuItems = this.Navigation.Pages.Except(this.MenuItems).ToArray();
+
+        // Set initial page.
+        if (appSettings.Value.RestorePreviousProject && appSettings.Value.PreviousProject != null)
         {
-            if (page is not ProjectViewModel)
+            if (!this.Navigation.NavigateTo(appSettings.Value.PreviousProject))
             {
-                this.FooterMenuItems.Add(new(page.Name));
+                this.Navigation.NavigateTo<HomeViewModel>();
             }
         }
+        else
+        {
+            this.Navigation.NavigateTo<HomeViewModel>();
+        }
 
-        // Set initial page (last opened project or home page).
-        this.SelectedItem = settings.Value.RestorePreviousProject ? this.GetSelectedItem(this.settings.Value.PreviousProject) : this.GetSelectedItem("Home");
-
-        // Keep selected page in sync with navigation page.
+        // Update app settings.
         this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
 
-        // Add new projects to menu.
-        dashboard.ProjectPages.CollectionChanged += this.ProjectPages_CollectionChanged;
+        // Update menu items on projects add/remove.
+        this.Navigation.Pages.CollectionChanged += this.Pages_CollectionChanged;
     }
 
-    private void ProjectPages_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
-    {
-        this.MenuItems = this.dashboard.ProjectPages.Select(x => new MenuItem(x.Name, x.Color)).ToArray();
-    }
+    public INavigationService Navigation { get; }
 
-    public NavigationService Navigation { get; }
-
-    public MenuItem? SelectedItem
-    {
-        get => this.selectedItem;
-        set
-        {
-            this.SetProperty(ref this.selectedItem, value);
-            this.Navigation.NavigateTo(this.selectedItem?.Name ?? "Home");
-        }
-    }
-
-    public List<MenuItem> FooterMenuItems { get; } = new();
+    public IPage[] FooterMenuItems { get; }
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(this.Navigation.Current))
         {
-            // Update selected project in app settings, if project item selected.
-            if (this.MenuItems.FirstOrDefault(x => x.Name == this.Navigation.Current?.Name) != null)
+            if (this.Navigation.Current == null)
             {
-                this.settings.Value.PreviousProject = this.Navigation.Current?.Name;
-                this.settings.Save();
+                this.Navigation.NavigateTo<HomeViewModel>();
+                return;
             }
 
-            // Update selected.
-            this.SelectedItem = this.GetSelectedItem(this.Navigation.Current?.Name);
+            if (this.MenuItems.Contains(this.Navigation.Current))
+            {
+                this.appSettings.Value.PreviousProject = this.Navigation.Current.Name;
+                this.appSettings.Save();
+            }
         }
     }
 
-    private MenuItem? GetSelectedItem(string? name)
+    private void Pages_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        var items = this.MenuItems.Concat(this.FooterMenuItems);
-        return items.FirstOrDefault(x => x.Name == name);
+        this.MenuItems = this.Navigation.Pages.Where(x => x is ProjectViewModel).ToArray();
     }
-
-    public record MenuItem(string Name, string? Color = null);
 }
