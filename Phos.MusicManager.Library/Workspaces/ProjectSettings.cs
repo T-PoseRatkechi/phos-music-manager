@@ -12,12 +12,6 @@ public partial class ProjectSettings : ObservableObject
     private string name = string.Empty;
 
     /// <summary>
-    /// Gets or sets the target game.
-    /// </summary>
-    [ObservableProperty]
-    private string game = string.Empty;
-
-    /// <summary>
     /// Gets or sets the project icon color.
     /// </summary>
     [ObservableProperty]
@@ -33,7 +27,7 @@ public partial class ProjectSettings : ObservableObject
     /// Gets or sets the default project preset.
     /// </summary>
     [ObservableProperty]
-    private string preset = string.Empty;
+    private string? preset;
 
     /// <summary>
     /// Gets or sets the install path of game target.
