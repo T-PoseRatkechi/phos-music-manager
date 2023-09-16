@@ -17,7 +17,6 @@ using Phos.MusicManager.Library.ViewModels.Projects.Dialogs;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class ProjectViewModel : ViewModelBase, IPage
 {
-    private readonly Project project;
     private readonly AudioBuilder audioBuilder;
     private readonly MusicFactory musicFactory;
     private readonly IDialogService dialog;
@@ -35,17 +34,16 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         ILogger? log = null)
     {
         this.log = log;
-        this.project = project;
         this.audioBuilder = audioBuilder;
         this.musicFactory = musicFactory;
         this.dialog = dialog;
+
+        this.Project = project;
     }
 
-    public string Name => this.project.Settings.Value.Name;
+    public Project Project { get; }
 
-    public ObservableCollection<AudioTrack> Tracks => this.project.Audio.Tracks;
-
-    public string? Color => this.project.Settings.Value.Color;
+    public string Name => this.Project.Settings.Value.Name;
 
     public AudioTrack? SelectedTrack
     {
@@ -65,12 +63,12 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         try
         {
             this.CanBuild = false;
-            var outputDir = this.project.Settings.Value.OutputDir ?? this.project.BuildFolder;
-            await this.audioBuilder.Build(this.project.Audio.Tracks, outputDir);
+            var outputDir = this.Project.Settings.Value.OutputDir ?? this.Project.BuildFolder;
+            await this.audioBuilder.Build(this.Project.Audio.Tracks, outputDir);
         }
         catch (Exception ex)
         {
-            this.log?.LogError(ex, "Failed to build output for project {project}.", this.project.Settings.Value.Name);
+            this.log?.LogError(ex, "Failed to build output for project {project}.", this.Project.Settings.Value.Name);
         }
         finally
         {
@@ -85,14 +83,14 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         var newTrack = await this.dialog.OpenDialog<AudioTrack>(addTrack);
         if (newTrack != null)
         {
-            this.project.Audio.Tracks.Add(newTrack);
+            this.Project.Audio.Tracks.Add(newTrack);
         }
     }
 
     [RelayCommand]
     private async Task OpenSettings()
     {
-        var settings = new ProjectSettingsViewModel(this.project.Settings, this.dialog);
+        var settings = new ProjectSettingsViewModel(this.Project.Settings, this.dialog);
         await this.dialog.OpenDialog(settings);
     }
 
@@ -111,6 +109,6 @@ public partial class ProjectViewModel : ViewModelBase, IPage
             return;
         }
 
-        this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.project.Audio, this.CloseTrackPanelCommand);
+        this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.Project.Audio, this.CloseTrackPanelCommand);
     }
 }
