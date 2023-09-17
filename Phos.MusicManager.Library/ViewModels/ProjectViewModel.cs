@@ -126,16 +126,16 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         var projectIconFile = Path.Join(this.Project.ProjectFolder, "icon.png");
 
         // Icon was removed.
-        if (File.Exists(projectIconFile) && editProject.IconFile == null)
+        if (File.Exists(projectIconFile) && editProject.Icon == null)
         {
             File.Delete(projectIconFile);
             this.OnPropertyChanged(nameof(this.IconFile));
         }
 
         // New icon was selected.
-        else if (editProject.IconFile != null && editProject.IconFile != projectIconFile)
+        else if (editProject.Icon is string iconFile && iconFile != projectIconFile)
         {
-            File.Copy(editProject.IconFile, projectIconFile, true);
+            File.Copy(iconFile, projectIconFile, true);
             this.OnPropertyChanged(nameof(this.IconFile));
         }
     }

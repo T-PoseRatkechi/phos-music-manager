@@ -58,9 +58,9 @@ public partial class HomeViewModel : ViewModelBase, IPage
             var project = this.projectRepo.Create(projectSettings);
             var projectIconFile = Path.Join(project.ProjectFolder, "icon.png");
 
-            if (createProject.IconFile != null)
+            if (createProject.Icon != null && createProject.Icon is string iconFile)
             {
-                File.Copy(createProject.IconFile, projectIconFile, true);
+                File.Copy(iconFile, projectIconFile, true);
             }
         }
         catch (Exception ex)
