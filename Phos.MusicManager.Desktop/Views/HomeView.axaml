@@ -31,7 +31,7 @@
                             <Button
                                 Command="{Binding $parent.DataContext.OpenProjectCommand}"
                                 CommandParameter="{Binding Name}"
-                                ToolTip.Tip="{Binding Name}">
+                                ToolTip.Tip="{Binding Project.Settings.Value.Name}">
                                 <Button.Styles>
                                     <Style Selector="Button">
                                         <Setter Property="Padding" Value="0" />
@@ -54,7 +54,7 @@
                                                 MaxHeight="40"
                                                 VerticalAlignment="Bottom"
                                                 FontSize="12"
-                                                Text="{Binding Name}"
+                                                Text="{Binding Project.Settings.Value.Name}"
                                                 TextAlignment="Center"
                                                 TextTrimming="CharacterEllipsis"
                                                 TextWrapping="Wrap" />

@@ -37,9 +37,15 @@
         </Style>
     </Window.Styles>
     <StackPanel Margin="8">
-        <TextBlock
-            Name="title"
-            Theme="{StaticResource TitleTextBlockStyle}" />
+        <Grid ColumnDefinitions="* auto">
+            <TextBlock
+                Name="title"
+                Theme="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock
+                HorizontalAlignment="Right"
+                Opacity="0.2"
+                Text="{Binding Id}" />
+        </Grid>
         <Grid ColumnDefinitions="128 8 * 8 * 8">
             <StackPanel Spacing="4">
                 <Border
