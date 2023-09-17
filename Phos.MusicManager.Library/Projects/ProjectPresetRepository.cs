@@ -2,12 +2,13 @@
 
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
-using Phos.MusicManager.Library.Common;
-using Phos.MusicManager.Library.Common.Serializers;
+using Phos.MusicManager.Library.Audio.Models;
+using Phos.MusicManager.Library.Serializers;
 
 #pragma warning disable SA1600 // Elements should be documented
-public class ProjectPresetRepository : IRepository<ProjectPreset, string>
+public class ProjectPresetRepository
 {
+    public const string PresetExt = ".project";
     private readonly ILogger? log;
     private readonly string presetsDir;
 
@@ -21,47 +22,49 @@ public class ProjectPresetRepository : IRepository<ProjectPreset, string>
 
     public ObservableCollection<ProjectPreset> List { get; } = new();
 
-    public void Create(ProjectPreset preset)
+    public void Create(ProjectPreset preset, string? outputFile = null)
     {
-        if (this.GetById(preset.Name) != null)
-        {
-            this.Update(preset);
-            return;
-        }
+        var presetOutputFile = outputFile ?? Path.Join(this.presetsDir, $"{preset.Name}{PresetExt}");
+        ProtobufSerializer.Serialize(presetOutputFile, preset);
 
-        var presetFile = Path.Join(this.presetsDir, $"{preset.Name}.json");
-        if (File.Exists(presetFile))
+        // Add preset if created in presets folder.
+        if (outputFile == null)
         {
-            throw new Exception("Project preset file with same name already exists.");
+            this.List.Add(preset);
         }
-
-        JsonFileSerializer.Serialize(presetFile, preset);
-        this.List.Add(preset);
     }
 
-    public bool Update(ProjectPreset preset)
+    public void Create(Project project, string? outputFile = null)
     {
-        var currentPreset = this.GetById(preset.Name);
-        if (currentPreset == null)
+        var preset = new ProjectPreset
         {
-            this.log?.LogError("Failed to find preset with name {name}.", preset.Name);
-            return false;
+            Name = project.Settings.Value.Name,
+            Color = project.Settings.Value.Color,
+            PostBuild = project.Settings.Value.PostBuild,
+            DefaultTracks = project.Audio.Tracks.Select(x =>
+                new AudioTrack
+                {
+                    Name = x.Name,
+                    Category = x.Category,
+                    Tags = x.Tags,
+                    Encoder = x.Encoder,
+                    OutputPath = x.OutputPath,
+                })
+            .ToArray(),
+        };
+
+        var projectIconFile = Path.Join(project.ProjectFolder, "icon.png");
+        if (File.Exists(projectIconFile))
+        {
+            preset.Icon = File.ReadAllBytes(projectIconFile);
         }
 
-        currentPreset.Name = preset.Name;
-        currentPreset.Color = preset.Color;
-        currentPreset.DefaultTracks = preset.DefaultTracks;
-        currentPreset.PostBuild = preset.PostBuild;
-
-        var presetFile = Path.Join(this.presetsDir, $"{preset.Name}.json");
-        JsonFileSerializer.Serialize(presetFile, currentPreset);
-
-        return true;
+        this.Create(preset, outputFile);
     }
 
     public void Delete(ProjectPreset preset)
     {
-        var presetFile = Path.Join(this.presetsDir, $"{preset.Name}.json");
+        var presetFile = Path.Join(this.presetsDir, $"{preset.Name}{PresetExt}");
         if (File.Exists(presetFile))
         {
             File.Delete(presetFile);
@@ -77,11 +80,11 @@ public class ProjectPresetRepository : IRepository<ProjectPreset, string>
 
     private void LoadPresets()
     {
-        foreach (var file in Directory.EnumerateFiles(this.presetsDir, "*.json", SearchOption.AllDirectories))
+        foreach (var file in Directory.EnumerateFiles(this.presetsDir, $"*{PresetExt}", SearchOption.AllDirectories))
         {
             try
             {
-                var preset = JsonFileSerializer.Deserialize<ProjectPreset>(file) ?? throw new Exception();
+                var preset = ProtobufSerializer.Deserialize<ProjectPreset>(file) ?? throw new Exception();
                 this.List.Add(preset);
             }
             catch (Exception ex)
@@ -98,6 +101,7 @@ public class ProjectPresetRepository : IRepository<ProjectPreset, string>
             if (this.GetById(preset.Name) == null)
             {
                 this.Create(preset);
+                this.List.Add(preset);
             }
         }
     }
