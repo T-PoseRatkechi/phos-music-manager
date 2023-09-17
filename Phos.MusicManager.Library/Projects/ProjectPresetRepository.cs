@@ -101,7 +101,6 @@ public class ProjectPresetRepository
             if (this.GetById(preset.Name) == null)
             {
                 this.Create(preset);
-                this.List.Add(preset);
             }
         }
     }
