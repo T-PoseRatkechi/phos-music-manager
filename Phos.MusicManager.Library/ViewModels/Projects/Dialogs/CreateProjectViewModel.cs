@@ -86,7 +86,10 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     private async Task SelectIcon()
     {
         var iconFile = await this.dialog.OpenFileSelect("Select Project Icon", "PNG files|*.png");
-        this.IconFile = iconFile;
+        if (iconFile != null)
+        {
+            this.IconFile = iconFile;
+        }
     }
 
     [RelayCommand]
