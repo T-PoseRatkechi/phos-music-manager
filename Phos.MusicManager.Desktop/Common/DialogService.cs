@@ -53,6 +53,30 @@ public class DialogService : IDialogService
         await this.OpenDialog<object?>(dialog, owner);
     }
 
+    public async Task<string?> OpenSaveFile(string? title = null, string? filter = null, string? initialDirectory = null)
+    {
+        var filters = CreateFilterList(filter);
+        var options = new FilePickerSaveOptions
+        {
+            Title = title ?? "Save File",
+            FileTypeChoices = filters.Count > 0 ? filters : null,
+        };
+
+        var storageProvider = GetStorageProvider();
+        if (storageProvider == null)
+        {
+            return null;
+        }
+
+        var storageFile = await storageProvider.SaveFilePickerAsync(options);
+        if (storageFile == null)
+        {
+            return null;
+        }
+
+        return storageFile.Path.LocalPath;
+    }
+
     public async Task<string?> OpenFileSelect(string? title = null, string? filter = null, string? initialDirectory = null)
     {
         var filters = CreateFilterList(filter);

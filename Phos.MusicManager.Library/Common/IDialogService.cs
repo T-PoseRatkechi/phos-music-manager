@@ -17,6 +17,15 @@ public interface IDialogService
     Task<string?> OpenFileSelect(string? title = null, string? filter = null, string? initialDirectory = null);
 
     /// <summary>
+    /// Opens a save file dialog.
+    /// </summary>
+    /// <param name="title">Window title.</param>
+    /// <param name="filter">File filter.</param>
+    /// <param name="initialDirectory">Initial directory.</param>
+    /// <returns>The selected file path.</returns>
+    Task<string?> OpenSaveFile(string? title = null, string? filter = null, string? initialDirectory = null);
+
+    /// <summary>
     /// Opens a multi file select dialog.
     /// </summary>
     /// <param name="title">Window title.</param>
