@@ -1,7 +1,7 @@
 ﻿namespace Phos.MusicManager.Library.Audio;
 
-using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common.Serializers;
+using Phos.MusicManager.Library.Projects;
 
 /// <summary>
 /// Default music provider.
@@ -26,21 +26,21 @@ public static class DefaultMusic
     /// </summary>
     /// <param name="name">Game name.</param>
     /// <returns>Default audio tracks.</returns>
-    public static AudioTrack[] GetDefaultMusic(string name)
+    public static PresetAudioTrack[] GetDefaultMusic(string name)
     {
         var musicFile = GetDefaultMusicFile(name);
         if (musicFile == null)
         {
-            return Array.Empty<AudioTrack>();
+            return Array.Empty<PresetAudioTrack>();
         }
 
         try
         {
-            return JsonFileSerializer.Deserialize<AudioTrack[]>(musicFile) ?? Array.Empty<AudioTrack>();
+            return JsonFileSerializer.Deserialize<PresetAudioTrack[]>(musicFile) ?? Array.Empty<PresetAudioTrack>();
         }
         catch (Exception)
         {
-            return Array.Empty<AudioTrack>();
+            return Array.Empty<PresetAudioTrack>();
         }
     }
 }

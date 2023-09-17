@@ -11,19 +11,19 @@ using Phos.MusicManager.Library.ViewModels.Projects.Factories;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class ProjectCommands : ObservableObject
 {
-    private readonly CreateProjectFactory createProjectFactory;
     private readonly ProjectRepository projectRepository;
+    private readonly CreateProjectFactory createProjectFactory;
     private readonly IDialogService dialog;
     private readonly ILogger? log;
 
     public ProjectCommands(
-        CreateProjectFactory createProjectFactory,
         ProjectRepository projectRepository,
+        CreateProjectFactory createProjectFactory,
         IDialogService dialog,
         ILogger? log = null)
     {
-        this.createProjectFactory = createProjectFactory;
         this.projectRepository = projectRepository;
+        this.createProjectFactory = createProjectFactory;
         this.dialog = dialog;
         this.log = log;
     }

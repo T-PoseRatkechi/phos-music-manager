@@ -1,6 +1,5 @@
 ﻿namespace Phos.MusicManager.Library.Projects;
 
-using Phos.MusicManager.Library.Audio.Models;
 using ProtoBuf;
 
 #pragma warning disable SA1600 // Elements should be documented
@@ -14,7 +13,7 @@ public class ProjectPreset
     public string? Color { get; set; }
 
     [ProtoMember(3)]
-    public AudioTrack[] DefaultTracks { get; set; } = Array.Empty<AudioTrack>();
+    public PresetAudioTrack[] DefaultTracks { get; set; } = Array.Empty<PresetAudioTrack>();
 
     [ProtoMember(4)]
     public string? PostBuild { get; set; } = null;
