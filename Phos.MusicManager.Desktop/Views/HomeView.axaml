@@ -11,7 +11,7 @@
     <cc:Page Title="Home">
         <cc:Page.MenuItems>
             <Button
-                Command="{Binding CreateProjectCommand}"
+                Command="{Binding NewProjectCommand}"
                 Content="New Project" />
         </cc:Page.MenuItems>
         <ScrollViewer>
