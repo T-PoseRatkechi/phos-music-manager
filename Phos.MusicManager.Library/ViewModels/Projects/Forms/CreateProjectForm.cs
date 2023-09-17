@@ -84,22 +84,9 @@ public partial class CreateProjectForm : ObservableValidator, IDisposable
 
     public static ValidationResult? ValidateName(string name, ValidationContext context)
     {
-        var instance = (CreateProjectForm)context.ObjectInstance;
-
-        // Ignore duplicate name if editing project.
-        if (instance.existingProject != null && instance.Name == instance.existingProject.Settings.Value.Name)
-        {
-            return ValidationResult.Success;
-        }
-
         if (string.IsNullOrEmpty(name))
         {
             return new(null);
-        }
-
-        if (instance.projectRepo.List.FirstOrDefault(x => x.Settings.Value.Name == name) != null)
-        {
-            return new("Project with name already exists.");
         }
 
         return ValidationResult.Success;

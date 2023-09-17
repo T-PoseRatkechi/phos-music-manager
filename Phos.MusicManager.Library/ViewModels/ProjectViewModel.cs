@@ -45,7 +45,7 @@ public partial class ProjectViewModel : ViewModelBase, IPage
 
     public Project Project { get; }
 
-    public string Name => this.Project.Settings.Value.Name;
+    public string Name => this.Project.Settings.Value.Id;
 
     public string? IconFile
     {

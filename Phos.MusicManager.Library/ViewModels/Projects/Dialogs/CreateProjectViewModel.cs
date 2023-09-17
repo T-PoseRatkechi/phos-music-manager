@@ -45,6 +45,8 @@ public partial class CreateProjectViewModel : WindowViewModelBase
         this.Form.PropertyChanged += this.Form_PropertyChanged;
     }
 
+    public string? Id => this.existingProject?.Settings.Value.Id;
+
     public bool IsEditing { get; init; }
 
     public CreateProjectForm Form { get; }
