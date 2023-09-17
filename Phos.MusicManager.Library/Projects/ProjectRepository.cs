@@ -32,7 +32,7 @@ public class ProjectRepository
 
     public Project Create(ProjectSettings settings)
     {
-        var projectFile = Path.Join(this.projectsDir, settings.Name.Trim(), $"project.phos");
+        var projectFile = Path.Join(this.projectsDir, settings.Id, $"project.phos");
         if (File.Exists(projectFile))
         {
             throw new Exception("Project file already exists.");
@@ -75,7 +75,7 @@ public class ProjectRepository
 
     public Project? GetById(string id)
     {
-        return this.List.FirstOrDefault(x => x.Settings.Value.Name == id);
+        return this.List.FirstOrDefault(x => x.Settings.Value.Id == id);
     }
 
     private void LoadProjects()
@@ -129,6 +129,7 @@ public class ProjectRepository
             {
                 var settings = new ProjectSettings
                 {
+                    Id = preset.Name,
                     Name = preset.Name,
                     Color = preset.Color,
                     Preset = preset.Name,

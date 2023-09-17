@@ -5,6 +5,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class ProjectSettings : ObservableObject
 {
+    [ObservableProperty]
+    private string id = Guid.NewGuid().ToString();
+
     /// <summary>
     /// Gets or sets name.
     /// </summary>
