@@ -57,7 +57,10 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<CreateProjectFactory>();
         serviceCollection.AddSingleton<ProjectFactory>();
         serviceCollection.AddSingleton<ProjectsNavigation>();
+        
+        // Commands
         serviceCollection.AddSingleton<ProjectCommands>();
+        serviceCollection.AddSingleton<CreatePresetCommand>();
         return serviceCollection;
     }
 
