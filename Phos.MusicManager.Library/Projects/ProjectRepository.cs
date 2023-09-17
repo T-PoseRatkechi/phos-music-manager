@@ -2,6 +2,7 @@
 
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging;
+using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Common.Serializers;
 
@@ -46,7 +47,14 @@ public class ProjectRepository
         {
             if (this.presetRepo.GetById(project.Settings.Value.Preset) is ProjectPreset preset)
             {
-                project.Audio.AddTracks(preset.DefaultTracks);
+                project.Audio.AddTracks(preset.DefaultTracks.Select(x => new AudioTrack
+                {
+                    Name = x.Name,
+                    Category = x.Category,
+                    Tags = x.Tags,
+                    OutputPath = x.OutputPath,
+                    Encoder = x.Encoder,
+                }));
 
                 // Create project icon from preset.
                 if (preset.Icon != null)

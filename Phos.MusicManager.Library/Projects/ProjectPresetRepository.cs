@@ -47,7 +47,7 @@ public class ProjectPresetRepository
             Color = project.Settings.Value.Color,
             PostBuild = project.Settings.Value.PostBuild,
             DefaultTracks = project.Audio.Tracks.Select(x =>
-                new AudioTrack
+                new PresetAudioTrack
                 {
                     Name = x.Name,
                     Category = x.Category,
