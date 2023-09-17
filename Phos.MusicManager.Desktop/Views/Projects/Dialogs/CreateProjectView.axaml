@@ -16,10 +16,10 @@
     mc:Ignorable="d">
     <Window.Styles>
         <Style Selector="Window">
-            <Setter Property="Title" Value="Create Project" />
+            <Setter Property="Title" Value="New Project" />
         </Style>
         <Style Selector="Window TextBlock#title">
-            <Setter Property="Text" Value="Create Project" />
+            <Setter Property="Text" Value="New Project" />
         </Style>
         <Style Selector="Window.isEditing">
             <Setter Property="Title" Value="Project Settings" />
