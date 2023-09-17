@@ -29,6 +29,11 @@ public class ProjectIconConverter : IValueConverter
                 return new Bitmap(resourceIconFile);
             }
         }
+        else if (value is byte[] data)
+        {
+            using var stream = new MemoryStream(data);
+            return new Bitmap(stream);
+        }
 
         return null;
     }
