@@ -1,20 +1,44 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Phos.MusicManager.Desktop.Library.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Width="960" Height="540"
-        MinWidth="960" MinHeight="540"
-        x:Class="Phos.MusicManager.Desktop.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Phos Music Manager">
-
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <!--<vm:MainWindowViewModel/>-->
-    </Design.DataContext>
-    <ContentControl Content="{Binding RootViewModel}"/>
+<Window
+    x:Class="Phos.MusicManager.Desktop.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Phos.MusicManager.Desktop.Library.ViewModels"
+    Title="Phos Music Manager"
+    Width="960"
+    Height="540"
+    MinWidth="960"
+    MinHeight="540"
+    x:DataType="vm:MainWindowViewModel"
+    Icon="/Assets/avalonia-logo.ico"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem
+                    Command="{Binding NewProjectCommand}"
+                    Header="_New Project" />
+                <MenuItem
+                    Command="{Binding OpenProjectCommand}"
+                    Header="_Open..." />
+                <MenuItem
+                    Header="Export As"
+                    IsEnabled="{Binding CanProjectCommand}">
+                    <MenuItem
+                        Command="{Binding ExportPresetCommand}"
+                        Header="_Shareable Project..." />
+                    <MenuItem
+                        Command="{Binding ExportPresetCommand}"
+                        Header="_Project Preset..." />
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="Quick Loop" />
+            </MenuItem>
+        </Menu>
+        <ContentControl Content="{Binding RootViewModel}" />
+    </DockPanel>
 </Window>
