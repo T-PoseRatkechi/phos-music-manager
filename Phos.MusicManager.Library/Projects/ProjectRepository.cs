@@ -10,11 +10,11 @@ public class ProjectRepository
 {
     private readonly ILogger? log;
     private readonly string projectsDir;
-    private readonly IRepository<ProjectPreset, string> presetRepo;
+    private readonly ProjectPresetRepository presetRepo;
     private readonly ISavable<AppSettings> appSettings;
 
     public ProjectRepository(
-        IRepository<ProjectPreset, string> presetRepo,
+        ProjectPresetRepository presetRepo,
         ISavable<AppSettings> appSettings,
         ILogger? log = null)
     {
@@ -47,6 +47,13 @@ public class ProjectRepository
             if (this.presetRepo.GetById(project.Settings.Value.Preset) is ProjectPreset preset)
             {
                 project.Audio.AddTracks(preset.DefaultTracks);
+
+                // Create project icon from preset.
+                if (preset.Icon != null)
+                {
+                    var projectIconFile = Path.Join(project.ProjectFolder, "icon.png");
+                    File.WriteAllBytes(projectIconFile, preset.Icon);
+                }
             }
             else
             {
@@ -58,19 +65,9 @@ public class ProjectRepository
         return project;
     }
 
-    public void Delete(Project item)
-    {
-        throw new NotImplementedException();
-    }
-
     public Project? GetById(string id)
     {
         return this.List.FirstOrDefault(x => x.Settings.Value.Name == id);
-    }
-
-    public bool Update(Project item)
-    {
-        throw new NotImplementedException();
     }
 
     private void LoadProjects()
