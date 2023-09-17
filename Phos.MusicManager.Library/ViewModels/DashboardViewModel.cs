@@ -39,11 +39,11 @@ public partial class DashboardViewModel : ViewModelBase
             this.Navigation.NavigateTo<HomeViewModel>();
         }
 
-        // Update app settings.
-        this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
-
         // Update menu items on projects add/remove.
         this.Navigation.Pages.CollectionChanged += this.Pages_CollectionChanged;
+
+        // Update app settings.
+        this.Navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
 
     public INavigationService Navigation { get; }
@@ -54,12 +54,6 @@ public partial class DashboardViewModel : ViewModelBase
     {
         if (e.PropertyName == nameof(this.Navigation.Current))
         {
-            if (this.Navigation.Current == null)
-            {
-                this.Navigation.NavigateTo<HomeViewModel>();
-                return;
-            }
-
             if (this.MenuItems.Contains(this.Navigation.Current))
             {
                 this.appSettings.Value.PreviousProject = this.Navigation.Current.Name;
