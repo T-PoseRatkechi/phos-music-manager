@@ -2,7 +2,7 @@
 
 using System.Collections.Specialized;
 using Microsoft.Extensions.Logging;
-using Phos.MusicManager.Library.Common;
+using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels.Projects.Factories;
@@ -16,8 +16,7 @@ public class ProjectsNavigation : NavigationService
     public ProjectsNavigation(
         ProjectRepository projectRepo,
         ProjectFactory projectFactory,
-        CreateProjectFactory createProjectFactory,
-        IDialogService dialog,
+        ProjectCommands projectCommands,
         ILogger? log)
         : base(log)
     {
@@ -30,7 +29,7 @@ public class ProjectsNavigation : NavigationService
         }
 
         this.Pages.Add(new AboutViewModel());
-        this.Pages.Add(new HomeViewModel(this, createProjectFactory, projectRepo, dialog, log));
+        this.Pages.Add(new HomeViewModel(this, projectCommands));
 
         projectRepo.List.CollectionChanged += this.ProjectList_CollectionChanged;
     }
