@@ -30,7 +30,7 @@ public class ProjectsNavigation : NavigationService
         }
 
         this.Pages.Add(new AboutViewModel());
-        this.Pages.Add(new HomeViewModel(this, createProjectFactory, dialog));
+        this.Pages.Add(new HomeViewModel(this, createProjectFactory, projectRepo, dialog, log));
 
         projectRepo.List.CollectionChanged += this.ProjectList_CollectionChanged;
     }
