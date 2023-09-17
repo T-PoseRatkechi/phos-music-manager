@@ -22,10 +22,10 @@
             <Setter Property="Text" Value="Create Project" />
         </Style>
         <Style Selector="Window.isEditing">
-            <Setter Property="Title" Value="Edit Project" />
+            <Setter Property="Title" Value="Project Settings" />
         </Style>
         <Style Selector="Window.isEditing TextBlock#title">
-            <Setter Property="Text" Value="Edit Project" />
+            <Setter Property="Text" Value="Project Settings" />
         </Style>
         <Style Selector="Window Button#confirmButton">
             <Setter Property="Content" Value="Create" />
