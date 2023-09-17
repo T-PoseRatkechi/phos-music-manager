@@ -1,6 +1,5 @@
 ﻿namespace Phos.MusicManager.Library.ViewModels;
 
-using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
@@ -11,7 +10,7 @@ using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Navigation;
 using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels.Music;
-using Phos.MusicManager.Library.ViewModels.Projects.Dialogs;
+using Phos.MusicManager.Library.ViewModels.Projects.Factories;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
@@ -19,6 +18,7 @@ public partial class ProjectViewModel : ViewModelBase, IPage
 {
     private readonly AudioBuilder audioBuilder;
     private readonly MusicFactory musicFactory;
+    private readonly CreateProjectFactory createProjectFactory;
     private readonly IDialogService dialog;
     private readonly ILogger? log;
 
@@ -30,12 +30,14 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         Project project,
         AudioBuilder audioBuilder,
         MusicFactory musicFactory,
+        CreateProjectFactory createProjectFactory,
         IDialogService dialog,
         ILogger? log = null)
     {
         this.log = log;
         this.audioBuilder = audioBuilder;
         this.musicFactory = musicFactory;
+        this.createProjectFactory = createProjectFactory;
         this.dialog = dialog;
 
         this.Project = project;
@@ -44,6 +46,20 @@ public partial class ProjectViewModel : ViewModelBase, IPage
     public Project Project { get; }
 
     public string Name => this.Project.Settings.Value.Name;
+
+    public string? IconFile
+    {
+        get
+        {
+            var iconFile = Path.Join(this.Project.ProjectFolder, "icon.png");
+            if (File.Exists(iconFile))
+            {
+                return iconFile;
+            }
+
+            return null;
+        }
+    }
 
     public AudioTrack? SelectedTrack
     {
@@ -90,8 +106,38 @@ public partial class ProjectViewModel : ViewModelBase, IPage
     [RelayCommand]
     private async Task OpenSettings()
     {
-        var settings = new ProjectSettingsViewModel(this.Project.Settings, this.dialog);
-        await this.dialog.OpenDialog(settings);
+        var editProject = this.createProjectFactory.Create(this.Project);
+        var newSettings = await this.dialog.OpenDialog<ProjectSettings>(editProject);
+        if (newSettings == null)
+        {
+            return;
+        }
+
+        // Update settings.
+        this.Project.Settings.Value.Name = newSettings.Name;
+        this.Project.Settings.Value.Color = newSettings.Color;
+        this.Project.Settings.Value.Preset = newSettings.Preset;
+        this.Project.Settings.Value.PostBuild = newSettings.PostBuild;
+        this.Project.Settings.Value.GameInstallPath = newSettings.GameInstallPath;
+        this.Project.Settings.Value.OutputDir = newSettings.OutputDir;
+        this.Project.Settings.Value.Theme = newSettings.Theme;
+        this.Project.Settings.Save();
+
+        var projectIconFile = Path.Join(this.Project.ProjectFolder, "icon.png");
+
+        // Icon was removed.
+        if (File.Exists(projectIconFile) && editProject.IconFile == null)
+        {
+            File.Delete(projectIconFile);
+            this.OnPropertyChanged(nameof(this.IconFile));
+        }
+
+        // New icon was selected.
+        else if (editProject.IconFile != null && editProject.IconFile != projectIconFile)
+        {
+            File.Copy(editProject.IconFile, projectIconFile, true);
+            this.OnPropertyChanged(nameof(this.IconFile));
+        }
     }
 
     [RelayCommand]
