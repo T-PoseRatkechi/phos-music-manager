@@ -6,9 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="using:Phos.MusicManager.Library.ViewModels.Projects.Dialogs"
     Width="600"
     d:DesignHeight="400"
     d:DesignWidth="600"
+    x:DataType="vm:CreateProjectViewModel"
     CanResize="False"
     Classes.isEditing="{Binding IsEditing}"
     SizeToContent="Height"
@@ -112,17 +114,35 @@
                     Type="Folder" />
             </StackPanel>
         </Grid>
-        <StackPanel
+        <Grid
             Margin="0,16,0,0"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal"
-            Spacing="4">
-            <Button
-                Command="{Binding CloseCommand}"
-                Content="Cancel" />
-            <Button
-                Name="confirmButton"
-                Command="{Binding ConfirmCommand}" />
-        </StackPanel>
+            ColumnDefinitions="auto *">
+            <StackPanel
+                IsVisible="{Binding IsEditing}"
+                Orientation="Horizontal"
+                Spacing="4">
+                <Button
+                    Command="{Binding CreatePresetCommand}"
+                    Content="Create Preset" />
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding ResetProjectCommand}"
+                    ToolTip.Tip="Reset to Default">
+                    <ui:SymbolIcon Symbol="Refresh" />
+                </Button>
+            </StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Spacing="4">
+                <Button
+                    Command="{Binding CloseCommand}"
+                    Content="Cancel" />
+                <Button
+                    Name="confirmButton"
+                    Command="{Binding ConfirmCommand}" />
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </Window>
