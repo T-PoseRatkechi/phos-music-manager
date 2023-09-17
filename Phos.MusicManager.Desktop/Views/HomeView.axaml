@@ -19,7 +19,7 @@
                 <TextBlock
                     Text="Projects"
                     Theme="{StaticResource SubtitleTextBlockStyle}" />
-                <ItemsRepeater ItemsSource="{Binding Projects}">
+                <ItemsRepeater ItemsSource="{Binding ProjectPages}">
                     <ItemsRepeater.Layout>
                         <WrapLayout
                             HorizontalSpacing="8"
@@ -29,21 +29,38 @@
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate>
                             <Button
-                                Width="128"
-                                Height="128"
                                 Command="{Binding $parent.DataContext.OpenProjectCommand}"
-                                CommandParameter="{Binding Settings.Value.Name}"
-                                ToolTip.Tip="{Binding Settings.Value.Name}">
-                                <Grid>
-                                    <TextBlock
-                                        IsVisible="{Binding #projectIcon.Source, Converter={StaticResource NullBoolConverter}, ConverterParameter=true}"
-                                        Text="{Binding Settings.Value.Name}"
-                                        TextAlignment="Center"
-                                        TextWrapping="Wrap" />
-                                    <Image
-                                        Name="projectIcon"
-                                        Source="{Binding, Converter={StaticResource ProjectIconConverter}}" />
-                                </Grid>
+                                CommandParameter="{Binding Name}"
+                                ToolTip.Tip="{Binding Name}">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Padding" Value="0" />
+                                    </Style>
+                                </Button.Styles>
+                                <Border
+                                    Width="112"
+                                    Height="112"
+                                    CornerRadius="{StaticResource ControlCornerRadius}">
+                                    <Grid RowDefinitions="* auto">
+                                        <Image
+                                            Grid.RowSpan="2"
+                                            Source="{Binding Project, Converter={StaticResource ProjectIconConverter}}" />
+                                        <Border
+                                            Grid.Row="1"
+                                            Padding="2"
+                                            Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"
+                                            CornerRadius="{StaticResource ControlCornerRadius}">
+                                            <TextBlock
+                                                MaxHeight="40"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="12"
+                                                Text="{Binding Name}"
+                                                TextAlignment="Center"
+                                                TextTrimming="CharacterEllipsis"
+                                                TextWrapping="Wrap" />
+                                        </Border>
+                                    </Grid>
+                                </Border>
                             </Button>
                         </DataTemplate>
                     </ItemsRepeater.ItemTemplate>
