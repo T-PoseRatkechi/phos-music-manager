@@ -1,12 +1,13 @@
 ﻿namespace Phos.MusicManager.Library.ViewModels.Projects.Forms;
 
+using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Phos.MusicManager.Library.Projects;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
-public partial class CreateProjectForm : ObservableValidator
+public partial class CreateProjectForm : ObservableValidator, IDisposable
 {
     public const string NoneOption = "None";
     private readonly ProjectPresetRepository presetRepo;
@@ -25,6 +26,9 @@ public partial class CreateProjectForm : ObservableValidator
     [ObservableProperty]
     private string gameInstallPath = string.Empty;
 
+    [ObservableProperty]
+    private string[] presetOptions;
+
     public CreateProjectForm(
         ProjectRepository projectRepo,
         ProjectPresetRepository presetRepo,
@@ -34,8 +38,7 @@ public partial class CreateProjectForm : ObservableValidator
         this.projectRepo = projectRepo;
         this.existingProject = existingProject;
 
-        this.PresetOptions = presetRepo.List.Select(x => x.Name).ToList();
-        this.PresetOptions.Insert(0, NoneOption);
+        this.presetOptions = new string[] { NoneOption }.Concat(presetRepo.List.Select(x => x.Name)).ToArray();
         this.PostBuildOptions = new();
         this.PostBuildOptions.Insert(0, NoneOption);
 
@@ -47,6 +50,8 @@ public partial class CreateProjectForm : ObservableValidator
             this.SelectedPostBuild = existingProject.Settings.Value.PostBuild ?? NoneOption;
             this.GameInstallPath = existingProject.Settings.Value.GameInstallPath ?? string.Empty;
             this.OutputDir = existingProject.Settings.Value.OutputDir ?? string.Empty;
+
+            this.presetRepo.List.CollectionChanged += this.List_CollectionChanged;
         }
         else
         {
@@ -73,8 +78,6 @@ public partial class CreateProjectForm : ObservableValidator
         }
     }
 
-    public List<string> PresetOptions { get; }
-
     public string SelectedPostBuild { get; set; }
 
     public List<string> PostBuildOptions { get; }
@@ -100,6 +103,27 @@ public partial class CreateProjectForm : ObservableValidator
         }
 
         return ValidationResult.Success;
+    }
+
+    public void Dispose()
+    {
+        this.presetRepo.List.CollectionChanged -= this.List_CollectionChanged;
+        GC.SuppressFinalize(this);
+    }
+
+    private void List_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        // Sync preset options with presets list.
+        this.PresetOptions = new string[] { NoneOption }.Concat(this.presetRepo.List.Select(x => x.Name)).ToArray();
+        if (e.NewItems != null)
+        {
+            // New preset was added from project, set as current preset.
+            var newPresetFromProject = e.NewItems.Cast<ProjectPreset>().FirstOrDefault(x => x.Name == this.existingProject?.Settings.Value.Name);
+            if (newPresetFromProject != null)
+            {
+                this.SelectedPreset = newPresetFromProject.Name;
+            }
+        }
     }
 
     private void SetPresetValues()

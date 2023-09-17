@@ -3,6 +3,7 @@
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels.Projects.Forms;
@@ -23,6 +24,7 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     public CreateProjectViewModel(
         ProjectRepository projectRepo,
         ProjectPresetRepository presetRepo,
+        CreatePresetCommand createPresetCommand,
         IDialogService dialog,
         Project? existingProject = null)
     {
@@ -33,6 +35,7 @@ public partial class CreateProjectViewModel : WindowViewModelBase
         {
             this.IsEditing = true;
             this.Icon = Path.Join(existingProject.ProjectFolder, "icon.png");
+            this.CreatePresetCommand = createPresetCommand.Create(existingProject);
         }
 
         this.Form.ErrorsChanged += this.Form_ErrorsChanged;
@@ -43,6 +46,8 @@ public partial class CreateProjectViewModel : WindowViewModelBase
 
     public CreateProjectForm Form { get; }
 
+    public IRelayCommand? CreatePresetCommand { get; }
+
     private bool CanConfirm => !this.Form.HasErrors;
 
     [RelayCommand]
@@ -50,6 +55,7 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     {
         this.Form.ErrorsChanged -= this.Form_ErrorsChanged;
         this.Form.PropertyChanged -= this.Form_PropertyChanged;
+        this.Form.Dispose();
         base.Close(result);
     }
 
