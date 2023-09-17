@@ -3,6 +3,7 @@
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Projects;
@@ -12,6 +13,7 @@ using Phos.MusicManager.Library.ViewModels.Projects.Forms;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class CreateProjectViewModel : WindowViewModelBase
 {
+    private readonly Project? existingProject;
     private readonly ProjectPresetRepository presetRepo;
     private readonly IDialogService dialog;
 
@@ -33,6 +35,7 @@ public partial class CreateProjectViewModel : WindowViewModelBase
         this.Form = new(projectRepo, presetRepo, existingProject);
         if (existingProject != null)
         {
+            this.existingProject = existingProject;
             this.IsEditing = true;
             this.Icon = Path.Join(existingProject.ProjectFolder, "icon.png");
             this.CreatePresetCommand = createPresetCommand.Create(existingProject);
@@ -109,6 +112,30 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     private void RemoveIcon()
     {
         this.Icon = null;
+    }
+
+    [RelayCommand]
+    private void ResetProject()
+    {
+        if (this.existingProject == null)
+        {
+            return;
+        }
+
+        // Use form's selected preset instead of project's.
+        // It's either the same or if different probably the intended default.
+        if (this.presetRepo.GetById(this.Form.SelectedPreset) is ProjectPreset preset)
+        {
+            this.existingProject.Audio.Tracks.Clear();
+            this.existingProject.Audio.AddTracks(preset.DefaultTracks.Select(x => new AudioTrack
+            {
+                Name = x.Name,
+                Category = x.Category,
+                Tags = x.Tags,
+                OutputPath = x.OutputPath,
+                Encoder = x.Encoder,
+            }));
+        }
     }
 
     private void Form_PropertyChanged(object? sender, PropertyChangedEventArgs e)
