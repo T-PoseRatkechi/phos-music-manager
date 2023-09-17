@@ -31,7 +31,7 @@ public class ProjectRepository
 
     public Project Create(ProjectSettings settings)
     {
-        var projectFile = Path.Join(this.projectsDir, settings.Name, $"project.phos");
+        var projectFile = Path.Join(this.projectsDir, settings.Name.Trim(), $"project.phos");
         if (File.Exists(projectFile))
         {
             throw new Exception("Project file already exists.");
