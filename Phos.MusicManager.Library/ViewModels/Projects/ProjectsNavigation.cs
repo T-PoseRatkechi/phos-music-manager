@@ -44,6 +44,9 @@ public class ProjectsNavigation : NavigationService
                     var newProject = e.NewItems!.Cast<Project>().First();
                     var newProjectPage = this.projectFactory.Create(newProject);
                     this.Pages.Add(newProjectPage);
+
+                    // Dashboard has issues with navigating to new project.
+                    this.NavigateTo<HomeViewModel>();
                     break;
                 default:
                     throw new Exception("Invalid collection action.");
