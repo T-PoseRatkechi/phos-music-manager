@@ -11,7 +11,7 @@ public interface INavigationService : INotifyPropertyChanged
     /// <summary>
     /// Gets current page.
     /// </summary>
-    IPage Current { get; }
+    IPage Current { get; set; }
 
     /// <summary>
     /// Gets available pages.
