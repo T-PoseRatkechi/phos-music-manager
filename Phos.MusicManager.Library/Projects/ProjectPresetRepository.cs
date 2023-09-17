@@ -24,12 +24,17 @@ public class ProjectPresetRepository
 
     public void Create(ProjectPreset preset, string? outputFile = null)
     {
-        var presetOutputFile = outputFile ?? Path.Join(this.presetsDir, $"{preset.Name}{PresetExt}");
+        var presetOutputFile = outputFile ?? Path.Join(this.presetsDir, $"{preset.Name.Trim()}{PresetExt}");
         ProtobufSerializer.Serialize(presetOutputFile, preset);
 
         // Add preset if created in presets folder.
         if (outputFile == null)
         {
+            if (this.GetById(preset.Name) is ProjectPreset existingPreset)
+            {
+                this.List.Remove(existingPreset);
+            }
+
             this.List.Add(preset);
         }
     }
