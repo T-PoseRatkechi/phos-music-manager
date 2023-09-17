@@ -7,11 +7,13 @@ using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library;
 using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Encoders;
+using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
+using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels;
 using Phos.MusicManager.Library.ViewModels.Music;
-using Phos.MusicManager.Library.ViewModels.Services;
-using Phos.MusicManager.Library.Workspaces;
+using Phos.MusicManager.Library.ViewModels.Projects;
+using Phos.MusicManager.Library.ViewModels.Projects.Factories;
 using Serilog;
 using System;
 using System.IO;
@@ -20,9 +22,16 @@ internal static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddViewModels(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddSingleton(s => new MainWindowViewModel(s.GetRequiredService<DashboardViewModel>()));
+        serviceCollection.AddSingleton(s =>
+        new MainWindowViewModel(
+            s.GetRequiredService<DashboardViewModel>(),
+            s.GetRequiredService<ProjectsNavigation>(),
+            s.GetRequiredService<ProjectPresetRepository>(),
+            s.GetRequiredService<ProjectCommands>(),
+            s.GetRequiredService<IDialogService>(),
+            s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
+        );
         serviceCollection.AddSingleton<DashboardViewModel>();
-        serviceCollection.AddSingleton<DashboardService>();
         serviceCollection.AddSingleton<AboutViewModel>();
         return serviceCollection;
     }
@@ -42,7 +51,13 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<MusicFactory>();
         serviceCollection.AddSingleton<AudioBuilder>();
         serviceCollection.AddSingleton<LoopService>();
-        serviceCollection.AddSingleton<WorkspaceService>();
+
+        serviceCollection.AddSingleton<ProjectRepository>();
+        serviceCollection.AddSingleton<ProjectPresetRepository>();
+        serviceCollection.AddSingleton<CreateProjectFactory>();
+        serviceCollection.AddSingleton<ProjectFactory>();
+        serviceCollection.AddSingleton<ProjectsNavigation>();
+        serviceCollection.AddSingleton<ProjectCommands>();
         return serviceCollection;
     }
 
