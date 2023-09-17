@@ -48,7 +48,7 @@
                     BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
                     BorderThickness="1"
                     CornerRadius="{StaticResource ControlCornerRadius}">
-                    <Image Source="{Binding IconFile, Converter={StaticResource ProjectIconConverter}}" />
+                    <Image Source="{Binding Icon, Converter={StaticResource ProjectIconConverter}}" />
                 </Border>
                 <Grid ColumnDefinitions="* 2 auto">
                     <Button

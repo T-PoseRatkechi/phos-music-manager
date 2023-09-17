@@ -11,10 +11,14 @@ using Phos.MusicManager.Library.ViewModels.Projects.Forms;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class CreateProjectViewModel : WindowViewModelBase
 {
+    private readonly ProjectPresetRepository presetRepo;
     private readonly IDialogService dialog;
 
+    /// <summary>
+    /// Icon byte array or file path.
+    /// </summary>
     [ObservableProperty]
-    private string? iconFile;
+    private object? icon;
 
     public CreateProjectViewModel(
         ProjectRepository projectRepo,
@@ -23,14 +27,16 @@ public partial class CreateProjectViewModel : WindowViewModelBase
         Project? existingProject = null)
     {
         this.dialog = dialog;
+        this.presetRepo = presetRepo;
         this.Form = new(projectRepo, presetRepo, existingProject);
         if (existingProject != null)
         {
             this.IsEditing = true;
-            this.IconFile = Path.Join(existingProject.ProjectFolder, "icon.png");
+            this.Icon = Path.Join(existingProject.ProjectFolder, "icon.png");
         }
 
         this.Form.ErrorsChanged += this.Form_ErrorsChanged;
+        this.Form.PropertyChanged += this.Form_PropertyChanged;
     }
 
     public bool IsEditing { get; init; }
@@ -43,6 +49,7 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     public override void Close(object? result = null)
     {
         this.Form.ErrorsChanged -= this.Form_ErrorsChanged;
+        this.Form.PropertyChanged -= this.Form_PropertyChanged;
         base.Close(result);
     }
 
@@ -88,14 +95,35 @@ public partial class CreateProjectViewModel : WindowViewModelBase
         var iconFile = await this.dialog.OpenFileSelect("Select Project Icon", "PNG files|*.png");
         if (iconFile != null)
         {
-            this.IconFile = iconFile;
+            this.Icon = iconFile;
         }
     }
 
     [RelayCommand]
     private void RemoveIcon()
     {
-        this.IconFile = null;
+        this.Icon = null;
+    }
+
+    private void Form_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        // Preset changed.
+        if (e.PropertyName == nameof(this.Form.SelectedPreset))
+        {
+            // Display preset icon if creating new project and no icon file has been set yet.
+            if (!this.IsEditing &&
+                this.Form.SelectedPreset != CreateProjectForm.NoneOption &&
+                this.Icon is not string)
+            {
+                var currentPreset = this.presetRepo.GetById(this.Form.SelectedPreset);
+                if (currentPreset == null)
+                {
+                    return;
+                }
+
+                this.Icon = currentPreset.Icon;
+            }
+        }
     }
 
     private void Form_ErrorsChanged(object? sender, DataErrorsChangedEventArgs e)
