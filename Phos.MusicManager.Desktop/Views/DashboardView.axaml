@@ -2,6 +2,7 @@
     x:Class="Phos.MusicManager.Desktop.Views.DashboardView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Phos.MusicManager.Desktop.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
@@ -21,6 +22,7 @@
         <ui:SymbolIconSource
             x:Key="ProjectIcon"
             Symbol="PlayFilled" />
+        <converters:ProjectNavigationItemConverter x:Key="ProjectNavItemConverter" />
     </UserControl.Resources>
     <Grid>
         <ui:NavigationView
@@ -34,8 +36,9 @@
                 <DataTemplate>
                     <ui:NavigationViewItem
                         Classes.colorIcon="{Binding Project.Settings.Value.Color, Converter={StaticResource NullBoolConverter}}"
-                        Content="{Binding Name}"
-                        Tag="{Binding Project.Settings.Value.Color}" />
+                        Content="{Binding Converter={StaticResource ProjectNavItemConverter}}"
+                        Tag="{Binding Project.Settings.Value.Color}"
+                        ToolTip.Tip="{Binding Converter={StaticResource ProjectNavItemConverter}}" />
                 </DataTemplate>
             </ui:NavigationView.MenuItemTemplate>
             <ui:NavigationView.Styles>
