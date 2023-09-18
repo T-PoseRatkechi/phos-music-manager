@@ -26,9 +26,9 @@ internal static class ServiceCollectionExtensions
         new MainWindowViewModel(
             s.GetRequiredService<DashboardViewModel>(),
             s.GetRequiredService<ProjectsNavigation>(),
-            s.GetRequiredService<ProjectPresetRepository>(),
             s.GetRequiredService<ProjectCommands>(),
             s.GetRequiredService<LoopService>(),
+            s.GetRequiredService<ProjectExporter>(),
             s.GetRequiredService<IDialogService>(),
             s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
         );
@@ -58,7 +58,9 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<CreateProjectFactory>();
         serviceCollection.AddSingleton<ProjectFactory>();
         serviceCollection.AddSingleton<ProjectsNavigation>();
-        
+        serviceCollection.AddSingleton<ProjectExporter>();
+        serviceCollection.AddSingleton<PortableProjectConverter>();
+
         // Commands
         serviceCollection.AddSingleton<ProjectCommands>();
         serviceCollection.AddSingleton<CreatePresetCommand>();

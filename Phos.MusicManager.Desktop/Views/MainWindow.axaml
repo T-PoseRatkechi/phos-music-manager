@@ -21,16 +21,16 @@
                     Header="_New Project" />
                 <MenuItem
                     Command="{Binding OpenProjectCommand}"
-                    Header="_Open..." />
+                    Header="_Open Project..." />
                 <MenuItem
                     Header="_Export As"
                     IsEnabled="{Binding CanProjectCommand}">
                     <MenuItem
-                        Command="{Binding ExportPresetCommand}"
-                        Header="_Shareable Project..." />
+                        Command="{Binding ExportPortableProjectCommand}"
+                        Header="_Portable Project..." />
                     <MenuItem
                         Command="{Binding ExportPresetCommand}"
-                        Header="_Project Preset..." />
+                        Header="P_roject Preset..." />
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="_Exit" />
