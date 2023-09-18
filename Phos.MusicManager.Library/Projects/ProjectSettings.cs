@@ -8,6 +8,9 @@ public partial class ProjectSettings : ObservableObject
     [ObservableProperty]
     private string id = Guid.NewGuid().ToString();
 
+    [ObservableProperty]
+    private ProjectType type = ProjectType.Version1;
+
     /// <summary>
     /// Gets or sets name.
     /// </summary>
