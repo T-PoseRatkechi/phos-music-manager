@@ -15,7 +15,7 @@ public interface IEncoder
     /// <summary>
     /// Gets list of valid input formats by extension.
     /// </summary>
-    string[] InputFormats { get; }
+    string[] InputTypes { get; }
 
     /// <summary>
     /// Encode file.

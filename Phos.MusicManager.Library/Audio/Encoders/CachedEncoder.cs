@@ -31,7 +31,7 @@ public class CachedEncoder : IEncoder
     public string EncodedExt => this.encoder.EncodedExt;
 
     /// <inheritdoc/>
-    public string[] InputFormats => this.encoder.InputFormats;
+    public string[] InputTypes => this.encoder.InputTypes;
 
     /// <inheritdoc/>
     public async Task Encode(string inputFile, string outputFile, Loop? loop = null)
