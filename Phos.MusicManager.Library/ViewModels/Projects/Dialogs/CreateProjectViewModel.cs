@@ -138,6 +138,10 @@ public partial class CreateProjectViewModel : WindowViewModelBase
                 Encoder = x.Encoder,
             }));
         }
+
+        this.existingProject.Settings.Value.OutputDir = null;
+        this.existingProject.Settings.Value.GameInstallPath = null;
+        this.existingProject.Settings.Save();
     }
 
     private void Form_PropertyChanged(object? sender, PropertyChangedEventArgs e)
