@@ -40,13 +40,14 @@ public partial class MainWindowViewModel : ViewModelBase
         this.projectCommands = projectCommands;
         this.log = log;
 
-        this.NewProjectCommand = this.projectCommands.Create_NewProjectCommand();
         this.navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
 
     public ViewModelBase RootViewModel { get; set; }
 
-    public IRelayCommand NewProjectCommand { get; }
+    public IRelayCommand NewProjectCommand => this.projectCommands.NewProjectCommand;
+
+    public IRelayCommand OpenProjectCommand => this.projectCommands.OpenProjectCommand;
 
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 

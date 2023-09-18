@@ -24,7 +24,7 @@ public partial class HomeViewModel : ViewModelBase, IPage
         this.projectPages = this.navigation.Pages.Where(x => x is ProjectViewModel).Cast<ProjectViewModel>().ToArray();
         navigation.Pages.CollectionChanged += this.Pages_CollectionChanged;
 
-        this.NewProjectCommand = projectCommands.Create_NewProjectCommand();
+        this.NewProjectCommand = projectCommands.NewProjectCommand;
     }
 
     public string Name { get; } = "Home";
