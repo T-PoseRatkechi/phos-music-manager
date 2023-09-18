@@ -30,6 +30,18 @@ public class ProjectRepository
 
     public ObservableCollection<Project> List { get; } = new();
 
+    public void Add(Project project)
+    {
+        if (this.GetById(project.Settings.Value.Id) == null)
+        {
+            this.List.Add(project);
+        }
+        else
+        {
+            this.log?.LogError("Attempted to add project with duplicate id.\nFile: {file}", project.ProjectFile);
+        }
+    }
+
     public Project Create(ProjectSettings settings)
     {
         var projectFile = Path.Join(this.projectsDir, settings.Id, $"project.phos");
@@ -69,7 +81,7 @@ public class ProjectRepository
             }
         }
 
-        this.List.Add(project);
+        this.Add(project);
         return project;
     }
 
@@ -107,7 +119,7 @@ public class ProjectRepository
             try
             {
                 var project = new Project(projectFile);
-                this.List.Add(project);
+                this.Add(project);
             }
             catch (Exception ex)
             {
@@ -117,7 +129,7 @@ public class ProjectRepository
 
         // Update known project files in settings.
         this.appSettings.Value.ProjectFiles.Clear();
-        this.appSettings.Value.ProjectFiles.AddRange(projectFiles);
+        this.appSettings.Value.ProjectFiles.AddRange(this.List.Select(x => x.ProjectFile));
         this.appSettings.Save();
     }
 
