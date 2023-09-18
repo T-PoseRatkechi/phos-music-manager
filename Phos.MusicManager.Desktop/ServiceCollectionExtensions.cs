@@ -28,6 +28,7 @@ internal static class ServiceCollectionExtensions
             s.GetRequiredService<ProjectsNavigation>(),
             s.GetRequiredService<ProjectPresetRepository>(),
             s.GetRequiredService<ProjectCommands>(),
+            s.GetRequiredService<LoopService>(),
             s.GetRequiredService<IDialogService>(),
             s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
         );
