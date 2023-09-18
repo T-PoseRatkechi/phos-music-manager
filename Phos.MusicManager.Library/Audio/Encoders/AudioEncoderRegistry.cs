@@ -27,7 +27,11 @@ public class AudioEncoderRegistry
         this.LoadVgAudioEncoders();
     }
 
-    public Dictionary<string, IEncoder> Encoders { get; } = new();
+    public Dictionary<string, IEncoder> Encoders { get; private set; } = new();
+
+    public Dictionary<string, string> EncoderFiles { get; private set; } = new();
+
+    public string EncodersFolder => this.encodersDir;
 
     public void LoadVgAudioEncoders()
     {
@@ -79,6 +83,7 @@ public class AudioEncoderRegistry
                 var encoder = new VgAudioEncoder(config);
                 var cachedName = Path.GetFileNameWithoutExtension(file);
                 this.Encoders.Add(config.Name, this.CreateCachedEncoder(encoder, cachedName));
+                this.EncoderFiles.Add(config.Name, file);
             }
             catch (Exception ex)
             {
