@@ -16,7 +16,7 @@ using Phos.MusicManager.Library.ViewModels.Projects.Factories;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
-public partial class ProjectViewModel : ViewModelBase, IPage
+public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
 {
     private readonly AudioBuilder audioBuilder;
     private readonly MusicFactory musicFactory;
@@ -91,6 +91,12 @@ public partial class ProjectViewModel : ViewModelBase, IPage
     }
 
     private bool CanBuild { get; set; } = true;
+
+    public void Dispose()
+    {
+        this.Project.Audio.Tracks.CollectionChanged -= this.Tracks_CollectionChanged;
+        GC.SuppressFinalize(this);
+    }
 
     [RelayCommand(CanExecute = nameof(this.CanBuild))]
     private async Task Build()

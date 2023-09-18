@@ -49,6 +49,13 @@ public class ProjectsNavigation : NavigationService
                     // Probably from menu items updating.
                     this.NavigateTo(newProjectPage.Name);
                     break;
+                case NotifyCollectionChangedAction.Remove:
+                    var removedProject = e.OldItems!.Cast<Project>().First();
+                    var removedProjectPage = this.Pages.First(x => x.Name == removedProject.Settings.Value.Id) as ProjectViewModel
+                        ?? throw new Exception("Failed to get project page.");
+                    removedProjectPage.Dispose();
+                    this.Pages.Remove(removedProjectPage);
+                    break;
                 default:
                     throw new Exception("Invalid collection action.");
             }
