@@ -40,9 +40,14 @@ public class LoopService
     /// </summary>
     /// <param name="file">File to save loop for.</param>
     /// <param name="loop">Loop settings.</param>
-    public void SaveLoop(string file, Loop loop)
+    /// <param name="outputLoopFile">Optional output loop file.</param>
+    public void SaveLoop(string file, Loop loop, string? outputLoopFile = null)
     {
         JsonFileSerializer.Serialize(this.SavedLoopFile(file), loop);
+        if (outputLoopFile != null)
+        {
+            JsonFileSerializer.Serialize(outputLoopFile, loop);
+        }
     }
 
     private string? GetLoopFile(string inputFile)
