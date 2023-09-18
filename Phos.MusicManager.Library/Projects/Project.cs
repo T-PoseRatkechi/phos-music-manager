@@ -12,6 +12,7 @@ public partial class Project : ObservableObject
 {
     public Project(string projectFile)
     {
+        this.ProjectFile = projectFile;
         this.Settings = new SavableFile<ProjectSettings>(projectFile);
         this.ProjectFolder = Directory.CreateDirectory(Path.GetDirectoryName(projectFile)!).FullName;
         this.AudioFolder = Directory.CreateDirectory(Path.Join(this.ProjectFolder, "audio")).FullName;
@@ -21,6 +22,8 @@ public partial class Project : ObservableObject
         var audioTracks = new SavableFile<ObservableCollection<AudioTrack>>(audioTracksFile);
         this.Audio = new(audioTracks);
     }
+
+    public string ProjectFile { get; }
 
     public string ProjectFolder { get; }
 
