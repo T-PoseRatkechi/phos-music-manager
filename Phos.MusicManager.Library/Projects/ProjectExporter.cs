@@ -34,7 +34,6 @@ public class ProjectExporter
         var portableProjectSettings = new ProjectSettings
         {
             Type = ProjectType.Portable1,
-            Id = projectSettings.Id,
             Name = projectSettings.Name,
             Color = projectSettings.Color,
             PostBuild = projectSettings.PostBuild,
