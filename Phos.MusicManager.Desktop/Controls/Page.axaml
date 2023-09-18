@@ -14,14 +14,16 @@
                 RowDefinitions="auto *">
                 <Grid
                     Margin="0,0,0,8"
-                    ColumnDefinitions="auto auto * auto">
+                    ColumnDefinitions="auto * auto">
                     <ContentPresenter Content="{TemplateBinding Icon}" />
                     <TextBlock
                         Grid.Column="1"
                         Text="{TemplateBinding Title}"
-                        Theme="{StaticResource TitleTextBlockStyle}" />
+                        Theme="{StaticResource TitleTextBlockStyle}"
+						TextWrapping="NoWrap"
+						TextTrimming="CharacterEllipsis"/>
                     <ContentPresenter
-                        Grid.Column="3"
+                        Grid.Column="2"
                         Content="{TemplateBinding MenuItems}" />
                 </Grid>
                 <ContentControl
