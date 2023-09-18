@@ -24,7 +24,7 @@ public class AudioEncoderRegistry
         Directory.CreateDirectory(this.encodersDir);
         Directory.CreateDirectory(this.cacheDir);
 
-        this.LoadVgAudioEncoders();
+        this.LoadEncoders();
     }
 
     public Dictionary<string, IEncoder> Encoders { get; private set; } = new();
@@ -33,7 +33,18 @@ public class AudioEncoderRegistry
 
     public string EncodersFolder => this.encodersDir;
 
-    public void LoadVgAudioEncoders()
+    public void LoadEncoders()
+    {
+        if (this.Encoders.Count > 0)
+        {
+            this.Encoders.Clear();
+            this.EncoderFiles.Clear();
+        }
+
+        this.LoadVgAudioEncoders();
+    }
+
+    private void LoadVgAudioEncoders()
     {
         var vgAudioDir = Directory.CreateDirectory(Path.Join(this.encodersDir, "vgaudio")).FullName;
 
