@@ -29,7 +29,7 @@ public partial class AudioTrack : ObservableObject
 
     [ProtoMember(6)]
     [ObservableProperty]
-    private string encoder = "HCA";
+    private string? encoder;
 
     [ProtoMember(7)]
     [ObservableProperty]
