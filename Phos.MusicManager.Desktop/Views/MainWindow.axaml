@@ -36,7 +36,9 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_Tools">
-                <MenuItem Header="Quick Loop" />
+                <MenuItem
+                    Command="{Binding OpenQuickLoopCommand}"
+                    Header="Quick Loop" />
             </MenuItem>
         </Menu>
         <ContentControl Content="{Binding RootViewModel}" />

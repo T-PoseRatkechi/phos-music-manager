@@ -7,7 +7,7 @@ public class DesignQuickLoopViewModel
 {
     public DesignQuickLoopViewModel()
     {
-        this.Items = new()
+        this.FilteredItems = new()
         {
             new QuickLoopItem() { FileName = "Name", File = "file.wav" },
             new QuickLoopItem() { FileName = "Name", File = "file.wav" },
@@ -26,5 +26,5 @@ public class DesignQuickLoopViewModel
 
     public string Filter { get; set; } = string.Empty;
 
-    public List<QuickLoopItem> Items { get; set; }
+    public List<QuickLoopItem> FilteredItems { get; set; }
 }
