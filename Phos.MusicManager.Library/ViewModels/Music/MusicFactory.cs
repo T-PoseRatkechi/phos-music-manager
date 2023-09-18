@@ -10,24 +10,24 @@ using Phos.MusicManager.Library.ViewModels.Music.Dialogs;
 #pragma warning disable SA1600 // Elements should be documented
 public class MusicFactory
 {
-    private readonly string[] encoders;
+    private readonly AudioEncoderRegistry encoderRegistry;
     private readonly LoopService loopService;
     private readonly IDialogService dialog;
 
     public MusicFactory(AudioEncoderRegistry encoderRegistry, LoopService loopService, IDialogService dialog)
     {
+        this.encoderRegistry = encoderRegistry;
         this.loopService = loopService;
         this.dialog = dialog;
-        this.encoders = encoderRegistry.Encoders.Keys.ToArray();
     }
 
     public TrackPanelViewModel CreateTrackPanel(AudioTrack track, AudioService audioManager, ICommand closeCommand)
     {
-        return new(track, audioManager, this.loopService, this.encoders, this.dialog, closeCommand);
+        return new(track, audioManager, this.loopService, this.encoderRegistry, this.dialog, closeCommand);
     }
 
     public AddTrackViewModel CreateAddTrack()
     {
-        return new(this.encoders);
+        return new(this.encoderRegistry.Encoders.Keys.ToArray());
     }
 }

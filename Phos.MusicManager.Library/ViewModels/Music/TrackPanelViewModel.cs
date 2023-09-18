@@ -7,6 +7,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Audio;
+using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.ViewModels.Music.Dialogs;
@@ -21,6 +22,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
 
     private readonly AudioService audioManager;
     private readonly LoopService loopService;
+    private readonly AudioEncoderRegistry encoderRegistry;
     private readonly IDialogService dialog;
 
     private string selectedReplacement;
@@ -29,16 +31,17 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
         AudioTrack track,
         AudioService audioManager,
         LoopService loopService,
-        string[] encoders,
+        AudioEncoderRegistry encoderRegistry,
         IDialogService dialog,
         ICommand closeCommand)
     {
         this.audioManager = audioManager;
         this.loopService = loopService;
+        this.encoderRegistry = encoderRegistry;
         this.dialog = dialog;
 
         this.Track = track;
-        this.Encoders = encoders;
+        this.Encoders = encoderRegistry.Encoders.Keys.ToArray();
         this.CloseCommand = closeCommand;
 
         // Set current replacement selection.
@@ -98,7 +101,9 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     [RelayCommand]
     private async Task SelectReplacementFile()
     {
-        var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...");
+        var inputTypes = this.encoderRegistry.Encoders[this.Track.Encoder].InputTypes;
+        var fileFilter = $"Supported Types|{string.Join(';', inputTypes.Select(x => $"*{x}"))}";
+        var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...", fileFilter);
         if (replacementFile != null)
         {
             var savedLoop = this.loopService.GetLoop(replacementFile);
