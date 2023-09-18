@@ -5,20 +5,30 @@ using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Common.Serializers;
 
 #pragma warning disable SA1600 // Elements should be documented
-public class ProjectExportService
+public class ProjectExporter
 {
+    private readonly ProjectPresetRepository presetRepository;
     private readonly AudioEncoderRegistry encoderRegistry;
     private readonly LoopService loop;
 
-    public ProjectExportService(AudioEncoderRegistry encoderRegistry, LoopService loop)
+    public ProjectExporter(
+        ProjectPresetRepository presetRepository,
+        AudioEncoderRegistry encoderRegistry,
+        LoopService loop)
     {
+        this.presetRepository = presetRepository;
         this.encoderRegistry = encoderRegistry;
         this.loop = loop;
     }
 
+    public void ExportProjectPreset(Project project, string outputFile)
+    {
+        this.presetRepository.Create(project, outputFile);
+    }
+
     public void ExportPortableProject(Project project, string outputFile)
     {
-        var outputDir = Path.GetDirectoryName(outputFile) ?? throw new Exception("Failed to get output folder.");
+        var portableProjectDir = Path.GetDirectoryName(outputFile) ?? throw new Exception("Failed to get output folder.");
         var projectSettings = project.Settings.Value;
         var portableProjectSettings = new ProjectSettings
         {
@@ -31,8 +41,8 @@ public class ProjectExportService
             Theme = projectSettings.Theme,
         };
 
-        var portableAudioDir = Directory.CreateDirectory(Path.Join(outputDir, "audio")).FullName;
-        var portableEncodersDir = Directory.CreateDirectory(Path.Join(outputDir, "encoders")).FullName;
+        var portableAudioDir = Directory.CreateDirectory(Path.Join(portableProjectDir, "audio")).FullName;
+        var portableEncodersDir = Directory.CreateDirectory(Path.Join(portableProjectDir, "encoders")).FullName;
 
         var uniqueReplacementFiles = project.Audio.Tracks.Where(x => x.ReplacementFile != null).Select(x => x.ReplacementFile!).ToHashSet();
         foreach (var replacementFile in uniqueReplacementFiles)
@@ -63,6 +73,14 @@ public class ProjectExportService
             }
         }
 
+        // Copy project icon.
+        var iconFile = Path.Join(project.ProjectFolder, "icon.png");
+        if (File.Exists(iconFile))
+        {
+            File.Copy(iconFile, Path.Join(portableProjectDir, "icon.png"), true);
+        }
+
+        // Write project file.
         JsonFileSerializer.Serialize(outputFile, portableProjectSettings);
     }
 }
