@@ -17,25 +17,25 @@ using Phos.MusicManager.Library.ViewModels.Projects;
 public partial class MainWindowViewModel : ViewModelBase
 {
     private readonly ProjectsNavigation navigation;
-    private readonly ProjectPresetRepository presetRepo;
     private readonly ProjectCommands projectCommands;
     private readonly LoopService loopService;
+    private readonly ProjectExporter projectExporter;
     private readonly IDialogService dialog;
     private readonly ILogger? log;
 
     public MainWindowViewModel(
         ViewModelBase rootViewModel,
         ProjectsNavigation navigation,
-        ProjectPresetRepository presetRepo,
         ProjectCommands projectCommands,
         LoopService loopService,
+        ProjectExporter projectExporter,
         IDialogService dialog,
         ILogger? log = null)
     {
         this.RootViewModel = rootViewModel;
         this.navigation = navigation;
-        this.presetRepo = presetRepo;
         this.loopService = loopService;
+        this.projectExporter = projectExporter;
         this.dialog = dialog;
         this.projectCommands = projectCommands;
         this.log = log;
@@ -50,6 +50,29 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 
+    [RelayCommand]
+    private async Task ExportPortableProject()
+    {
+        var outputFile = await this.dialog.OpenSaveFile("Export Portable Project", "Portable Project|*.phos");
+        if (outputFile == null)
+        {
+            return;
+        }
+
+        if (this.navigation.Current is ProjectViewModel projectPage)
+        {
+
+            try
+            {
+                this.projectExporter.ExportPortableProject(projectPage.Project, outputFile);
+            }
+            catch (Exception ex)
+            {
+                this.log?.LogError(ex, "Failed to export portable project.");
+            }
+        }
+    }
+
     [RelayCommand(CanExecute = nameof(this.CanProjectCommand))]
     private async Task ExportPreset()
     {
@@ -63,7 +86,7 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             try
             {
-                this.presetRepo.Create(projectPage.Project, presetFile);
+                this.projectExporter.ExportProjectPreset(projectPage.Project, presetFile);
             }
             catch (Exception ex)
             {
