@@ -42,6 +42,12 @@ public class ProjectRepository
         }
     }
 
+    public void Remove(Project project)
+    {
+        Directory.Delete(project.ProjectFolder, true);
+        this.List.Remove(project);
+    }
+
     public Project Create(ProjectSettings settings)
     {
         var projectFile = Path.Join(this.projectsDir, settings.Id, $"project.phos");
