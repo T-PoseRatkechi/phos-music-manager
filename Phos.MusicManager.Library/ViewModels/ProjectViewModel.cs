@@ -1,7 +1,9 @@
 ﻿namespace Phos.MusicManager.Library.ViewModels;
 
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FuzzySharp;
 using Microsoft.Extensions.Logging;
 using Phos.MusicManager.Desktop.Library.ViewModels;
 using Phos.MusicManager.Library.Audio;
@@ -26,6 +28,10 @@ public partial class ProjectViewModel : ViewModelBase, IPage
     private TrackPanelViewModel? trackPanel;
     private AudioTrack? selectedTrack;
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FilterAudioTracks))]
+    private string filter = string.Empty;
+
     public ProjectViewModel(
         Project project,
         AudioBuilder audioBuilder,
@@ -41,6 +47,19 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         this.dialog = dialog;
 
         this.Project = project;
+        this.Project.Audio.Tracks.CollectionChanged += this.Tracks_CollectionChanged;
+    }
+
+    public IEnumerable<AudioTrack> FilterAudioTracks
+    {
+        get
+        {
+            return this.Project.Audio.Tracks.Where(track =>
+            {
+                var trackSearchString = string.Join(' ', track.Name, track.Category, track.Tags).ToLower();
+                return string.IsNullOrEmpty(this.Filter) || Fuzz.PartialRatio(this.Filter.ToLower(), trackSearchString) >= Math.Min(25 * this.Filter.Length, 100);
+            }).ToArray();
+        }
     }
 
     public Project Project { get; }
@@ -146,6 +165,30 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         this.SelectedTrack = null;
     }
 
+    [RelayCommand]
+    private void OpenPath(string? path)
+    {
+        if (string.IsNullOrEmpty(path) || File.Exists(path))
+        {
+            return;
+        }
+
+        try
+        {
+            ProcessStartInfo processStart = new()
+            {
+                FileName = path,
+                UseShellExecute = true,
+            };
+
+            System.Diagnostics.Process.Start(processStart);
+        }
+        catch (Exception ex)
+        {
+            this.log?.LogError(ex, "Failed to open path.");
+        }
+    }
+
     private void UpdateTrackPanel()
     {
         this.TrackPanel?.Dispose();
@@ -156,5 +199,11 @@ public partial class ProjectViewModel : ViewModelBase, IPage
         }
 
         this.TrackPanel = this.musicFactory.CreateTrackPanel(this.SelectedTrack, this.Project.Audio, this.CloseTrackPanelCommand);
+    }
+
+    private void Tracks_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        // Regenerate filtered audio tracks.
+        this.OnPropertyChanged(nameof(this.FilterAudioTracks));
     }
 }
