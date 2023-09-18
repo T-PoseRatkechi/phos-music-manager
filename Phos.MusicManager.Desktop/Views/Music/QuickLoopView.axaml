@@ -1,0 +1,104 @@
+<Window
+    x:Class="Phos.MusicManager.Desktop.Views.Music.QuickLoopView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Phos.MusicManager.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dd="using:Phos.MusicManager.Desktop.DesignTime"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Phos.MusicManager.Library.ViewModels.Music"
+    Title="Quick Loop"
+    Width="960"
+    Height="540"
+    MinWidth="960"
+    MinHeight="540"
+    d:DesignHeight="540"
+    d:DesignWidth="960"
+    x:DataType="vm:QuickLoopViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <dd:DesignQuickLoopViewModel />
+    </Design.DataContext>
+    <cc:Page Title="Quick Loop">
+        <cc:Page.MenuItems>
+            <StackPanel
+                Orientation="Horizontal"
+                Spacing="4">
+                <TextBox
+                    Width="200"
+                    Text="{Binding Filter}"
+                    Watermark="Search..." />
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding CloseCommand}"
+                    Content="Close" />
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding ConfirmCommand}"
+                    Content="Confirm" />
+            </StackPanel>
+        </cc:Page.MenuItems>
+        <ScrollViewer>
+            <ItemsRepeater ItemsSource="{Binding FilteredItems}">
+                <ItemsRepeater.Layout>
+                    <StackLayout Spacing="4" />
+                </ItemsRepeater.Layout>
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Padding="8"
+                            VerticalAlignment="Stretch"
+                            Background="{DynamicResource ControlFillColorDefault}"
+                            CornerRadius="{StaticResource ControlCornerRadius}">
+                            <Grid ColumnDefinitions="auto *">
+                                <StackPanel Margin="0,0,8,0">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Loop" />
+                                    <TextBlock Text="Start Sample" />
+                                    <NumericUpDown
+                                        Width="200"
+                                        HorizontalAlignment="Left"
+                                        Increment="1"
+                                        Minimum="0"
+                                        Value="{Binding Loop.StartSample}" />
+                                    <TextBlock Text="End Sample" />
+                                    <NumericUpDown
+                                        Width="200"
+                                        HorizontalAlignment="Left"
+                                        Increment="1"
+                                        Minimum="0"
+                                        Value="{Binding Loop.EndSample}" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Filename" />
+                                    <TextBlock
+                                        MaxHeight="32"
+                                        Text="{Binding FileName}"
+                                        TextTrimming="CharacterEllipsis"
+                                        TextWrapping="Wrap" />
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="File" />
+                                    <TextBlock
+                                        MaxHeight="32"
+                                        FontFamily="{StaticResource FiraCode}"
+                                        FontSize="12"
+                                        Text="{Binding File}"
+                                        TextTrimming="CharacterEllipsis"
+                                        TextWrapping="Wrap"
+                                        ToolTip.Tip="{Binding File}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
+        </ScrollViewer>
+    </cc:Page>
+</Window>
