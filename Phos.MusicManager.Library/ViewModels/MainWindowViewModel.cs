@@ -4,10 +4,12 @@ using System;
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
+using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels;
+using Phos.MusicManager.Library.ViewModels.Music;
 using Phos.MusicManager.Library.ViewModels.Projects;
 
 #pragma warning disable SA1600 // Elements should be documented
@@ -16,21 +18,24 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     private readonly ProjectsNavigation navigation;
     private readonly ProjectPresetRepository presetRepo;
+    private readonly ProjectCommands projectCommands;
+    private readonly LoopService loopService;
     private readonly IDialogService dialog;
     private readonly ILogger? log;
-    private readonly ProjectCommands projectCommands;
 
     public MainWindowViewModel(
         ViewModelBase rootViewModel,
         ProjectsNavigation navigation,
         ProjectPresetRepository presetRepo,
         ProjectCommands projectCommands,
+        LoopService loopService,
         IDialogService dialog,
         ILogger? log = null)
     {
         this.RootViewModel = rootViewModel;
         this.navigation = navigation;
         this.presetRepo = presetRepo;
+        this.loopService = loopService;
         this.dialog = dialog;
         this.projectCommands = projectCommands;
         this.log = log;
@@ -65,6 +70,19 @@ public partial class MainWindowViewModel : ViewModelBase
                 this.log?.LogError(ex, "Failed to export project preset.");
             }
         }
+    }
+
+    [RelayCommand]
+    private async Task OpenQuickLoop()
+    {
+        var folderDir = await this.dialog.OpenFolderSelect("Select Folder with Audio Files");
+        if (folderDir == null)
+        {
+            return;
+        }
+
+        var quickLoop = new QuickLoopViewModel(folderDir, this.loopService);
+        await this.dialog.OpenDialog(quickLoop);
     }
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)
