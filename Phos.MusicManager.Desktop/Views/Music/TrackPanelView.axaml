@@ -104,6 +104,7 @@
                     <ComboBox
                         HorizontalAlignment="Stretch"
                         ItemsSource="{Binding Encoders}"
+                        MaxDropDownHeight="200"
                         SelectedItem="{Binding Track.Encoder}" />
                     <TextBlock
                         Classes="section-header"

@@ -6,8 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="using:Phos.MusicManager.Library.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    x:DataType="vm:ProjectViewModel"
     mc:Ignorable="d">
     <cc:Page Title="{Binding Project.Settings.Value.Name}">
         <cc:Page.Icon>
@@ -28,23 +30,51 @@
             <StackPanel
                 Orientation="Horizontal"
                 Spacing="4">
-                <Button
-                    VerticalAlignment="Stretch"
-                    Command="{Binding BuildCommand}"
-                    Content="Build"
-                    ToolTip.Tip="Build" />
-                <Button
-                    VerticalAlignment="Stretch"
-                    Command="{Binding AddTrackCommand}"
-                    ToolTip.Tip="Add Track">
-                    <ui:SymbolIcon Symbol="Add" />
-                </Button>
+                <DropDownButton VerticalAlignment="Stretch">
+                    <ui:SymbolIcon Symbol="OpenFolderFilled" />
+                    <DropDownButton.Flyout>
+                        <ui:FAMenuFlyout>
+                            <ui:MenuFlyoutItem
+                                Command="{Binding OpenPathCommand}"
+                                CommandParameter="{Binding Project.ProjectFolder}"
+                                Text="Open Project Folder" />
+                            <ui:MenuFlyoutItem
+                                Command="{Binding OpenPathCommand}"
+                                CommandParameter="{Binding Project.BuildFolder}"
+                                Text="Open Build Folder" />
+                            <ui:MenuFlyoutItem
+                                Command="{Binding OpenPathCommand}"
+                                CommandParameter="{Binding Project.AudioFolder}"
+                                Text="Open Audio Folder" />
+                            <ui:MenuFlyoutItem
+                                Command="{Binding OpenPathCommand}"
+                                CommandParameter="{Binding Project.Settings.Value.OutputDir}"
+                                IsEnabled="{Binding Project.Settings.Value.OutputDir, Converter={StaticResource NullBoolConverter}}"
+                                Text="Open Output Folder" />
+                        </ui:FAMenuFlyout>
+                    </DropDownButton.Flyout>
+                </DropDownButton>
                 <Button
                     VerticalAlignment="Stretch"
                     Command="{Binding OpenSettingsCommand}"
                     ToolTip.Tip="Edit Project Settings">
                     <ui:SymbolIcon Symbol="SettingsFilled" />
                 </Button>
+                <TextBox
+                    Width="200"
+                    Text="{Binding Filter}"
+                    Watermark="Search..." />
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding AddTrackCommand}"
+                    ToolTip.Tip="New Track">
+                    <ui:SymbolIcon Symbol="Add" />
+                </Button>
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding BuildCommand}"
+                    Content="Build"
+                    ToolTip.Tip="Build" />
             </StackPanel>
         </cc:Page.MenuItems>
         <Border
@@ -53,7 +83,7 @@
             <Grid ColumnDefinitions="* auto">
                 <ListBox
                     Grid.ColumnSpan="1"
-                    ItemsSource="{Binding Project.Audio.Tracks}"
+                    ItemsSource="{Binding FilterAudioTracks}"
                     SelectedItem="{Binding SelectedTrack}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

@@ -23,7 +23,7 @@
                     Command="{Binding OpenProjectCommand}"
                     Header="_Open..." />
                 <MenuItem
-                    Header="Export As"
+                    Header="_Export As"
                     IsEnabled="{Binding CanProjectCommand}">
                     <MenuItem
                         Command="{Binding ExportPresetCommand}"
