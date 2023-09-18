@@ -136,6 +136,12 @@
                     ToolTip.Tip="Reset to Default">
                     <ui:SymbolIcon Symbol="Refresh" />
                 </Button>
+                <Button
+                    VerticalAlignment="Stretch"
+                    Command="{Binding DeleteProjectCommand}"
+                    ToolTip.Tip="Delete Project">
+                    <ui:SymbolIcon Symbol="Delete" />
+                </Button>
             </StackPanel>
             <StackPanel
                 Grid.Column="1"

@@ -21,10 +21,10 @@ public partial class CreateProjectForm : ObservableValidator, IDisposable
     private string color = string.Empty;
 
     [ObservableProperty]
-    private string outputDir = string.Empty;
+    private string? outputDir;
 
     [ObservableProperty]
-    private string gameInstallPath = string.Empty;
+    private string? gameInstallPath;
 
     [ObservableProperty]
     private string[] presetOptions;

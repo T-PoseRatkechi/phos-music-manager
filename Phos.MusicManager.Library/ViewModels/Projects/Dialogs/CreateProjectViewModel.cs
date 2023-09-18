@@ -7,6 +7,7 @@ using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
 using Phos.MusicManager.Library.Projects;
+using Phos.MusicManager.Library.ViewModels.Dialogs;
 using Phos.MusicManager.Library.ViewModels.Projects.Forms;
 
 #pragma warning disable SA1600 // Elements should be documented
@@ -14,6 +15,7 @@ using Phos.MusicManager.Library.ViewModels.Projects.Forms;
 public partial class CreateProjectViewModel : WindowViewModelBase
 {
     private readonly Project? existingProject;
+    private readonly ProjectRepository projectRepository;
     private readonly ProjectPresetRepository presetRepo;
     private readonly IDialogService dialog;
 
@@ -24,15 +26,16 @@ public partial class CreateProjectViewModel : WindowViewModelBase
     private object? icon;
 
     public CreateProjectViewModel(
-        ProjectRepository projectRepo,
+        ProjectRepository projectRepository,
         ProjectPresetRepository presetRepo,
         CreatePresetCommand createPresetCommand,
         IDialogService dialog,
         Project? existingProject = null)
     {
         this.dialog = dialog;
+        this.projectRepository = projectRepository;
         this.presetRepo = presetRepo;
-        this.Form = new(projectRepo, presetRepo, existingProject);
+        this.Form = new(projectRepository, presetRepo, existingProject);
         if (existingProject != null)
         {
             this.existingProject = existingProject;
@@ -139,9 +142,36 @@ public partial class CreateProjectViewModel : WindowViewModelBase
             }));
         }
 
+        this.Form.OutputDir = null;
+        this.Form.GameInstallPath = null;
         this.existingProject.Settings.Value.OutputDir = null;
         this.existingProject.Settings.Value.GameInstallPath = null;
         this.existingProject.Settings.Save();
+    }
+
+    [RelayCommand]
+    private async Task DeleteProject()
+    {
+        if (this.existingProject == null)
+        {
+            return;
+        }
+
+        var confirmDeleteDialog = new ConfirmViewModel
+        {
+            Title = "Delete Project",
+            Subtitle = this.existingProject.ProjectFolder,
+            BodyText = "Are you sure you want to delete project and folder?",
+        };
+
+        var confirmDelete = await this.dialog.OpenDialog<bool>(confirmDeleteDialog);
+        if (!confirmDelete)
+        {
+            return;
+        }
+
+        this.projectRepository.Remove(this.existingProject);
+        this.Close();
     }
 
     private void Form_PropertyChanged(object? sender, PropertyChangedEventArgs e)
