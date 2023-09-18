@@ -1,0 +1,49 @@
+<Window
+    x:Class="Phos.MusicManager.Desktop.Views.Dialogs.ConfirmView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Phos.MusicManager.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Phos.MusicManager.Library.ViewModels.Dialogs"
+    Title="{Binding Title}"
+    Width="500"
+    Height="250"
+    x:DataType="vm:ConfirmViewModel"
+    CanResize="False"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:ConfirmViewModel />
+    </Design.DataContext>
+    <Grid
+        Margin="8"
+        RowDefinitions="* auto">
+        <StackPanel>
+            <TextBlock
+                Text="{Binding Title}"
+                TextTrimming="CharacterEllipsis"
+                Theme="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock
+                Text="{Binding Subtitle}"
+                TextWrapping="Wrap"
+                Theme="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock
+                Margin="0,8"
+                Text="{Binding BodyText}"
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button
+                Command="{Binding CloseCommand}"
+                Content="{Binding CancelText}" />
+            <Button
+                Command="{Binding ConfirmCommand}"
+                Content="{Binding ConfirmText}" />
+        </StackPanel>
+    </Grid>
+</Window>
