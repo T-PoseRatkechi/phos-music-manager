@@ -33,6 +33,13 @@ public class AudioEncoderRegistry
 
     public string EncodersFolder => this.encodersDir;
 
+    public void Add(string encoderFile)
+    {
+        var encoderFileName = Path.GetFileName(encoderFile);
+        File.Copy(encoderFile, Path.Join(this.encodersDir, encoderFileName), true);
+        this.LoadEncoders();
+    }
+
     public void LoadEncoders()
     {
         this.Encoders.Clear();
@@ -42,8 +49,6 @@ public class AudioEncoderRegistry
 
     private void LoadVgAudioEncoders()
     {
-        var vgAudioDir = Directory.CreateDirectory(Path.Join(this.encodersDir, "vgaudio")).FullName;
-
         // Add default encoders.
         foreach (var container in ContainerTypes.Containers)
         {
@@ -62,7 +67,7 @@ public class AudioEncoderRegistry
 
         // Add from ini configs.
         var parser = new FileIniDataParser();
-        foreach (var file in Directory.EnumerateFiles(vgAudioDir, "*.ini", SearchOption.AllDirectories))
+        foreach (var file in Directory.EnumerateFiles(this.encodersDir, "*.ini", SearchOption.AllDirectories))
         {
             try
             {

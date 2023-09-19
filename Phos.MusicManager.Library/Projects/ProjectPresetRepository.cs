@@ -22,6 +22,13 @@ public class ProjectPresetRepository
 
     public ObservableCollection<ProjectPreset> List { get; } = new();
 
+    public void Add(string presetFile)
+    {
+        var presetFileName = Path.GetFileName(presetFile);
+        File.Copy(presetFile, Path.Join(this.presetsDir, presetFileName), true);
+        this.LoadPresets();
+    }
+
     public void Create(ProjectPreset preset, string? outputFile = null)
     {
         var presetOutputFile = outputFile ?? Path.Join(this.presetsDir, $"{preset.Name.Trim()}{PresetExt}");
