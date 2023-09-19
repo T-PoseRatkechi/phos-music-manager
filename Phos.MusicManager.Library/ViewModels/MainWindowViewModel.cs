@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using Phos.MusicManager.Library.Audio;
@@ -29,6 +30,8 @@ public partial class MainWindowViewModel : ViewModelBase
         ProjectCommands projectCommands,
         LoopService loopService,
         ProjectExporter projectExporter,
+        RefreshFilesCommand refreshFilesCommand,
+        ClearCacheCommand clearCacheCommand,
         IDialogService dialog,
         ILogger? log = null)
     {
@@ -39,6 +42,9 @@ public partial class MainWindowViewModel : ViewModelBase
         this.dialog = dialog;
         this.projectCommands = projectCommands;
         this.log = log;
+
+        this.RefreshFilesCommand = refreshFilesCommand;
+        this.ClearCacheCommand = clearCacheCommand.Create();
 
         this.navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
@@ -54,6 +60,10 @@ public partial class MainWindowViewModel : ViewModelBase
     public IRelayCommand AudioFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "audio"));
 
     public IRelayCommand PresetsFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "presets"));
+
+    public IRelayCommand ClearCacheCommand { get; }
+
+    public ICommand RefreshFilesCommand { get; }
 
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 

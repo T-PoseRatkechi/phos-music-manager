@@ -39,7 +39,7 @@
                 <MenuItem
                     Command="{Binding OpenQuickLoopCommand}"
                     Header="Quick Loop" />
-                <MenuItem Header="Open...">
+                <MenuItem Header="Open">
                     <MenuItem
                         Command="{Binding EncodersFolderCommand}"
                         Header="Encoders Folder" />
@@ -50,8 +50,12 @@
                         Command="{Binding AudioFolderCommand}"
                         Header="Audio Folder" />
                 </MenuItem>
-                <MenuItem Header="Reload Files" />
-                <MenuItem Header="Clear Cache" />
+                <MenuItem
+                    Command="{Binding RefreshFilesCommand}"
+                    Header="Reload Files" />
+                <MenuItem
+                    Command="{Binding ClearCacheCommand}"
+                    Header="Clear Cache" />
             </MenuItem>
         </Menu>
         <ContentControl Content="{Binding RootViewModel}" />
