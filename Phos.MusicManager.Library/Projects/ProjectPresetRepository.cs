@@ -83,8 +83,9 @@ public class ProjectPresetRepository
         return this.List.FirstOrDefault(x => x.Name == id);
     }
 
-    private void LoadPresets()
+    public void LoadPresets()
     {
+        this.List.Clear();
         foreach (var file in Directory.EnumerateFiles(this.presetsDir, $"*{PresetExt}", SearchOption.AllDirectories))
         {
             try

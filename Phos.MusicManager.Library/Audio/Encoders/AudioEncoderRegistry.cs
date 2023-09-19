@@ -35,12 +35,8 @@ public class AudioEncoderRegistry
 
     public void LoadEncoders()
     {
-        if (this.Encoders.Count > 0)
-        {
-            this.Encoders.Clear();
-            this.EncoderFiles.Clear();
-        }
-
+        this.Encoders.Clear();
+        this.EncoderFiles.Clear();
         this.LoadVgAudioEncoders();
     }
 
