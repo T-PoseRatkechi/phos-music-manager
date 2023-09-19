@@ -39,6 +39,19 @@
                 <MenuItem
                     Command="{Binding OpenQuickLoopCommand}"
                     Header="Quick Loop" />
+                <MenuItem Header="Open...">
+                    <MenuItem
+                        Command="{Binding EncodersFolderCommand}"
+                        Header="Encoders Folder" />
+                    <MenuItem
+                        Command="{Binding PresetsFolderCommand}"
+                        Header="Presets Folder" />
+                    <MenuItem
+                        Command="{Binding AudioFolderCommand}"
+                        Header="Audio Folder" />
+                </MenuItem>
+                <MenuItem Header="Reload Files" />
+                <MenuItem Header="Clear Cache" />
             </MenuItem>
         </Menu>
         <ContentControl Content="{Binding RootViewModel}" />

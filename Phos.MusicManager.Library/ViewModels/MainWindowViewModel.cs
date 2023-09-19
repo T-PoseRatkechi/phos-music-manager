@@ -49,6 +49,12 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public IRelayCommand OpenProjectCommand => this.projectCommands.OpenProjectCommand;
 
+    public IRelayCommand EncodersFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "audio", "encoders"));
+
+    public IRelayCommand AudioFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "audio"));
+
+    public IRelayCommand PresetsFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "presets"));
+
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 
     [RelayCommand]
@@ -62,7 +68,6 @@ public partial class MainWindowViewModel : ViewModelBase
 
         if (this.navigation.Current is ProjectViewModel projectPage)
         {
-
             try
             {
                 this.projectExporter.ExportPortableProject(projectPage.Project, outputFile);

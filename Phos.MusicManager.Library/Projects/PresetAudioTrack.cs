@@ -19,5 +19,5 @@ public class PresetAudioTrack
     public string? OutputPath { get; set; }
 
     [ProtoMember(6)]
-    public string Encoder { get; set; } = "HCA";
+    public string? Encoder { get; set; }
 }
