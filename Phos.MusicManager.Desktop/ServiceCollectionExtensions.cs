@@ -29,6 +29,8 @@ internal static class ServiceCollectionExtensions
             s.GetRequiredService<ProjectCommands>(),
             s.GetRequiredService<LoopService>(),
             s.GetRequiredService<ProjectExporter>(),
+            s.GetRequiredService<RefreshFilesCommand>(),
+            s.GetRequiredService<ClearCacheCommand>(),
             s.GetRequiredService<IDialogService>(),
             s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
         );
@@ -64,6 +66,8 @@ internal static class ServiceCollectionExtensions
         // Commands
         serviceCollection.AddSingleton<ProjectCommands>();
         serviceCollection.AddSingleton<CreatePresetCommand>();
+        serviceCollection.AddSingleton<RefreshFilesCommand>();
+        serviceCollection.AddSingleton<ClearCacheCommand>();
         return serviceCollection;
     }
 
