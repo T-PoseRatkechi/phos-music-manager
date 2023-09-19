@@ -113,23 +113,25 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
         {
             this.CanBuild = false;
             var outputDir = this.Project.Settings.Value.OutputDir ?? this.Project.BuildFolder;
-            var tracksToBuild = this.Project.Audio.Tracks.Where(x => x.ReplacementFile != null);
+            var tracksToBuild = this.Project.Audio.Tracks.Where(x => x.ReplacementFile != null).ToArray();
 
             this.BuildCurrent = 0;
-            this.BuildMax = tracksToBuild.Count();
+            this.BuildMax = tracksToBuild.Length;
             buildProgress.ProgressChanged += this.Progress_ProgressChanged;
 
             await this.audioBuilder.Build(tracksToBuild, outputDir, buildProgress);
+            this.BuildCurrent = this.BuildMax;
+
         }
         catch (Exception ex)
         {
             this.log?.LogError(ex, "Failed to build output for project {project}.", this.Project.Settings.Value.Name);
+            this.BuildCurrent = 0;
+            this.BuildMax = 1;
         }
         finally
         {
             this.CanBuild = true;
-            this.BuildCurrent = 1;
-            this.BuildMax = 1;
             buildProgress.ProgressChanged -= this.Progress_ProgressChanged;
         }
     }
