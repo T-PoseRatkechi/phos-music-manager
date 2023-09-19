@@ -32,6 +32,12 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
     [NotifyPropertyChangedFor(nameof(FilterAudioTracks))]
     private string filter = string.Empty;
 
+    [ObservableProperty]
+    private int buildCurrent;
+
+    [ObservableProperty]
+    private int buildMax;
+
     public ProjectViewModel(
         Project project,
         AudioBuilder audioBuilder,
@@ -101,11 +107,19 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
     [RelayCommand(CanExecute = nameof(this.CanBuild))]
     private async Task Build()
     {
+        var buildProgress = new Progress<int>();
+
         try
         {
             this.CanBuild = false;
             var outputDir = this.Project.Settings.Value.OutputDir ?? this.Project.BuildFolder;
-            await this.audioBuilder.Build(this.Project.Audio.Tracks, outputDir);
+            var tracksToBuild = this.Project.Audio.Tracks.Where(x => x.ReplacementFile != null);
+
+            this.BuildCurrent = 0;
+            this.BuildMax = tracksToBuild.Count();
+            buildProgress.ProgressChanged += this.Progress_ProgressChanged;
+
+            await this.audioBuilder.Build(tracksToBuild, outputDir, buildProgress);
         }
         catch (Exception ex)
         {
@@ -114,7 +128,15 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
         finally
         {
             this.CanBuild = true;
+            this.BuildCurrent = 1;
+            this.BuildMax = 1;
+            buildProgress.ProgressChanged -= this.Progress_ProgressChanged;
         }
+    }
+
+    private void Progress_ProgressChanged(object? sender, int e)
+    {
+        this.BuildCurrent = e;
     }
 
     [RelayCommand]

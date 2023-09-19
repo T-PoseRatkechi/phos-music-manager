@@ -28,9 +28,11 @@ public class AudioBuilder
     /// </summary>
     /// <param name="tracks">Tracks to build.</param>
     /// <param name="outputDir">Path to output build.</param>
+    /// <param name="progress">Progress reporter.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-    public async Task Build(IEnumerable<AudioTrack> tracks, string outputDir)
+    public async Task Build(IEnumerable<AudioTrack> tracks, string outputDir, IProgress<int>? progress = null)
     {
+        var numTracksBuilt = 0;
         foreach (var track in tracks)
         {
             if (string.IsNullOrEmpty(track.OutputPath))
@@ -48,6 +50,8 @@ public class AudioBuilder
 
             if (track.ReplacementFile == null)
             {
+                numTracksBuilt++;
+                progress?.Report(numTracksBuilt);
                 continue;
             }
 
@@ -60,6 +64,9 @@ public class AudioBuilder
             {
                 this.log?.LogWarning("Unknown encoder {encoder} for track {track}.", track.Encoder, track.Name);
             }
+
+            numTracksBuilt++;
+            progress?.Report(numTracksBuilt);
         }
     }
 }
