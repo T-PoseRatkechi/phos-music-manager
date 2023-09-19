@@ -80,8 +80,20 @@
         <Border
             Background="{DynamicResource ControlFillColorDefaultBrush}"
             CornerRadius="{StaticResource ControlCornerRadius}">
-            <Grid ColumnDefinitions="* auto">
+            <Grid
+                ColumnDefinitions="* auto"
+                RowDefinitions="auto *">
+                <ProgressBar
+                    Grid.ColumnSpan="2"
+                    Height="5"
+                    BorderBrush="{DynamicResource ControlStrongFillColorDefaultBrush}"
+                    BorderThickness="1"
+                    Foreground="{Binding Project.Settings.Value.Color}"
+                    Maximum="{Binding BuildMax}"
+                    ShowProgressText="False"
+                    Value="{Binding BuildCurrent}" />
                 <ListBox
+                    Grid.Row="1"
                     Grid.ColumnSpan="1"
                     ItemsSource="{Binding FilterAudioTracks}"
                     SelectedItem="{Binding SelectedTrack}">
@@ -97,6 +109,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <ContentControl
+                    Grid.Row="1"
                     Grid.Column="1"
                     Width="220"
                     Content="{Binding TrackPanel}"
