@@ -31,6 +31,7 @@ internal static class ServiceCollectionExtensions
             s.GetRequiredService<ProjectExporter>(),
             s.GetRequiredService<RefreshFilesCommand>(),
             s.GetRequiredService<ClearCacheCommand>(),
+            s.GetRequiredService<AddFileCommand>(),
             s.GetRequiredService<IDialogService>(),
             s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
         );
@@ -68,6 +69,7 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton<CreatePresetCommand>();
         serviceCollection.AddSingleton<RefreshFilesCommand>();
         serviceCollection.AddSingleton<ClearCacheCommand>();
+        serviceCollection.AddSingleton<AddFileCommand>();
         return serviceCollection;
     }
 
