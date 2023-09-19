@@ -50,7 +50,10 @@ public class CachedEncoder : IEncoder
         }
 
         // Copy cached file to output.
-        File.Copy(cachedFile, outputFile, true);
+        await Task.Run(() =>
+        {
+            File.Copy(cachedFile, outputFile, true);
+        });
     }
 
     private static void SaveLoop(string loopFile, Loop loop)
