@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Phos.MusicManager.Desktop.Library.ViewModels;
+using Phos.MusicManager.Library;
 using System;
 
 namespace Phos.MusicManager.Desktop;
@@ -10,6 +11,9 @@ namespace Phos.MusicManager.Desktop;
 /// </summary>
 public class ViewLocator : IDataTemplate
 {
+    private static readonly string ViewBaseNamespace = typeof(App).Namespace!;
+    private static readonly string ViewModelBaseNamespace = typeof(AppSettings).Namespace!;
+
     /// <inheritdoc/>
     public Control Build(object? data)
     {
@@ -21,10 +25,7 @@ public class ViewLocator : IDataTemplate
         try
         {
             var dataType = data.GetType();
-            var vmBaseNamespace = dataType.Assembly.GetName().Name!;
-            var viewBaseNamespace = typeof(App).Assembly.GetName().Name!;
-
-            var viewFullname = dataType.FullName!.Replace(vmBaseNamespace, viewBaseNamespace).Replace("ViewModel", "View");
+            var viewFullname = dataType.FullName!.Replace(ViewModelBaseNamespace, ViewBaseNamespace).Replace("ViewModel", "View");
             var viewType = Type.GetType(viewFullname);
 
             if (viewType != null)
