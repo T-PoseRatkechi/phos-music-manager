@@ -22,6 +22,14 @@
                 <MenuItem
                     Command="{Binding OpenProjectCommand}"
                     Header="_Open Project..." />
+                <MenuItem Header="_Add">
+                    <MenuItem
+                        Command="{Binding AddEncoderCommand}"
+                        Header="_Encoder..." />
+                    <MenuItem
+                        Command="{Binding AddProjectPresetCommand}"
+                        Header="_Project Preset..." />
+                </MenuItem>
                 <MenuItem
                     Header="_Export As"
                     IsEnabled="{Binding CanProjectCommand}">

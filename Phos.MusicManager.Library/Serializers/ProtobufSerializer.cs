@@ -17,10 +17,10 @@ public static class ProtobufSerializer
         Serializer.Serialize(fs, value);
     }
 
-    public static T? Deserialize<T>(string file)
+    public static T Deserialize<T>(string file)
     {
         using var fs = File.OpenRead(file);
-        var value = Serializer.Deserialize<T>(fs);
+        var value = Serializer.Deserialize<T>(fs) ?? throw new InvalidDataException($"Failed to deserialize file.\nFile: {file}");
         return value;
     }
 }

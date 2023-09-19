@@ -32,6 +32,7 @@ public partial class MainWindowViewModel : ViewModelBase
         ProjectExporter projectExporter,
         RefreshFilesCommand refreshFilesCommand,
         ClearCacheCommand clearCacheCommand,
+        AddFileCommand addFileCommand,
         IDialogService dialog,
         ILogger? log = null)
     {
@@ -45,6 +46,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
         this.RefreshFilesCommand = refreshFilesCommand;
         this.ClearCacheCommand = clearCacheCommand.Create();
+        this.AddEncoderCommand = addFileCommand.AddEncoderCommand;
+        this.AddProjectPresetCommand = addFileCommand.AddProjectPresetCommand;
 
         this.navigation.PropertyChanged += this.Navigation_PropertyChanged;
     }
@@ -64,6 +67,10 @@ public partial class MainWindowViewModel : ViewModelBase
     public IRelayCommand ClearCacheCommand { get; }
 
     public ICommand RefreshFilesCommand { get; }
+
+    public ICommand AddEncoderCommand { get; }
+
+    public ICommand AddProjectPresetCommand { get; }
 
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 
