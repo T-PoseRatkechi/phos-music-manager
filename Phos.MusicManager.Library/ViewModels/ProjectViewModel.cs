@@ -113,13 +113,12 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
         {
             this.CanBuild = false;
             var outputDir = this.Project.Settings.Value.OutputDir ?? this.Project.BuildFolder;
-            var tracksToBuild = this.Project.Audio.Tracks.Where(x => x.ReplacementFile != null).ToArray();
 
             this.BuildCurrent = 0;
-            this.BuildMax = tracksToBuild.Length;
+            this.BuildMax = this.Project.Audio.Tracks.Count;
             buildProgress.ProgressChanged += this.Progress_ProgressChanged;
 
-            await this.audioBuilder.Build(tracksToBuild, outputDir, buildProgress);
+            await this.audioBuilder.Build(this.Project.Audio.Tracks, outputDir, buildProgress);
             this.BuildCurrent = this.BuildMax;
 
         }
