@@ -62,8 +62,17 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
         {
             return this.Project.Audio.Tracks.Where(track =>
             {
-                var trackSearchString = string.Join(' ', track.Name, track.Category, track.Tags).ToLower();
-                return string.IsNullOrEmpty(this.Filter) || Fuzz.PartialRatio(this.Filter.ToLower(), trackSearchString) >= Math.Min(25 * this.Filter.Length, 100);
+                if (string.IsNullOrEmpty(this.Filter))
+                {
+                    return true;
+                }
+
+                var nameMatchValue = Fuzz.PartialRatio(this.Filter.ToLower(), track.Name.ToLower());
+                var categoryMatchValue = Fuzz.PartialRatio(this.Filter.ToLower(), track.Category.ToLower());
+                var tagMatchValues = track.Tags.Select(tag => Fuzz.PartialRatio(this.Filter.ToLower(), tag.ToLower()));
+                var tagMatchValue = tagMatchValues.Count() > 0 ? tagMatchValues.Max() : 0;
+
+                return Math.Max(nameMatchValue, Math.Max(categoryMatchValue, tagMatchValue)) >= Math.Min(20 * this.Filter.Length, 100);
             }).ToArray();
         }
     }
