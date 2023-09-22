@@ -24,21 +24,21 @@
                     Header="_Open Project..." />
                 <MenuItem Header="_Add">
                     <MenuItem
-                        Command="{Binding AddEncoderCommand}"
-                        Header="_Encoder..." />
-                    <MenuItem
                         Command="{Binding AddProjectPresetCommand}"
                         Header="_Project Preset..." />
+                    <MenuItem
+                        Command="{Binding AddEncoderCommand}"
+                        Header="_Encoder..." />
                 </MenuItem>
                 <MenuItem
                     Header="_Export As"
                     IsEnabled="{Binding CanProjectCommand}">
                     <MenuItem
-                        Command="{Binding ExportPortableProjectCommand}"
-                        Header="_Portable Project..." />
-                    <MenuItem
                         Command="{Binding ExportPresetCommand}"
                         Header="P_roject Preset..." />
+                    <MenuItem
+                        Command="{Binding ExportPortableProjectCommand}"
+                        Header="_Portable Project..." />
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="_Exit" />
