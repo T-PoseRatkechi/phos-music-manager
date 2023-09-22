@@ -101,27 +101,35 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     [RelayCommand]
     private async Task SelectReplacementFile()
     {
-        var inputTypes = this.encoderRegistry.Encoders[this.Track.Encoder].InputTypes;
-        var fileFilter = $"Supported Types|{string.Join(';', inputTypes.Select(x => $"*{x}"))}";
-        var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...", fileFilter);
-        if (replacementFile != null)
+        if (this.Track.Encoder == null)
         {
-            var savedLoop = this.loopService.GetLoop(replacementFile);
-            if (savedLoop != null)
-            {
-                this.Track.Loop.Enabled = savedLoop.Enabled;
-                this.Track.Loop.StartSample = savedLoop.StartSample;
-                this.Track.Loop.EndSample = savedLoop.EndSample;
-            }
-            else
-            {
-                this.Track.Loop.Enabled = true;
-                this.Track.Loop.StartSample = 0;
-                this.Track.Loop.EndSample = 0;
-            }
+            return;
+        }
 
-            this.Replacements.Add(replacementFile);
-            this.SelectedReplacement = replacementFile;
+        if (this.encoderRegistry.Encoders.TryGetValue(this.Track.Encoder, out var encoder))
+        {
+            var inputTypes = this.encoderRegistry.Encoders[this.Track.Encoder].InputTypes;
+            var fileFilter = $"Supported Types|{string.Join(';', inputTypes.Select(x => $"*{x}"))}";
+            var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...", fileFilter);
+            if (replacementFile != null)
+            {
+                var savedLoop = this.loopService.GetLoop(replacementFile);
+                if (savedLoop != null)
+                {
+                    this.Track.Loop.Enabled = savedLoop.Enabled;
+                    this.Track.Loop.StartSample = savedLoop.StartSample;
+                    this.Track.Loop.EndSample = savedLoop.EndSample;
+                }
+                else
+                {
+                    this.Track.Loop.Enabled = true;
+                    this.Track.Loop.StartSample = 0;
+                    this.Track.Loop.EndSample = 0;
+                }
+
+                this.Replacements.Add(replacementFile);
+                this.SelectedReplacement = replacementFile;
+            }
         }
     }
 
