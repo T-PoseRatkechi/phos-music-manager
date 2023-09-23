@@ -88,7 +88,7 @@
                     Height="5"
                     BorderBrush="{DynamicResource ControlStrongFillColorDefaultBrush}"
                     BorderThickness="1"
-                    Foreground="{Binding Project.Settings.Value.Color}"
+                    Foreground="{Binding Project.Settings.Value.Color, Converter={StaticResource HexColorConverter}}"
                     Maximum="{Binding BuildMax}"
                     ShowProgressText="False"
                     Value="{Binding BuildCurrent}" />

@@ -35,7 +35,6 @@
             <ui:NavigationView.MenuItemTemplate>
                 <DataTemplate>
                     <ui:NavigationViewItem
-                        Classes.colorIcon="{Binding Project.Settings.Value.Color, Converter={StaticResource NullBoolConverter}}"
                         Content="{Binding Converter={StaticResource ProjectNavItemConverter}}"
                         Tag="{Binding Project.Settings.Value.Color}"
                         ToolTip.Tip="{Binding Converter={StaticResource ProjectNavItemConverter}}" />
@@ -45,8 +44,8 @@
                 <Style Selector="ui|NavigationViewItem">
                     <Setter Property="IconSource" Value="{StaticResource ProjectIcon}" />
                 </Style>
-                <Style Selector="ui|NavigationViewItem.colorIcon ui|SymbolIcon">
-                    <Setter Property="Foreground" Value="{Binding $parent[ui:NavigationViewItem].Tag}" />
+                <Style Selector="ui|NavigationViewItem ui|SymbolIcon">
+                    <Setter Property="Foreground" Value="{Binding $parent[ui:NavigationViewItem].Tag, Converter={StaticResource HexColorConverter}}" />
                 </Style>
                 <Style Selector="ui|NavigationViewItem[Content=Home]">
                     <Setter Property="IconSource" Value="{StaticResource HomeIcon}" />

@@ -26,6 +26,7 @@
             <converters:ToUpperConverter x:Key="ToUpperConverter" />
             <converters:PathNameConverter x:Key="PathNameConverter" />
             <converters:ProjectIconConverter x:Key="ProjectIconConverter" />
+            <converters:HexColorConverter x:Key="HexColorConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
