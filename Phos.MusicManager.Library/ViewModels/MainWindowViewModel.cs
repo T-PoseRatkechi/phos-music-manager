@@ -15,7 +15,7 @@ using Phos.MusicManager.Library.ViewModels.Projects;
 
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1601 // Partial elements should be documented
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainWindowViewModel : WindowViewModelBase
 {
     private readonly ProjectsNavigation navigation;
     private readonly ProjectCommands projectCommands;
@@ -79,6 +79,12 @@ public partial class MainWindowViewModel : ViewModelBase
     public bool CanProjectCommand => this.navigation.Current is ProjectViewModel;
 
     [RelayCommand]
+    public override void Close(object? result = null)
+    {
+        base.Close(result);
+    }
+
+    [RelayCommand]
     private async Task ExportPortableProject()
     {
         var outputFile = await this.dialog.OpenSaveFile("Export Portable Project", "Portable Project|*.phos");
@@ -133,12 +139,6 @@ public partial class MainWindowViewModel : ViewModelBase
 
         var quickLoop = new QuickLoopViewModel(folderDir, this.loopService);
         await this.dialog.OpenDialog(quickLoop);
-    }
-
-    [RelayCommand]
-    private void Exit()
-    {
-        this.log?.LogError("Exit not implemented");
     }
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)

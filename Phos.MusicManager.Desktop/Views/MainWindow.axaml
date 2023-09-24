@@ -42,7 +42,7 @@
                 </MenuItem>
                 <Separator />
                 <MenuItem
-                    Command="{Binding ExitCommand}"
+                    Command="{Binding CloseCommand}"
                     Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_Tools">
