@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <ui:SymbolIconSource
             x:Key="HomeIcon"
-            Symbol="Home" />
+            Symbol="HomeFilled" />
         <ui:SymbolIconSource
             x:Key="LogsIcon"
             Symbol="Clipboard" />
