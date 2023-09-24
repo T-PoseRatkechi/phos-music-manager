@@ -70,14 +70,15 @@
         </Menu>
         <Grid
             ColumnDefinitions="2* 1*"
-            RowDefinitions="* *">
+            RowDefinitions="* auto">
             <ContentControl
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="2"
                 Content="{Binding RootViewModel}" />
             <ScrollViewer
                 Grid.Row="1"
-                Grid.Column="1">
+                Grid.Column="1"
+                MaxHeight="256">
                 <ContentControl
                     VerticalAlignment="Bottom"
                     Content="{Binding Notifications}" />

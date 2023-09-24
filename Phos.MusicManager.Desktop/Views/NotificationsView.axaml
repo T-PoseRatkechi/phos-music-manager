@@ -68,8 +68,9 @@
                         CornerRadius="{StaticResource ControlCornerRadius}">
                         <TextBlock
                             FontSize="12"
-							FontWeight="Bold"
-                            Text="{Binding Message}" />
+                            FontWeight="Bold"
+                            Text="{Binding Message}"
+                            TextTrimming="CharacterEllipsis" />
                     </Border>
                 </Button>
             </DataTemplate>
