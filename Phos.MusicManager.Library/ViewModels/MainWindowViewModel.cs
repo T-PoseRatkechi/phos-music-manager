@@ -62,6 +62,8 @@ public partial class MainWindowViewModel : WindowViewModelBase
 
     public IRelayCommand OpenProjectCommand => this.projectCommands.OpenProjectCommand;
 
+    public IRelayCommand AppFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory));
+
     public IRelayCommand EncodersFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "audio", "encoders"));
 
     public IRelayCommand AudioFolderCommand { get; } = OpenPathCommand.Create(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "audio"));

@@ -51,11 +51,14 @@
                     Header="Quick Loop" />
                 <MenuItem Header="Open">
                     <MenuItem
-                        Command="{Binding EncodersFolderCommand}"
-                        Header="Encoders Folder" />
+                        Command="{Binding AppFolderCommand}"
+                        Header="App Folder" />
                     <MenuItem
                         Command="{Binding PresetsFolderCommand}"
                         Header="Presets Folder" />
+                    <MenuItem
+                        Command="{Binding EncodersFolderCommand}"
+                        Header="Encoders Folder" />
                     <MenuItem
                         Command="{Binding AudioFolderCommand}"
                         Header="Audio Folder" />
