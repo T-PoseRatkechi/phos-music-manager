@@ -2,6 +2,7 @@
 
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Extensions.Logging;
 using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Models;
 using Phos.MusicManager.Library.Common;
@@ -10,7 +11,7 @@ using Phos.MusicManager.Library.Common;
 #pragma warning disable SA1601 // Partial elements should be documented
 public partial class Project : ObservableObject
 {
-    public Project(string projectFile)
+    public Project(string projectFile, ILogger? log = null)
     {
         this.ProjectFile = projectFile;
         this.Settings = new SavableFile<ProjectSettings>(projectFile);
@@ -20,7 +21,7 @@ public partial class Project : ObservableObject
 
         var audioTracksFile = Path.Join(this.AudioFolder, "audio-tracks.json");
         var audioTracks = new SavableFile<ObservableCollection<AudioTrack>>(audioTracksFile);
-        this.Audio = new(audioTracks);
+        this.Audio = new(this, audioTracks, log);
     }
 
     public string ProjectFile { get; }

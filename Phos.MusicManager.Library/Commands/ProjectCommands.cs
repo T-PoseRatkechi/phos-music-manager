@@ -69,7 +69,7 @@ public partial class ProjectCommands : ObservableObject
 
         try
         {
-            var project = new Project(projectFile);
+            var project = new Project(projectFile, this.log);
             if (project.Settings.Value.Type == ProjectType.Portable1)
             {
                 var confirmDialog = new ConfirmViewModel()

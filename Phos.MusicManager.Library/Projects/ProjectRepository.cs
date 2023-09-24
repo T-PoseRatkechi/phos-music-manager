@@ -60,7 +60,7 @@ public class ProjectRepository
         this.appSettings.Value.ProjectFiles.Add(projectFile);
         this.appSettings.Save();
 
-        var project = new Project(projectFile);
+        var project = new Project(projectFile, this.log);
         if (project.Settings.Value.Preset != null)
         {
             if (this.presetRepo.GetById(project.Settings.Value.Preset) is ProjectPreset preset)
@@ -124,7 +124,7 @@ public class ProjectRepository
         {
             try
             {
-                var project = new Project(projectFile);
+                var project = new Project(projectFile, this.log);
                 this.Add(project);
             }
             catch (Exception ex)
