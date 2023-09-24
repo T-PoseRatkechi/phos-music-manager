@@ -18,20 +18,14 @@ public class HexColorConverter : IValueConverter
 
     public HexColorConverter()
     {
-        if (App.Current?.TryFindResource("TextFillColorPrimaryBrush", out var resource) ?? false)
+        var theme = App.Current?.ActualThemeVariant?.ToString() ?? "Dark";
+        if (theme == "Dark")
         {
-            if (resource != null && resource.ToString() is string color)
-            {
-                this.defaultBrush = Brush.Parse(color);
-            }
-            else
-            {
-                this.defaultBrush = Brush.Parse("White");
-            }
+            this.defaultBrush = Brush.Parse("White");
         }
         else
         {
-            this.defaultBrush = Brush.Parse("White");
+            this.defaultBrush = Brush.Parse("Black");
         }
     }
 
