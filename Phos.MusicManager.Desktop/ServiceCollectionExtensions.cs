@@ -9,6 +9,7 @@ using Phos.MusicManager.Library.Audio;
 using Phos.MusicManager.Library.Audio.Encoders;
 using Phos.MusicManager.Library.Commands;
 using Phos.MusicManager.Library.Common;
+using Phos.MusicManager.Library.Common.Logging;
 using Phos.MusicManager.Library.Projects;
 using Phos.MusicManager.Library.ViewModels;
 using Phos.MusicManager.Library.ViewModels.Music;
@@ -25,6 +26,7 @@ internal static class ServiceCollectionExtensions
         serviceCollection.AddSingleton(s =>
         new MainWindowViewModel(
             s.GetRequiredService<DashboardViewModel>(),
+            s.GetRequiredService<NotificationsViewModel>(),
             s.GetRequiredService<ProjectsNavigation>(),
             s.GetRequiredService<ProjectCommands>(),
             s.GetRequiredService<LoopService>(),
@@ -35,7 +37,9 @@ internal static class ServiceCollectionExtensions
             s.GetRequiredService<IDialogService>(),
             s.GetRequiredService<Microsoft.Extensions.Logging.ILogger>())
         );
+
         serviceCollection.AddSingleton<DashboardViewModel>();
+        serviceCollection.AddSingleton<NotificationsViewModel>();
         serviceCollection.AddSingleton<AboutViewModel>();
         return serviceCollection;
     }
@@ -83,8 +87,11 @@ internal static class ServiceCollectionExtensions
         }
         catch (Exception) { }
 
+        var logSink = new LogNotifySink();
+        serviceCollection.AddSingleton<ILogNotify>(logSink);
         Log.Logger = new LoggerConfiguration()
             .WriteTo.File(logFile, outputTemplate: "{Timestamp:HH:mm:ss} [{Level}] {Message:lj}{NewLine}{Exception}")
+            .WriteTo.Sink(logSink)
             .CreateLogger();
 
         var log = LoggerFactory.Create(logger => logger.AddSerilog(Log.Logger)).CreateLogger("Logger");
