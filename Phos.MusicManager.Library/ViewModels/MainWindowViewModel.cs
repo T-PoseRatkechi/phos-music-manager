@@ -26,6 +26,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel(
         ViewModelBase rootViewModel,
+        NotificationsViewModel notifications,
         ProjectsNavigation navigation,
         ProjectCommands projectCommands,
         LoopService loopService,
@@ -37,6 +38,7 @@ public partial class MainWindowViewModel : ViewModelBase
         ILogger? log = null)
     {
         this.RootViewModel = rootViewModel;
+        this.Notifications = notifications;
         this.navigation = navigation;
         this.loopService = loopService;
         this.projectExporter = projectExporter;
@@ -53,6 +55,8 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public ViewModelBase RootViewModel { get; set; }
+
+    public NotificationsViewModel Notifications { get; }
 
     public IRelayCommand NewProjectCommand => this.projectCommands.NewProjectCommand;
 
@@ -129,6 +133,12 @@ public partial class MainWindowViewModel : ViewModelBase
 
         var quickLoop = new QuickLoopViewModel(folderDir, this.loopService);
         await this.dialog.OpenDialog(quickLoop);
+    }
+
+    [RelayCommand]
+    private void Exit()
+    {
+        this.log?.LogError("Exit not implemented");
     }
 
     private void Navigation_PropertyChanged(object? sender, PropertyChangedEventArgs e)
