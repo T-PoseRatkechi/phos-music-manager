@@ -11,7 +11,7 @@
     MinWidth="960"
     MinHeight="540"
     x:DataType="vm:MainWindowViewModel"
-    Icon="/Assets/avalonia-logo.ico"
+    Icon="/Assets/icon.ico"
     mc:Ignorable="d">
     <DockPanel>
         <Menu DockPanel.Dock="Top">

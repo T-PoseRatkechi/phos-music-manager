@@ -10,6 +10,7 @@
     d:DesignWidth="800"
     CanResize="False"
     Classes.isEditing="{Binding IsEditing}"
+    Icon="/Assets/icon.ico"
     SizeToContent="Height"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">

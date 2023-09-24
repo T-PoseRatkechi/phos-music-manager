@@ -15,6 +15,7 @@
     d:DesignHeight="540"
     d:DesignWidth="960"
     x:DataType="vm:QuickLoopViewModel"
+    Icon="/Assets/icon.ico"
     mc:Ignorable="d">
     <Design.DataContext>
         <dd:DesignQuickLoopViewModel />

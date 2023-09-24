@@ -13,6 +13,7 @@
     x:DataType="vm:CreateProjectViewModel"
     CanResize="False"
     Classes.isEditing="{Binding IsEditing}"
+    Icon="/Assets/icon.ico"
     SizeToContent="Height"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">

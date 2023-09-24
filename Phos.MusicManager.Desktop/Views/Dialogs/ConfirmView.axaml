@@ -11,6 +11,7 @@
     Height="250"
     x:DataType="vm:ConfirmViewModel"
     CanResize="False"
+    Icon="/Assets/icon.ico"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
     <Design.DataContext>
