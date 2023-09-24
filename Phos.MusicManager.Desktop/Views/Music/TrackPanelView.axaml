@@ -71,6 +71,7 @@
                         </ComboBox>
                         <Button
                             Grid.Column="2"
+                            VerticalAlignment="Stretch"
                             Classes="selectFileButton"
                             Command="{Binding SelectReplacementFileCommand}" />
                     </Grid>
