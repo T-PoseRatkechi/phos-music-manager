@@ -6,6 +6,7 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>PhosMusicManager</AssemblyName>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,10 @@
 
   <ItemGroup>
     <AvaloniaResource Remove="Assets\Fonts\Fira Code\LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\icon.ico" />
   </ItemGroup>
 
 
