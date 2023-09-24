@@ -152,7 +152,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IDisposable
     [RelayCommand]
     private void Delete()
     {
-        this.audioManager.Tracks.Remove(this.Track);
+        this.audioManager.RemoveTrack(this.Track);
     }
 
     private void Track_PropertyChanged(object? sender, PropertyChangedEventArgs e)
