@@ -20,7 +20,7 @@ public class HexColorConverter : IValueConverter
     {
         if (App.Current?.TryFindResource("TextFillColorPrimaryBrush", out var resource) ?? false)
         {
-            if (resource is string color)
+            if (resource != null && resource.ToString() is string color)
             {
                 this.defaultBrush = Brush.Parse(color);
             }
