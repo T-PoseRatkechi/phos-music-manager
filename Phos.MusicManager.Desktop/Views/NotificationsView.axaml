@@ -1,0 +1,78 @@
+<UserControl
+    x:Class="Phos.MusicManager.Desktop.Views.NotificationsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:design="using:Phos.MusicManager.Desktop.DesignTime"
+    xmlns:log="using:Microsoft.Extensions.Logging"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Phos.MusicManager.Library.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:NotificationsViewModel"
+    Background="Transparent"
+    mc:Ignorable="d">
+    <UserControl.Styles>
+        <Style Selector="Border.error">
+            <Setter Property="Background" Value="#de2312" />
+            <Setter Property="BorderBrush" Value="#290401" />
+        </Style>
+        <Style Selector="Border.error TextBlock">
+            <Setter Property="Foreground" Value="#290401" />
+        </Style>
+        <Style Selector="Border.warning">
+            <Setter Property="Background" Value="#e6c927" />
+            <Setter Property="BorderBrush" Value="#261d02" />
+        </Style>
+        <Style Selector="Border.warning TextBlock">
+            <Setter Property="Foreground" Value="#261d02" />
+        </Style>
+        <Style Selector="Border.debug">
+            <Setter Property="Background" Value="#5ed660" />
+            <Setter Property="BorderBrush" Value="#09240a" />
+        </Style>
+        <Style Selector="Border.debug TextBlock">
+            <Setter Property="Foreground" Value="#09240a" />
+        </Style>
+        <Style Selector="Border">
+            <Setter Property="Background" Value="#121212" />
+            <Setter Property="BorderBrush" Value="{StaticResource TextFillColorPrimaryBrush}" />
+        </Style>
+        <Style Selector="Border TextBlock">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </UserControl.Styles>
+    <Design.DataContext>
+        <design:MockNotifications />
+    </Design.DataContext>
+    <ItemsRepeater ItemsSource="{Binding Messages}">
+        <ItemsRepeater.ItemTemplate>
+            <DataTemplate>
+                <Button
+                    Margin="2"
+                    Padding="0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    BorderThickness="0"
+                    Command="{Binding $parent.DataContext.CloseMessageCommand}"
+                    CommandParameter="{Binding}">
+                    <Border
+                        Padding="2"
+                        BorderThickness="1"
+                        Classes.critical="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Critical}}"
+                        Classes.debug="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Debug}}"
+                        Classes.error="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Error}}"
+                        Classes.info="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Information}}"
+                        Classes.trace="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Trace}}"
+                        Classes.warning="{Binding Level, Converter={StaticResource ObjectEqualsConverter}, ConverterParameter={x:Static log:LogLevel.Warning}}"
+                        CornerRadius="{StaticResource ControlCornerRadius}">
+                        <TextBlock
+                            FontSize="12"
+							FontWeight="Bold"
+                            Text="{Binding Message}" />
+                    </Border>
+                </Button>
+            </DataTemplate>
+        </ItemsRepeater.ItemTemplate>
+    </ItemsRepeater>
+</UserControl>
