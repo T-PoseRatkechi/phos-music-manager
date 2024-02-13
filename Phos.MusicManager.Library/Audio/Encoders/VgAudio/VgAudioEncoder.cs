@@ -34,11 +34,6 @@ public class VgAudioEncoder : IEncoder
         {
             // If same file type, just copy to output.
             var inputFileExt = Path.GetExtension(inputFile).Trim('.');
-            if (outputFile.EndsWith(inputFileExt))
-            {
-                File.Copy(inputFile, outputFile, true);
-                return;
-            }
 
             using var inputStream = File.OpenRead(inputFile);
             using var outputStream = File.Create(outputFile);
