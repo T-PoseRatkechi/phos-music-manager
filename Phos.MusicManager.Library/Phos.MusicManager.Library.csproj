@@ -24,7 +24,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="VGAudio" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,7 +48,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DLLs\" />
     <Folder Include="Resources\Icons\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VGAudio">
+      <HintPath>DLLs\VGAudio.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
