@@ -32,35 +32,47 @@ public class VgAudioEncoder : IEncoder
     {
         return Task.Run(() =>
         {
+            // If same file type, just copy to output.
+            var inputFileExt = Path.GetExtension(inputFile).Trim('.');
+            if (outputFile.EndsWith(inputFileExt))
+            {
+                File.Copy(inputFile, outputFile, true);
+                return;
+            }
+
             using var inputStream = File.OpenRead(inputFile);
             using var outputStream = File.Create(outputFile);
 
-            var inputFileExt = Path.GetExtension(inputFile).Trim('.');
             var readerContainer = ContainerTypes.Containers.First(x => x.Value.Names.Contains(inputFileExt, StringComparer.OrdinalIgnoreCase)).Value;
             var reader = readerContainer.GetReader();
             var inputAudio = reader.Read(inputStream);
-            if (loop == null)
+
+            try
             {
-                inputAudio.SetLoop(false);
-            }
-            else
-            {
-                if (loop.StartSample == 0 && loop.EndSample == 0)
+                if (loop == null)
                 {
-                    inputAudio.SetLoop(loop.Enabled);
-                }
-                else if (loop.StartSample >= loop.EndSample)
-                {
-                    throw new InvalidLoopException(loop);
+                    inputAudio.SetLoop(false);
                 }
                 else
                 {
-                    inputAudio.SetLoop(loop.Enabled, loop.StartSample, loop.EndSample);
+                    if (loop.StartSample == 0 && loop.EndSample == 0)
+                    {
+                        inputAudio.SetLoop(loop.Enabled);
+                    }
+                    else if (loop.StartSample >= loop.EndSample)
+                    {
+                        throw new InvalidLoopException(loop);
+                    }
+                    else
+                    {
+                        inputAudio.SetLoop(loop.Enabled, loop.StartSample, loop.EndSample);
+                    }
                 }
             }
+            catch (Exception)
+            {
+            }
 
-            // ADX writer seems to be multi-threaded, causing issues with UI logger.
-            // this.writer.Configuration.Progress = new LoggerProgressReport(this.log);
             this.writer.WriteToStream(inputAudio, outputStream, this.configuration);
         });
     }
