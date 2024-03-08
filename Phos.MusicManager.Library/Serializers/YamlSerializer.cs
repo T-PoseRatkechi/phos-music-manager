@@ -12,7 +12,6 @@ public static class YamlSerializer
             .Build();
 
     private static readonly IDeserializer Deserializer = new DeserializerBuilder()
-            .WithNamingConvention(UnderscoredNamingConvention.Instance)
             .Build();
 
     public static void Serialize(string file, object? value)

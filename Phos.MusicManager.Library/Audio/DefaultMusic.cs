@@ -1,7 +1,8 @@
 ﻿namespace Phos.MusicManager.Library.Audio;
 
-using Phos.MusicManager.Library.Common.Serializers;
+using Phos.MusicManager.Library.Metadata;
 using Phos.MusicManager.Library.Projects;
+using Phos.MusicManager.Library.Serializers;
 
 /// <summary>
 /// Default music provider.
@@ -16,10 +17,14 @@ public static class DefaultMusic
     /// <param name="name">Game name.</param>
     /// <returns>Path to default music file.</returns>
     public static string? GetDefaultMusicFile(string name)
-    {
-        var gameMusicFile = Path.Join(DefaultMusicDir, $"{name}.json");
-        return File.Exists(gameMusicFile) ? gameMusicFile : null;
-    }
+        => name switch
+        {
+            Constants.P4G_PC_64 => Path.Join(AppDomain.CurrentDomain.BaseDirectory, "P4G_PC", "music.yaml"),
+            Constants.P3P_PC => Path.Join(AppDomain.CurrentDomain.BaseDirectory, "P3P_PC", "music.yaml"),
+            Constants.P5R_PC => Path.Join(AppDomain.CurrentDomain.BaseDirectory, "P5R_PC", "music.yaml"),
+            Constants.P3R_PC => Path.Join(AppDomain.CurrentDomain.BaseDirectory, "P3R_PC", "music.yaml"),
+            _ => null,
+        };
 
     /// <summary>
     /// Gets default music audio tracks for game.
@@ -36,7 +41,15 @@ public static class DefaultMusic
 
         try
         {
-            return JsonFileSerializer.Deserialize<PresetAudioTrack[]>(musicFile) ?? Array.Empty<PresetAudioTrack>();
+            var gameMusic = YamlSerializer.Deserialize<GameMusic>(musicFile)!;
+            return gameMusic.Songs.Select(x => new PresetAudioTrack()
+            {
+                Name = x.Name,
+                Category = x.Category,
+                Encoder = x.Encoder,
+                OutputPath = x.ReplacementPath,
+                Tags = x.Tags,
+            }).ToArray();
         }
         catch (Exception)
         {
