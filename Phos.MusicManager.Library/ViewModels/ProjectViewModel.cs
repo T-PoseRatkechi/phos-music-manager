@@ -68,8 +68,8 @@ public partial class ProjectViewModel : ViewModelBase, IPage, IDisposable
                 }
 
                 var nameMatchValue = Fuzz.PartialRatio(this.Filter.ToLower(), track.Name.ToLower());
-                var categoryMatchValue = Fuzz.PartialRatio(this.Filter.ToLower(), track.Category.ToLower());
-                var tagMatchValues = track.Tags.Select(tag => Fuzz.PartialRatio(this.Filter.ToLower(), tag.ToLower()));
+                var categoryMatchValue = Fuzz.PartialRatio(this.Filter.ToLower(), track.Category?.ToLower() ?? string.Empty);
+                var tagMatchValues = track.Tags?.Select(tag => Fuzz.PartialRatio(this.Filter.ToLower(), tag.ToLower())) ?? Array.Empty<int>();
                 var tagMatchValue = tagMatchValues.Count() > 0 ? tagMatchValues.Max() : 0;
 
                 return Math.Max(nameMatchValue, Math.Max(categoryMatchValue, tagMatchValue)) >= Math.Min(20 * this.Filter.Length, 100);

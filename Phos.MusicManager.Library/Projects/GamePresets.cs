@@ -30,11 +30,20 @@ public static class GamePresets
         Icon = File.Exists(GetIconFile(Constants.P3P_PC)) ? File.ReadAllBytes(GetIconFile(Constants.P3P_PC)) : null,
     };
 
+    public static readonly ProjectPreset P3R_PC = new()
+    {
+        Name = Constants.P3R_PC,
+        Color = "#1976D2",
+        DefaultTracks = DefaultMusic.GetDefaultMusic(Constants.P3R_PC),
+        Icon = File.Exists(GetIconFile(Constants.P3R_PC)) ? File.ReadAllBytes(GetIconFile(Constants.P3R_PC)) : null,
+    };
+
     public static readonly ProjectPreset[] DefaultPresets = new ProjectPreset[]
     {
         P4G_PC_64,
         P5R_PC,
         P3P_PC,
+        P3R_PC,
     };
 
     private static string GetIconFile(string game) =>

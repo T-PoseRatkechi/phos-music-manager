@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phos.MusicManager.Desktop", "Phos.MusicManager.Desktop\Phos.MusicManager.Desktop.csproj", "{13C26DFF-3E3C-4679-B1BF-D885B8CAC853}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phos.MusicManager.Desktop", "Phos.MusicManager.Desktop\Phos.MusicManager.Desktop.csproj", "{13C26DFF-3E3C-4679-B1BF-D885B8CAC853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phos.MusicManager.Library", "Phos.MusicManager.Library\Phos.MusicManager.Library.csproj", "{EDA558EA-6431-4AC9-A0D7-92AC1607771E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phos.MusicManager.Library", "Phos.MusicManager.Library\Phos.MusicManager.Library.csproj", "{EDA558EA-6431-4AC9-A0D7-92AC1607771E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
